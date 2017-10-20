@@ -1,0 +1,93 @@
+swiper {
+  height: 350rpx;
+  .slideImage {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.icon-shengyin {
+  //display: flex;
+  //align-items: center;
+  font-size: 30rpx;
+  color: #999;
+  line-height: 94rpx;
+  padding-left: 30rpx;
+  border-bottom: 15rpx solid #eee;
+  .pa {
+    top: 50%;
+    left: 70rpx;
+    transform: translate(0, -50%);
+    transition: all 0.7s;
+  }
+  .show {
+    opacity: 1;
+  }
+  .hide {
+    opacity: 0;
+  }
+}
+.icon-shengyin::before{
+  color: #f36841;
+  vertical-align: middle;
+  margin-right: 15rpx;
+}
+
+.nav {
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 15rpx solid #eee;
+  view {
+    text-align: center;
+    margin: 5rpx;
+    image {
+      width: 230rpx;
+      height: 132rpx;
+    }
+    view {
+      margin-top: 10rpx;
+      color: #333;
+      font-size: 30rpx;
+    }
+  }
+}
+
+.book {
+  padding: 20rpx;
+  border-bottom: 15rpx solid #eee;
+  .b-t {
+    font-size: 30rpx;
+    color: #333;
+  }
+  .b-c {
+    margin-top: 20rpx;
+    display: flex;
+    text-align: center;
+    .b-c-i {
+      flex: 1;
+      margin-right: 14rpx;
+      view {
+        font-size: 30rpx;
+        color: #333;
+        line-height: 60rpx;
+      }
+      image {
+        border-radius: 10rpx;
+        width: 350rpx;
+        height: 131rpx;
+      }
+    }
+  }
+}
+
+.kt {
+  image {
+    width: 225rpx !important;
+    height: 174rpx !important;
+  }
+}
+
+.zi {
+  border-bottom: none;
+}
