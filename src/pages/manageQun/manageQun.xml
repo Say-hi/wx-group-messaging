@@ -1,0 +1,79 @@
+<!--管理社群-->
+<view class="tr7 {{ one ? '' : 'goleft' }}">
+  <view catchtap="edit" data-index="{{ index }}" data-type="{{ item.type }}" wx:for="{{ userInfo }}" class="bb info {{ index != 2 && index != 4 ? 'arrow' : '' }}">
+    <view class="e-w bb bd1 {{ index == 4 ? 'e-w-m' : '' }}">
+      <view wx:if="{{ index != 4 }}" class="u-l f30 c3">{{ item.l }}</view>
+      <view wx:if="{{ index == 4 }}" class="u-l f30 c3 arrow bd1">群成员({{ item.l }})</view>
+      <!--<view class="u-r u-r-i" wx:if="{{ index == 0 || index == 7 }}"><image class="bd10" src="{{ item.r }}"></image></view>-->
+      <!--<picker class="u-r f30 c9 ell1" wx:if="{{ index == 4 }}" mode="region" bindchange="bindRegionChange" value="{{item.r}}" custom-item="{{customItem}}">-->
+      <!--{{item.r[0]}}-{{item.r[1]}}-{{item.r[2]}}-->
+      <!--</picker>-->
+      <view class="u-r f30 c9 ell1" wx:if="{{ index != 2 && index != 7 && index != 4}}">{{ item.r }}</view>
+      <view class="u-r f30 c9 ell1 member-w" wx:if="{{ index == 4}}">
+        <view class="member" wx:for="{{ item.r }}" wx:for-item="mItem">
+          <image class="br10" src="{{ mItem.img }}"></image>
+          <view class="f24 c3 ell1">{{ mItem.name }}</view>
+        </view>
+        <view class="member iconfont icon-jia1"></view>
+        <view class="member iconfont icon-jian"></view>
+      </view>
+      <!--<view class="u-r f30 c9 pr intro" wx:if="{{ index == 3 }}">-->
+        <!--<view class="u-l bd1 tal f30 c3" >{{ item.l }}</view>-->
+        <!--<textarea bindinput="inputValues" data-type="introduce" maxlength="80" type="number" class="textin ptextin introduce" placeholder="一句话介绍社群不超过80个字"></textarea>-->
+        <!--<view class="u-l text-num">{{ introduceText.length || '0' }}/80</view>-->
+        <!--&lt;!&ndash;<button class="{{ numberDisabled ? 'grow' : '' }} pa" disabled="{{ numberDisabled }}" catchtap="getNumber">{{ showText }}</button>&ndash;&gt;-->
+      <!--</view>-->
+      <view class="u-r" wx:if="{{ index == 2 }}">
+        <switch checked="{{ item.r }}"></switch>
+      </view>
+      <!--<view class="u-r f30 c9 ell1" wx:if="{{ index == 7 }}"><input bindinput="inputValues" data-type="code" class="textin" placeholder="请输入短信验证码"/></view>-->
+    </view>
+  </view>
+  <button type="danger" bindtap="confirm" class="btn c30">解散社群</button>
+</view>
+<!--设置管理员-->
+<view class="set-manager tr7 {{ two ? '' : 'goright' }}">
+  <view class="u-r f30 c9 ell1 member-w">
+    <view class="member" wx:for="{{ manageArr }}" >
+      <image class="br10" src="{{ item.img }}"></image>
+      <view class="f24 c3 ell1">{{ item.name }}</view>
+    </view>
+    <view catchtap="setM" data-type="add" class="member iconfont icon-jia1"></view>
+    <view catchtap="setM" data-type="del" class="member iconfont icon-jian"></view>
+  </view>
+  <button catchtap="twoO" data-type="confirm" class="btn" type="primary">确认</button>
+  <button catchtap="twoO" data-type="cancel" class="btn" type="danger">返回</button>
+  <!--加号对应操作-->
+  <scroll-view wx:if="{{ sAllS }}" scroll-y="true" class="s-all bb">
+    <button class="s-all-back" catchtap="sAllB">返回</button>
+    <view class="zw"></view>
+    <view class="s-all-m bd1" wx:for="{{ userInfo[4].r }}">
+      <image class="br10" src="{{ item.img }}"></image>
+      <view class="f24 c3 ell1">{{ item.name }}</view>
+      <view class="iconfont icon-add">设为群管</view>
+    </view>
+  </scroll-view>
+
+  <scroll-view wx:if="{{ sDelS }}" scroll-y="true" class="s-all bb">
+    <button class="s-all-back" catchtap="sAllB">返回</button>
+    <view class="zw"></view>
+    <view class="s-all-m bd1" wx:for="{{ manageArr }}">
+      <image class="br10" src="{{ item.img }}"></image>
+      <view class="f24 c3 ell1">{{ item.name }}</view>
+      <view class="iconfont icon-jian">撤销群管</view>
+    </view>
+  </scroll-view>
+</view>
+<!--转让管理权-->
+<view class="tr7 set-manager {{ three ? '' : 'goright' }}">
+  <view class="u-r f30 c9 ell1 member-w">
+    <view catchtap="changeAdmin" data-index="{{ index }}" data-id="{{ item.id }}" class="member" wx:for="{{ manageArr }}" >
+      <image class="br10" src="{{ item.img }}"></image>
+      <view class="f24 c3 ell1">{{ item.name }}</view>
+    </view>
+  </view>
+  <view wx:if="{{ manageArr.length == 0 }}" class="tac">您还没有设置管理员，请设置管理员</view>
+  <view wx:if="{{ manageArr.length != 0 }}" class="tac">选择用户转让管理员权限，请谨慎操作，无法撤销。</view>
+  <!--<button catchtap="twoO" data-type="confirm" class="btn" type="primary">确认</button>-->
+  <button catchtap="twoO" data-type="cancel" class="btn" type="danger">返回</button>
+</view>

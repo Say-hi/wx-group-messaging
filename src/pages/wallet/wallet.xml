@@ -1,0 +1,51 @@
+<!--钱包-->
+<view class="tr7 {{ indexShow ? '' : 'goleft'}}">
+  <view class="iconfont icon-qianbao1"></view>
+  <view class="tac f30 c3">我的余额</view>
+  <view class="tac c3 w-money">￥{{ money }}</view>
+  <button catchtap="walletOp" data-type="detail" type="primary">明细账单</button>
+  <button catchtap="walletOp" data-type="cash" type="danger">提现</button>
+  <view class="f24 bottom">关注公众号"群消息"</view>
+</view>
+<!--明细-->
+<view class="tr7 {{ detailShow ? '' : 'goright' }}">
+  <view class="find-time bd1">
+    <view class="ft-left">
+      <view>{{ time }}</view>
+      <view>收入{{ allMoney }}</view>
+    </view>
+    <picker bindchange="chooseTime" mode="date" ><view class="c9 iconfont icon-rili"></view></picker></view>
+  <scroll-view scroll-y="true" style="height: 80%">
+    <view class="detail bd1" wx:for="{{ detailArr }}">
+      <view class="d-l">
+        <view class="f30 c3">{{ item.title }}</view>
+        <view class="f26 c9">{{ item.content }}</view>
+        <view class="f24 c9">{{ item.time }}</view>
+      </view>
+      <view class="d-r">
+        {{ item.money }}
+      </view>
+    </view>
+  </scroll-view>
+  <button catchtap="detailBack" type="danger">返回</button>
+</view>
+<!--提现-->
+<view class="tr7 {{ moneyShow ? '' : 'goright' }}">
+  <view class="money-out bd1">
+    <view class="m-i">￥ <input type="digit" bindblur="outMoneyI" bindinput="inputValue" data-type="money" placeholder="0.00" value="{{ outMoney }}" /></view>
+    <view class="f24 c6">当前金额￥{{ money }} <text catchtap="getAll" class="all-money">全部提现</text></view>
+  </view>
+  <button class="btn" type="primary">提现</button>
+  <view class="tips f24 c9">
+    <view>温馨提示:</view>
+    <view>1、为保障您的资金安全，请在创建名片并验证手机号后进行提现;</view>
+    <view>2、单笔提现金额不少于10元，最高200元;</view>
+    <view>3、提现收取3%手续费（含微信支付手续费）;</view>
+    <view>4、提现金额将装入您的微信钱包中，正常情况下为实时到帐;</view>
+    <view>5、社群提现请遵守<text catchtap="showRuler" class="r-t">《社群提现规则》</text>。</view>
+  </view>
+  <button class="btn" catchtap="detailBack" type="danger">返回</button>
+</view>
+        <!--错误弹窗-->
+<import src="../template/template"></import>
+<template wx:if="{{ toast.show }}" is="showToast" data="{{ ...toast }}"></template>

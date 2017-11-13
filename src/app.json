@@ -1,7 +1,27 @@
 {
-//  速拼英语小程序页面分布
+//  群信息小程序页面分布
   "pages": [
-    "pages/index/index" // 首页,
+    "pages/index/index", // 首页,
+    "pages/nameCard/nameCard", // 个人详情
+    "pages/manageQun/manageQun", // 管理社群
+    "pages/addQun/addQun", // 加入群
+    "pages/user/user", // 我的
+    "pages/addressList/addressList", // 通讯录
+    "pages/myQun/myQun", // 用户已加群详情
+    "pages/writeQun/writeQun", // 发布群友圈
+    "pages/qunMessageDetail/qunMessageDetail", // 群消息详情
+    "pages/userHelp/userHelp", // 新手帮助
+    "pages/createQun/createQun", // 创建社群
+    "pages/search/search", // 搜索
+    "pages/qunClassify/qunClassify", // 群分类
+    "pages/wallet/wallet", // 钱包
+    "pages/classify/classify", // 社群分类
+    "pages/permission/permission", // 权限控制
+    "pages/createNameCard/createNameCard", // 创建名片
+    "pages/aboutQun/aboutQun", // 关于群信息
+    "pages/message/message", // 消息
+    "pages/editUser/editUser", // 编辑个人信息
+    "pages/find/find" // 发现,,,,,,,
     // Dont remove this comment
   ],
   // Window configuration
@@ -9,16 +29,16 @@
   "window": {
     // 类型：HexColor；默认值：#000000
     // 导航栏背景颜色，如"#000000"
-    "navigationBarBackgroundColor": "#fedb03",
+    "navigationBarBackgroundColor": "#2b2f41",
     // 类型：String；默认值：white
     // 导航栏标题颜色，仅支持 black/white
-    "navigationBarTextStyle": "black",
+    "navigationBarTextStyle": "white",
     // 类型：String；默认值：无
     // 导航栏标题文字内容
-    "navigationBarTitleText": "英语小程序",
+    "navigationBarTitleText": "玩社群",
     // 类型：HexColor；默认值：#ffffff
     // 窗口的背景色
-    "backgroundColor": "#fedb03",
+    "backgroundColor": "#2b2f41",
     // 类型：String；默认值：dark
     // 下拉背景字体、loading 图的样式，仅支持 dark/light
     "backgroundTextStyle": "light",
@@ -27,32 +47,38 @@
     // https://mp.weixin.qq.com/debug/wxadoc/dev/framework/app-service/page.html?t=1476197491005#页面相关事件处理函数
     "enablePullDownRefresh": false
   },
-//  "tabBar": {
-//    "color": "#333333",
-//    "selectedColor": "#ff0000",
-//    "borderStyle": "white",
-//    "backgroundColor": "#fedb03",
-//    "list": [
-//      {
-//        "text": "首页",
-//        "pagePath": "pages/index/index",
-//        "iconPath": "images/home.png",
-//        "selectedIconPath": "images/home_hl.png"
-//      },
-//      {
-//        "text": "速拼",
-//        "pagePath": "pages/suPin/suPin",
-//        "iconPath": "images/supin.png",
-//        "selectedIconPath": "images/supin_hl.png"
-//      },
-//      {
-//        "text": "我的",
-//        "pagePath": "pages/user/user",
-//        "iconPath": "images/user.png",
-//        "selectedIconPath": "images/user_hl.png"
-//      }
-//    ]
-//  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#22ac38",
+    "borderStyle": "black",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "text": "社群",
+        "pagePath": "pages/index/index",
+        "iconPath": "images/index.png",
+        "selectedIconPath": "images/index_hl.png"
+      },
+      {
+        "text": "发现",
+        "pagePath": "pages/find/find",
+        "iconPath": "images/find.png",
+        "selectedIconPath": "images/find_hl.png"
+      },
+      {
+        "text": "消息",
+        "pagePath": "pages/message/message",
+        "iconPath": "images/message.png",
+        "selectedIconPath": "images/message_hl.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/user/user",
+        "iconPath": "images/user.png",
+        "selectedIconPath": "images/user_hl.png"
+      }
+    ]
+  },
   "networkTimeout": {
     "request": 10000,
     "downloadFile": 10000

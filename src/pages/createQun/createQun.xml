@@ -1,0 +1,90 @@
+<!--编辑群信息-->
+<view class="tr7 {{ !moneyPay ? '' : 'goleft' }}">
+  <view catchtap="edit" data-index="{{ index }}" data-type="{{ item.type }}" wx:for="{{ userInfo }}" class=" bb info {{ index == 4 || index == 5 || index == 8 ? 'arrow' : '' }}">
+    <view class="e-w bb bd1">
+      <view wx:if="{{ index != 3 }}" class="u-l f30 c3">{{ item.l }}<text class="red" wx:if="{{ index == 1 || index == 2 }}">*</text></view>
+      <view class="u-r u-r-i" wx:if="{{ index == 0 || index == 7 }}"><image class="bd10" src="{{ item.r }}"></image></view>
+      <!--<picker class="u-r f30 c9 ell1" wx:if="{{ index == 4 }}" mode="region" bindchange="bindRegionChange" value="{{item.r}}" custom-item="{{customItem}}">-->
+      <!--{{item.r[0]}}-{{item.r[1]}}-{{item.r[2]}}-->
+      <!--</picker>-->
+      <view class="u-r f30 c9 ell1 {{ (index == 1 || index == 2) ? 'tal':''  }}" wx:if="{{ index > 0 && index != 3 && index != 6 && index != 7}}">{{ item.r }}</view>
+      <view class="u-r f30 c9 pr intro" wx:if="{{ index == 3 }}">
+        <view class="u-l bd1 tal f30 c3" >{{ item.l }}</view>
+        <textarea bindinput="inputValues" data-type="introduce" maxlength="80" type="number" class="textin ptextin introduce" placeholder="一句话介绍社群不超过80个字"></textarea>
+        <view class="u-l text-num">{{ introduceText.length || '0' }}/80</view>
+        <!--<button class="{{ numberDisabled ? 'grow' : '' }} pa" disabled="{{ numberDisabled }}" catchtap="getNumber">{{ showText }}</button>-->
+      </view>
+      <view class="u-r" wx:if="{{ index == 6 }}">
+        <switch checked="true"></switch>
+      </view>
+      <!--<view class="u-r f30 c9 ell1" wx:if="{{ index == 7 }}"><input bindinput="inputValues" data-type="code" class="textin" placeholder="请输入短信验证码"/></view>-->
+    </view>
+  </view>
+
+  <button bindtap="confirm" class="btn c30">创建</button>
+</view>
+
+<view wx:if="{{ show }}" class="mask-t mask-input">
+  <view class="mask-toast">
+    <view class="tac mask-title">{{ userInfo[chooseIndex].l }}</view>
+    <input class="bd1" bindinput="inputValue" data-type="{{ userInfo[chooseIndex].type }}" value="{{ userInfo[chooseIndex].r }}" />
+    <view class="mask-btn f30">
+      <view catchtap="btnChoose" data-type="cancel" class="cancel">取消</view>
+      <view catchtap="btnChoose" data-type="confirm" class="confirm">确认</view>
+    </view>
+  </view>
+</view>
+<!--设置群验证码-->
+<view wx:if="{{ checkCode }}" class="mask">
+  <view class="mask-in br15">
+    <view class="tac mask-title f30 c3">设置群验证码</view>
+    <view class="mask-content">
+      <input class="f30 c3" bindinput="inputValue" data-type="qunCode" type="number" maxlength="6" placeholder="请设置您的群验证码"/>
+    </view>
+    <view class="mask-btn-wrap">
+      <view catchtap="maskBtnOp" data-type="cancel" class="mask-btn mask-btn-cancel tac f30">取消</view>
+      <view catchtap="maskBtnOp" data-type="confirm" class="mask-btn mask-btn-confirm tac f30">确认</view>
+    </view>
+  </view>
+</view>
+<!--设置付费弹窗-->
+<view class="mask tr7 {{ moneyPay ? '' : 'goright'}}">
+  <view class="mask-in mask-qun-money">
+    <view class="tac mask-title f30 c3">设置群付费机制</view>
+    <view class="mask-content">
+      <view class="mask-money-type-wrap bd1">
+        <view class="mask-money-type f30 c3 {{ chooseMoneyIndex == index ? 'chooseMoney' : ''  }}" wx:for="{{ qunMoneyType }}" data-index="{{ index }}" catchtap="chooseQunMoneyType" >
+          {{ item.l }}
+        </view>
+      </view>
+      <view class="mask-money-input">
+        ￥<input class="f30 c3" bindinput="inputValue" data-type="qunCode" type="number" maxlength="6"/>{{ qunMoneyType[chooseMoneyIndex].r }}
+      </view>
+      <view catchtap="showRuler" class="tac iconfont icon-wenhao">社群提现规则</view>
+    </view>
+    <button bindtap="maskMoneyBtn" data-type="confirm" class="m-btn" type="primary">保存</button>
+    <button bindtap="maskMoneyBtn" data-type="cancel" class="m-btn" type="danger">取消</button>
+    <!--<view class="mask-btn-wrap">-->
+      <!--<view catchtap="maskBtnOp" data-type="cancel" class="mask-btn mask-btn-cancel tac f30">取消</view>-->
+      <!--<view catchtap="maskBtnOp" data-type="confirm" class="mask-btn mask-btn-confirm tac f30">确认</view>-->
+    <!--</view>-->
+  </view>
+  <view bindtap="showRuler" wx:if="{{ showR }}" class="mask">
+    <view class="mask-in br15">
+        <view class="mask-close"><text class="br">×</text></view>
+        <view class="mask-title tac f30 c3">
+          社群提现规则
+        </view>
+        <view class="mask-content f26 c6">
+          <view>1、入群费实时到账个人中心钱包;</view>
+          <view>2、提现收取3%手续费(含微信支付手续费);</view>
+          <view>3、如有用户分享您社群给好友并加入，将扣除20%社群费给该用户做为分享佣金报酬；</view>
+          <view>点击[ 确定 ]即视为您已知晓并接受《群消息提现规则》。</view>
+        </view>
+        <button>确定</button>
+    </view>
+  </view>
+</view>
+        <!--错误弹窗-->
+<import src="../template/template"></import>
+<template wx:if="{{ toast.show }}" is="showToast" data="{{ ...toast }}"></template>

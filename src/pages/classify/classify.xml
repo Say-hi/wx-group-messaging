@@ -1,0 +1,10 @@
+<!--分类-->
+<view class="tac">为您的社群贴个标签，让群友能快速搜索到您的</view>
+<view class="tac">社群吧！（最多选择三个）</view>
+<view class="choose-content">
+  <view catchtap="choose" data-index="{{ index }}" class="circle c3 {{ chooseIndex[0] == index || chooseIndex[1] == index || chooseIndex[2] == index ? 'choose-circle' : '' }}" wx:for="{{ chooseArr }}">{{ item }}</view>
+</view>
+<button bindtap="confirm" type="primary">完成</button>
+        <!--错误弹窗-->
+<import src="../template/template"></import>
+<template wx:if="{{ toast.show }}" is="showToast" data="{{ ...toast }}"></template>

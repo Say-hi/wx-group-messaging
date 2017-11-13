@@ -8,85 +8,45 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ],
-    indicatorDots: true,
-    autoplay: false,
-    interval: 5000,
-    duration: 1000,
-    notice: '',
-    curNotice: 0,
-    navLists: [
+    user: {
+      group: [
+        {
+          image: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+          group_name: '微商荣耀',
+          name: '创建爱你人',
+          has_op: 0,
+          id: 123
+        },
+        {
+          image: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+          group_name: '微商荣耀',
+          name: '创建爱你人',
+          has_op: 1,
+          id: 432
+        }
+      ]
+    },
+    cur: 0,
+    recommendArr: [
       {
-        src: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        type: 'switchTab',
-        url: '../suPin/suPin',
-        t: '速拼英语'
-      },
-      {
-        src: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        type: 'navigateTo',
-        url: '../hshs/hshs',
-        t: '绘声绘色'
-      },
-      {
-        src: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        type: 'navigateTo',
-        url: '../inteTest/inteTest',
-        t: '智能测试'
-      }
-    ],
-    fkLists: [
-      {
-        src: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        type: 'navigateTo',
-        url: '',
-        t: '错题本'
-      },
-      {
-        src: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        type: 'navigateTo',
-        url: '',
-        t: '英语故事听说'
-      }
-    ],
-    ktLists: [
-      {
-        src: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        type: 'switchTab',
-        url: '../suPin/suPin',
-        t: '学科英语'
-      },
-      {
-        src: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        type: 'navigateTo',
-        url: '',
-        t: '错题精讲'
-      },
-      {
-        src: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        type: 'navigateTo',
-        url: '',
-        t: '决胜考场'
-      }
-    ],
-    zlLists: [
-      {
-        src: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        type: 'navigateTo',
-        url: '../dictionary/dictionary',
-        t: '词典'
-      },
-      {
-        src: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        type: 'navigateTo',
-        url: '../wiki/wiki',
-        t: '文化百科'
+        image: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+        group_name: '微商荣耀',
+        name: '创建爱你人'
       }
     ]
+  },
+  // 点击群下一步
+  goNext (e) {
+    if (e.currentTarget.dataset.cur * 1 === 0) {
+      app.gn(`../addQun/addQun?id=${e.currentTarget.dataset.id}`)
+    }
+  },
+  // 选择导航栏
+  chooseNav (e) {
+    if (e.currentTarget.dataset.type * 1 === this.data.cur) return
+    this.setData({
+      cur: e.currentTarget.dataset.type
+    })
   },
   // 获取首页公告
   getGonggaoLists () {
@@ -140,6 +100,51 @@ Page({
         url: e.currentTarget.dataset.url
       })
     }
+  },
+  // 去到社群分类
+  goClassify () {
+    app.gn('../qunClassify/qunClassify')
+  },
+  // 创建社群
+  create () {
+    app.gn('../createQun/createQun')
+  },
+  // 社群操作
+  qunOp (e) {
+    let {index, op, id} = e.currentTarget.dataset
+    console.log(index)
+    // 无操作权限
+    if (parseInt(op) === 0) {
+      wx.showActionSheet({
+        itemList: ['进入社群', '置顶', '退出社群'],
+        success (res) {
+          if (res.tapIndex === 0) {
+            app.gn(`../myQun/myQun?id=${id}`)
+          } else if (res.tapIndex === 1) {
+            // todo 置顶操作
+          } else if (res.tapIndex === 2) {
+            // todo 退出操作
+          }
+        }
+      })
+    } else {
+      wx.showActionSheet({
+        itemList: ['进入社群', '置顶', '管理'],
+        success (res) {
+          if (res.tapIndex === 0) {
+            app.gn(`../myQun/myQun?id=${id}`)
+          } else if (res.tapIndex === 1) {
+            // todo 置顶操作
+          } else if (res.tapIndex === 2) {
+            // todo 进入管理操作
+          }
+        }
+      })
+    }
+  },
+  // 跳转搜索页面
+  goSearch () {
+    app.gn('../search/search')
   },
   /**
    * 生命周期函数--监听页面加载

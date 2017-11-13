@@ -1,0 +1,197 @@
+<!--群消息详情-->
+<view class="find-info bb">
+  <block wx:for="{{ infoArr }}" wx:for-index="cIndex">
+    <template is="{{ item.type == 0 ? 'tw': item.type == 1 ? 'yy' : 'wz' }}" data="{{ ...item, cur, cIndex, chooseIndex }}"></template>
+  </block>
+</view>
+
+<view class="zw"></view>
+
+<view class="bottom-op">
+  <view catchtap="back" class="f24 bb c9 iconfont icon-goback">返回</view>
+  <view class="c9 iconfont icon-erweima">小程序码</view>
+  <button open-type="share" class="c9 btn iconfont icon-fenxiang">转发</button>
+</view>
+        <!--图文模式-->
+<template name="tw">
+<view class="bd1 bb">
+  <view class="f-user-img-w">
+    <image class="f-user-img" src="{{ image }}"></image>
+  </view>
+
+  <view class="f-r tw">
+    <view class="f-name f30"><text>{{ name }}</text><text wx:if="{{ top == 1 }}" class="iconfont icon-lingdang">置顶</text></view>
+    <view catchtap="goDetail" data-id="{{ id }}">
+      <view class="ell2 c3">{{ content }}</view>
+      <view class="f-img">
+        <image wx:for="{{ contentImg }}" wx:for-item="img" src="{{ img }}"></image>
+      </view>
+      <view class="address ell1">{{ address }}</view>
+    </view>
+    <view class="time c9">
+      <view>{{ time }}</view>
+      <view class="user-op pr">
+        <view class="pa op-w-w">
+          <view class="tr7 pa op-wrap br15 f24 {{ chooseIndex == cIndex ? 'backleft' :  '' }}">
+            <view catchtap="commentOp" data-index="{{ cIndex }}" data-type="ds" class="iconfont icon-hongbao">打赏</view>
+            <view catchtap="commentOp" data-index="{{ cIndex }}" data-type="dz" class="iconfont icon-zan1">点赞</view>
+            <view catchtap="commentOp" data-index="{{ cIndex }}" data-type="pl" class="iconfont icon-pinglun">评论</view>
+          </view>
+        </view>
+        <text catchtap="showOp" data-index="{{ cIndex }}" class="iconfont icon-pinglun"></text>
+      </view>
+    </view>
+    <!--<view class="qun">-->
+    <!--<view class="iconfont icon-shequn ell1">{{ qun }}</view>-->
+    <!--<view class="iconfont icon-zan1 c9">{{ xin }}</view>-->
+    <!--<view class="iconfont icon-pinglun c9">{{ talk }}</view>-->
+    <!--</view>-->
+    <view wx:if="{{ dzPeople.length > 0 || userComment.length > 0 }}" class="dz-c-wrap pr">
+      <view wx:if="{{ dzPeople.length > 0 }}" class="dz bd1">
+        <view class="iconfont icon-zan1"></view>
+        <view class="f24 c9">
+          <!--<text class="dz-p" wx:for="{{ dzPeople }}" wx:for-item="dzItem" wx:for-index="dzIndex" data-id="{{ dzItem.id }}">{{ dzItem.name }}<text wx:if="{{ dzIndex != (dzPeople.length - 1) }}">、</text></text>-->
+          <!--<text>　等{{ dzPeople.length }}人觉得很赞</text>-->
+          <image class="dz-img" lazy-load="true" mode="aspectFill" src="{{ dzItem.img }}" wx:for="{{ dzPeople }}" wx:for-item="dzItem" wx:for-index="dzIndex" data-id="{{ dzItem.id }}"></image>
+        </view>
+      </view>
+      <view wx:if="{{ userComment.length > 0 }}" class="comment">
+        <!--<view class="f24 c3" wx:for="{{ userComment }}" wx:for-item="ucItem"><text wx:if="{{ ucItem.r_name }}" class="c-p">{{ ucItem.r_name }}<text class="c3">回复</text></text><text class="c-p">{{ ucItem.name }}</text>:{{ ucItem.content }}</view>-->
+        <view class="iconfont icon-pinglun"></view>
+        <view class="f24 c3">
+          <view class="c-c-c" wx:for="{{ userComment }}" wx:for-item="ucItem">
+            <image class="dz-img" lazy-load="true" mode="aspectFill" src="{{ ucItem.img }}"></image>
+            <view class="c-c">
+              <view class="c-c-n"><text class="name-w"><text wx:if="{{ ucItem.r_name }}" class="c-p">{{ ucItem.r_name }}<text class="c3">回复</text></text><text class="c-p">{{ ucItem.name }}</text></text><text class="c-c-time">{{ ucItem.time }}</text></view>
+              <view>{{ ucItem.content }}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+</template>
+        <!--语音模式-->
+<template name="yy">
+<view  class="bd1 bb">
+  <!--<view hidden="{{ cur == 0 || cur == 3 }}" class="bd1 bb">-->
+  <view class="f-user-img-w">
+    <image class="f-user-img" src="{{ image }}"></image>
+  </view>
+  <view class="f-r yy">
+    <view class="f-name f30"><text>{{ name }}</text><text wx:if="{{ top == 1 }}" class="iconfont icon-lingdang">置顶</text></view>
+    <view catchtap="goDetail" data-id="{{ id }}">
+      <view class="ell2 c3">{{ content }}</view>
+      <view class="yy-img">
+        <image src="../../images/yuying.png"></image>
+      </view>
+      <view class="address ell1">{{ address }}</view>
+    </view>
+    <view class="time c9">
+      <view>{{ time }}</view>
+      <view class="user-op pr">
+        <view class="pa op-w-w">
+          <view class="tr7 pa op-wrap br15 f24 {{ chooseIndex == cIndex ? 'backleft' :  '' }}">
+            <view catchtap="commentOp" data-index="{{ cIndex }}" data-type="ds" class="iconfont icon-hongbao">打赏</view>
+            <view catchtap="commentOp" data-index="{{ cIndex }}" data-type="dz" class="iconfont icon-zan1">点赞</view>
+            <view catchtap="commentOp" data-index="{{ cIndex }}" data-type="pl" class="iconfont icon-pinglun">评论</view>
+          </view>
+        </view>
+        <text catchtap="showOp" data-index="{{ cIndex }}" class="iconfont icon-pinglun"></text>
+      </view>
+    </view>
+    <!--<view class="qun">-->
+    <!--<view class="iconfont icon-shequn ell1">{{ qun }}</view>-->
+    <!--<view class="iconfont icon-zan1 c9">{{ xin }}</view>-->
+    <!--<view class="iconfont icon-pinglun c9">{{ talk }}</view>-->
+    <!--</view>-->
+    <view wx:if="{{ dzPeople.length > 0 || userComment.length > 0 }}" class="dz-c-wrap pr">
+      <view wx:if="{{ dzPeople.length > 0 }}" class="dz bd1">
+        <view class="iconfont icon-zan1"></view>
+        <view class="f24 c9">
+          <!--<text class="dz-p" wx:for="{{ dzPeople }}" wx:for-item="dzItem" wx:for-index="dzIndex" data-id="{{ dzItem.id }}">{{ dzItem.name }}<text wx:if="{{ dzIndex != (dzPeople.length - 1) }}">、</text></text>-->
+          <!--<text>　等{{ dzPeople.length }}人觉得很赞</text>-->
+          <image class="dz-img" lazy-load="true" mode="aspectFill" src="{{ dzItem.img }}" wx:for="{{ dzPeople }}" wx:for-item="dzItem" wx:for-index="dzIndex" data-id="{{ dzItem.id }}"></image>
+        </view>
+      </view>
+      <view wx:if="{{ userComment.length > 0 }}" class="comment">
+        <!--<view class="f24 c3" wx:for="{{ userComment }}" wx:for-item="ucItem"><text wx:if="{{ ucItem.r_name }}" class="c-p">{{ ucItem.r_name }}<text class="c3">回复</text></text><text class="c-p">{{ ucItem.name }}</text>:{{ ucItem.content }}</view>-->
+        <view class="iconfont icon-pinglun"></view>
+        <view class="f24 c3">
+          <view class="c-c-c" wx:for="{{ userComment }}" wx:for-item="ucItem">
+            <image class="dz-img" lazy-load="true" mode="aspectFill" src="{{ ucItem.img }}"></image>
+            <view class="c-c">
+              <view class="c-c-n"><text class="name-w"><text wx:if="{{ ucItem.r_name }}" class="c-p">{{ ucItem.r_name }}<text class="c3">回复</text></text><text class="c-p">{{ ucItem.name }}</text></text><text class="c-c-time">{{ ucItem.time }}</text></view>
+              <view>{{ ucItem.content }}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+</template>
+        <!--文章模式-->
+<template name="wz">
+<view class="bd1 bb">
+  <!--<view hidden="{{ cur == 1 || cur == 2 }}" class="bd1 bb">-->
+  <view class="f-user-img-w">
+    <image class="f-user-img" src="{{ image }}"></image>
+  </view>
+  <view class="f-r wz">
+    <view class="f-name f30"><text>{{ name }}</text><text wx:if="{{ top == 1 }}" class="iconfont icon-lingdang">置顶</text></view>
+    <view catchtap="goDetail" data-id="{{ id }}">
+      <view class="ell2 c3 wz-b">{{ content }}</view>
+      <view class="wz-wrap">
+        <view class="wz-w-img">
+          <image src="{{ wzimg }}"></image>
+        </view>
+        <view class="ell2 c3">{{ wztitle }}</view>
+      </view>
+      <view class="address ell1">{{ address }}</view>
+    </view>
+    <view class="time c9">
+      <view>{{ time }}</view>
+      <view class="user-op pr">
+        <view class="pa op-w-w">
+          <view class="tr7 pa op-wrap br15 f24 {{ chooseIndex == cIndex ? 'backleft' :  '' }}">
+            <view catchtap="commentOp" data-index="{{ cIndex }}" data-type="ds" class="iconfont icon-hongbao">打赏</view>
+            <view catchtap="commentOp" data-index="{{ cIndex }}" data-type="dz" class="iconfont icon-zan1">点赞</view>
+            <view catchtap="commentOp" data-index="{{ cIndex }}" data-type="pl" class="iconfont icon-pinglun">评论</view>
+          </view>
+        </view>
+        <text catchtap="showOp" data-index="{{ cIndex }}" class="iconfont icon-pinglun"></text>
+      </view>
+    </view>
+    <!--<view class="qun">-->
+    <!--<view class="iconfont icon-shequn ell1">{{ qun }}</view>-->
+    <!--<view class="iconfont icon-zan1 c9">{{ xin }}</view>-->
+    <!--<view class="iconfont icon-pinglun c9">{{ talk }}</view>-->
+    <!--</view>-->
+    <view wx:if="{{ dzPeople.length > 0 || userComment.length > 0 }}" class="dz-c-wrap pr">
+      <view wx:if="{{ dzPeople.length > 0 }}" class="dz bd1">
+        <view class="iconfont icon-zan1"></view>
+        <view class="f24 c9">
+          <!--<text class="dz-p" wx:for="{{ dzPeople }}" wx:for-item="dzItem" wx:for-index="dzIndex" data-id="{{ dzItem.id }}">{{ dzItem.name }}<text wx:if="{{ dzIndex != (dzPeople.length - 1) }}">、</text></text>-->
+          <!--<text>　等{{ dzPeople.length }}人觉得很赞</text>-->
+          <image class="dz-img" lazy-load="true" mode="aspectFill" src="{{ dzItem.img }}" wx:for="{{ dzPeople }}" wx:for-item="dzItem" wx:for-index="dzIndex" data-id="{{ dzItem.id }}"></image>
+        </view>
+      </view>
+      <view wx:if="{{ userComment.length > 0 }}" class="comment">
+        <!--<view class="f24 c3" wx:for="{{ userComment }}" wx:for-item="ucItem"><text wx:if="{{ ucItem.r_name }}" class="c-p">{{ ucItem.r_name }}<text class="c3">回复</text></text><text class="c-p">{{ ucItem.name }}</text>:{{ ucItem.content }}</view>-->
+        <view class="iconfont icon-pinglun"></view>
+        <view class="f24 c3">
+          <view class="c-c-c" wx:for="{{ userComment }}" wx:for-item="ucItem">
+            <image class="dz-img" lazy-load="true" mode="aspectFill" src="{{ ucItem.img }}"></image>
+            <view class="c-c">
+              <view class="c-c-n"><text class="name-w"><text wx:if="{{ ucItem.r_name }}" class="c-p">{{ ucItem.r_name }}<text class="c3">回复</text></text><text class="c-p">{{ ucItem.name }}</text></text><text class="c-c-time">{{ ucItem.time }}</text></view>
+              <view>{{ ucItem.content }}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+</template>

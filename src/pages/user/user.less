@@ -1,0 +1,105 @@
+page {
+  background-color: #f6f6f6;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  background-color: #fff;
+  .t-img {
+    width: 104rpx;
+    height: 104rpx;
+    margin-right: 12rpx;
+    image {
+      width: inherit;
+      height: inherit;
+    }
+  }
+  .t-c {
+    flex: 1;
+    .t-name {
+      font-size: 36rpx;
+      line-height: 48rpx;
+    }
+    .t-phone {
+      font-size: 28rpx;
+      line-height: 40rpx;
+    }
+    .t-mp {
+      display: inline-block;
+      font-size: 28rpx;
+      color: #22ac38;
+      padding: 10rpx 15rpx;
+      border: 1rpx solid #2cb71a;
+      border-radius: 40rpx;
+    }
+    .t-mp::before {
+      margin-right: 6rpx;
+    }
+  }
+  .arrow {
+    font-size: 28rpx;
+    padding-right: 20rpx;
+  }
+  .arrow::after {
+    right: 0;
+    border: 4rpx solid #999;
+    border-color: #999 #999 transparent transparent;
+    width: 10rpx;
+    height: 10rpx;
+  }
+}
+
+.top-b {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  view {
+    width: 50%;
+    text-align: center;
+    line-height: 113rpx;
+  }
+  view::before {
+    font-size: 50rpx;
+    margin-right: 11rpx;
+  }
+  .icon-qianbao {
+    border-right: 1rpx solid #eee;
+  }
+  .icon-qianbao::before {
+    color: #ff7495;
+  }
+  .icon-pengyouquan::before {
+    color: #29e33f;
+  }
+}
+
+.u-operation {
+  background-color: #fff;
+  line-height: 80rpx;
+  padding: 0 20rpx;
+}
+.u-operation::before {
+  margin-right: 10rpx;
+  font-size: 36rpx;
+  color: #666;
+}
+.u-operation::after {
+  border: 4rpx solid #999;
+  border-color: #999 #999 transparent transparent;
+  width: 10rpx;
+  height: 10rpx;
+}
+.co::before {
+  color: #060606;
+}
+.pink::before {
+  color: #ff7495;
+}
+
+.tac {
+  font-size: 24rpx;
+  color: #5370a0;
+  line-height: 100rpx;
+}

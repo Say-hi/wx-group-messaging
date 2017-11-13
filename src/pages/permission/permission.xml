@@ -1,0 +1,29 @@
+<!--权限设置-->
+<view class="wrap {{ showView == 'two' || showView == 'three' ? 'go-left' : '' }}">
+  <view data-index="{{ index }}" data-type="one" catchtap="edit" wx:for="{{ permissionArr }}" class="arrow bd1 f30 c3">
+    <text>{{ item.l }}</text>
+    <text class="mr">{{ item.r }}</text>
+  </view>
+  <view class="tac">点击设置社群中各个模块的查看权限</view>
+  <button data-type="confirm" catchtap="btnEdit" type="primary">完成</button>
+</view>
+<view class="wrap two {{ (showView == 'one' || showView == 'three') ? 'go-right' : '' }}">
+  <view data-index="{{ index }}" data-type="two" catchtap="edit" wx:for="{{ fabuArr }}" class="arrow bd1 f30 c3">
+    <text>{{ item.l }}</text>
+    <text class="mr">{{ item.r }}</text>
+  </view>
+  <button data-type="confirm" catchtap="btnEdit" type="primary">完成</button>
+  <button data-type="cancel" catchtap="btnEdit" type="danger">返回</button>
+</view>
+<view class="wrap two {{ (showView == 'one' || showView == 'two') ? 'go-right' : '' }}">
+  <view data-index="{{ index }}" data-type="three" wx:for="{{ contentArr }}" class="arrows bd1 f30 c3">
+    <text>{{ item.l }}</text>
+    <switch data-index="{{ index }}" value="{{ item.r }}"></switch>
+  </view>
+  <button data-type="confirm" catchtap="btnEdit" type="primary">完成</button>
+  <button data-type="cancel" catchtap="btnEdit" type="danger">返回</button>
+</view>
+        <!--错误弹窗-->
+<import src="../template/template"></import>
+<template wx:if="{{ toast.show }}" is="showToast" data="{{ ...toast }}"></template>
+

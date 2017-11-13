@@ -1,0 +1,133 @@
+.r-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  line-height: 80rpx;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  border-bottom-color: #b7bfc0;
+  background-color: #fff;
+  .c3 {
+    font-weight: 700;
+    padding: 0 40rpx;
+    border-bottom: 5rpx solid #fff;
+    transition: all 0.5s;
+  }
+  .choose {
+    border-bottom: 5rpx solid #07a005;
+    color: #07a005;
+  }
+}
+
+.find-info {
+  border-top: 80rpx solid #2b2f41;
+  .bd1 {
+    transition: all 0.7s;
+    display: flex;
+    padding: 20rpx;
+    .f-user-img-w {
+      width: 75rpx;
+      height: 75rpx;
+      margin-right: 20rpx;
+      .f-user-img {
+        width: inherit;
+        height: inherit;
+      }
+    }
+    .f-r {
+      flex: 1;
+    }
+    .tw, .yy, .wz {
+      .f-name {
+        //display: flex;
+        //justify-content: space-between;
+        //align-items: center;
+        height: 75rpx;
+        color: #5370a0;
+        .icon-guanbi2::before {
+          font-size: 50rpx;
+          color: #999;
+          float: right;
+        }
+      }
+      .ell2 {
+        font-size: 26rpx;
+        margin-bottom: 20rpx;
+      }
+      .wz-b {
+        text-decoration: underline;
+      }
+      .wz-wrap {
+        background-color: #eee;
+        padding: 8rpx;
+        display: flex;
+        max-width: 500rpx;
+        align-items: center;
+        .wz-w-img {
+          width: 81rpx;
+          height: 81rpx;
+          image {
+            width: inherit;
+            height: inherit;
+          }
+        }
+        .ell2 {
+          line-height: 40rpx;
+          margin-left: 10rpx;
+        }
+      }
+      .f-img {
+        display: flex;
+        image {
+          width: 179rpx;
+          height: 179rpx;
+          margin-right: 10rpx;
+        }
+      }
+      .yy-img {
+        image {
+          width: 296rpx;
+          height: 61rpx;
+        }
+      }
+      .address {
+        margin-top: 24rpx;
+        font-size: 24rpx;
+        color: #5370a0;
+      }
+      .wz-add {
+        display: inline-block;
+      }
+      .time {
+        margin-top: 20rpx;
+        font-size: 24rpx;
+      }
+      .qun {
+        font-size: 24rpx;
+        color: #5370a0;
+        display: flex;
+        align-items: center;
+        margin-top: 16rpx;
+        .icon-shequn {
+          flex: 1;
+          font-size: 24rpx;
+        }
+        .icon-shequn::before {
+          color: #5370a0;
+          font-size: 30rpx;
+          margin-right: 13rpx;
+        }
+        .icon-zan1::before, .icon-pinglun::before {
+          margin:0 10rpx;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+  .hide {
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+}

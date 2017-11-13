@@ -1,0 +1,63 @@
+<view class="tr7 {{ showPermission ? 'goleft' : '' }}">
+  <view  bindtap="searchTap" class="search-top bb pr bd1">
+    <view class="iconfont icon-tubiao17 c9 pa bb {{ getIn ? 'at-center' : 'back-left' }}">{{ getIn ? '搜索' : '' }}</view>
+    <input focus="{{ focus }}" confirm-type="search" bindblur="outBlur" class="br10 bb" />
+  </view>
+
+  <view class="zw"></view>
+
+  <view class="right-i-w bb bd1" wx:for="{{ listArr }}">
+    <view class="r-i-w-img">
+      <image lazy-load="true" mode="aspectFill" class="br" src="{{ item.img }}"></image>
+    </view>
+    <view class="r-i-w-t bb">
+      <view class="ell1 f30 c3"><text class="name">{{ item.name }}</text> <text class="n-r br10" wx:if="{{ item.qunzhu || item.qunguan }}">{{ item.qunzhu ? '群主' : item.qunguan ? '群管' : '' }}</text></view>
+      <view class="ell1 c9">{{ item.company || '暂无' }}　{{ item.job || '暂无' }}</view>
+    </view>
+    <view catchtap="setManager" data-index="{{ index }}" data-id="{{ item.id }}" wx:if="{{ from == 'qunzhu' && !item.qunzhu }}" class="iconfont c9 icon-fenlei1"></view>
+  </view>
+
+  <view class="tac">点击右上角，分享给微信好友</view>
+  <view class="tac">再次使用，发现-小程序-搜索“群信息”</view>
+  <view class="zw"></view>
+  <view class="zw"></view>
+
+  <!--<view class="bottom-op" style="height: {{ !show ? 80 : (height * 1 + 80) }}px;">-->
+  <view class="b-s tr7" style="transform: translateY({{ height }}px)">
+    <view catchtap="showQun" class="b-s-i">
+      <image class="b-s-i" src="../../images/change_qun.png"></image>
+    </view>
+    <view id="b-s-c-w" class="b-s-c">
+      <scroll-view scroll-y="true" class="bscw-scroll">
+        <view catchtap="changeQun" data-id="{{ item.id }}" data-index="{{ index }}" class="b-s-c-q bd1 bb" wx:for="{{ qunList }}">
+          <image class="br" src="{{ item.img }}"></image>
+          <view class='bsc-n-w'>
+            <view class="bsc-n-o">
+              <text class="f30 c3 ell1">{{ item.qun_name }}</text>
+              <text class="f24 br10 c9 {{ item.permission ? 'guan' : '' }}">{{ item.permission ? '管理' : '退出' }}</text>
+            </view>
+            <text class="bsc-n c9 ell1">{{ item.name }}</text>
+          </view>
+          <view class="iconfont {{ qunChooseIndex == index ? 'icon-dui' : '' }}"></view>
+        </view>
+      </scroll-view>
+      <view catchtap='goCreateQun' class="tac f30">创建社群</view>
+    </view>
+  </view>
+  <view class="bottom-op">
+    <view class="b-s-n">
+      <view class="iconfont icon-qunzu2">社群</view>
+      <view catchtap="goBackIndexPage" data-url="../find/find" class="iconfont icon-faxian">发现</view>
+      <view catchtap="goBackIndexPage" data-url="../message/message" class="iconfont icon-xiaoxi">消息</view>
+      <view catchtap="goBackIndexPage" data-url="../user/user" class="iconfont icon-gerenzhongxin">我的</view>
+    </view>
+  </view>
+</view>
+<view class="tr7 permission {{ showPermission ? '' : 'goright' }}">
+  <view class="p-op bd1" wx:for="{{ permissionArr }}">
+    <text class="f30 c3">{{ item.t }}</text>
+    <switch bindchange="switchC" checked="{{ item.v }}" data-index="{{ index }}"></switch>
+  </view>
+  <button catchtap="pBtnOp" data-type="confirm" class="p-btn" type="primary">完成</button>
+  <button catchtap="pBtnOp" data-type="cancel" class="p-btn" type="danger">取消</button>
+</view>

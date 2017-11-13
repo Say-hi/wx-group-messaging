@@ -1,0 +1,36 @@
+<!--编辑个人信息-->
+<view catchtap="edit" data-index="{{ index }}" data-type="{{ item.type }}" wx:for="{{ userInfo }}" class=" bb info {{ index < 6 ? 'arrow' : '' }}">
+  <view class="e-w bb bd1">
+    <view class="u-l f30 c3">{{ item.l }}</view>
+    <view class="u-r u-r-i" wx:if="{{ index == 0 }}"><image class="bd10" src="{{ item.r }}"></image></view>
+    <picker class="u-r f30 c9 ell1" wx:if="{{ index == 4 }}" mode="region" bindchange="bindRegionChange" value="{{item.r}}" custom-item="{{customItem}}">
+        {{item.r[0]}}-{{item.r[1]}}-{{item.r[2]}}
+    </picker>
+    <view class="u-r f30 c9 ell1" wx:if="{{ index > 0 && index != 4}}">{{ item.r }}</view>
+  </view>
+</view>
+
+<view class="info bb s-choose">
+  <view class="e-w bb bd1">
+    <view class="u-l f30 c3">手机隐私</view>
+    <switch checked="{{ checked }}" class="u-r" bindchange="switchChange"/>
+  </view>
+</view>
+
+<view class="tac tips">开启后将隐藏您名片中的手机号码</view>
+
+<button bindtap="confirm" class="btn c30">完成</button>
+
+<view wx:if="{{ show }}" class="mask-t mask-input">
+  <view class="mask-toast">
+    <view class="tac mask-title">{{ userInfo[chooseIndex].l }}</view>
+    <input class="bd1" bindinput="inputValue" data-type="{{ userInfo[chooseIndex].type }}" value="{{ userInfo[chooseIndex].r  }}" />
+    <view class="mask-btn f30">
+      <view catchtap="btnChoose" data-type="cancel" class="cancel">取消</view>
+      <view catchtap="btnChoose" data-type="confirm" class="confirm">确认</view>
+    </view>
+  </view>
+</view>
+<!--错误弹窗-->
+<import src="../template/template"></import>
+<template wx:if="{{ toast.show }}" is="showToast" data="{{ ...toast }}"></template>

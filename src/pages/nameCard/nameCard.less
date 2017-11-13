@@ -1,0 +1,362 @@
+page {
+  background-color: #f6f6f6;
+}
+
+.user_bg {
+  width: 100%;
+  height: 266rpx;
+}
+
+.user {
+  background-color: #fff;
+  .u-img {
+    text-align: center;
+    height: 160rpx;
+    width: 100%;
+    .user-img {
+      width: 188rpx;
+      height: 188rpx;
+      transform: translate(-50%, -50%);
+    }
+  }
+  .user-op {
+    display: flex;
+    padding-bottom: 20rpx;
+    border-bottom: 20rpx solid #f6f6f6;
+    .iconfont {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 26rpx;
+      border-right: 1rpx solid #eee;
+    }
+    .iconfont:nth-child(3) {
+      border-right: none;
+    }
+    .iconfont::before {
+      font-size: 60rpx;
+      margin-bottom: 10rpx;
+    }
+    .icon-qianbao1::before {
+      color: #0db905;
+    }
+    .icon-liuyan::before {
+      color: #ffcd00;
+    }
+  }
+}
+
+.info {
+  background-color: #fff;
+  line-height: 80rpx;
+  .e-w {
+    display: flex;
+    align-items: center;
+    margin-left: 20rpx;
+  }
+  .u-l {
+    font-weight: 700;
+  }
+  .u-r-i {
+    width: 75rpx;
+    height: 75rpx;
+    padding: 15rpx 0;
+    image {
+      width: inherit;
+      height: inherit;
+    }
+  }
+  .u-r {
+    flex: 1;
+    margin-right: 40rpx;
+    text-align: right;
+  }
+  .img {
+    padding: 10rpx 0;
+    .u-r-img {
+      flex-wrap: wrap;
+      display: flex;
+      align-content: center;
+      padding-left: 20rpx;
+    }
+    image {
+      margin: 5rpx;
+      width: 136rpx;
+      height: 136rpx;
+    }
+  }
+}
+.arrow::after {
+  right: 20rpx;
+  width: 10rpx;
+  height: 10rpx;
+  border: 4rpx solid #999;
+  border-color: #999 #999 transparent transparent;
+}
+.info:nth-child(5), .info:nth-child(9) {
+  margin-bottom: 20rpx;
+  .e-w {
+    margin-left: 0rpx;
+    padding-left: 20rpx;
+  }
+}
+.info:nth-child(1) {
+  margin-top: 20rpx;
+  border-top: 1rpx solid #eee;
+}
+.info:nth-child(6) {
+  border-top: 1rpx solid #eee;
+}
+
+.btn {
+  width: 90%;
+  line-height: 80rpx;
+  margin-top: 30rpx;
+}
+.btnf {
+  background-color: #fff;
+}
+
+.b-tips {
+  padding: 20rpx 0;
+  .btac {
+    font-size: 24rpx;
+    color: #666;
+    line-height: 40rpx;
+  }
+}
+
+.pageTwo {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  padding: 0 20rpx;
+  background-color: #fff;
+  .two-img {
+    text-align: center;
+    image {
+      margin: 40rpx 0;
+      width: 315rpx;
+      height: 315rpx;
+    }
+  }
+  .btn {
+    width: 100%;
+  }
+  .share {
+    font-size: 24rpx;
+    line-height: 50rpx;
+  }
+  .s1 {
+    margin-top: 30rpx;
+  }
+
+  .b-cancel {
+    line-height: 80rpx;
+    color: #fff;
+    font-weight: 700;
+    background-color: #f00;
+    text-align: center;
+    font-size: 30rpx;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+  }
+}
+
+.pageThree {
+  position: fixed;
+  background-color: #fff;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  .circle {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -83%);
+    width: 1000rpx;
+    height: 1000rpx;
+    background-color: #0abb07;
+  }
+  .pt-img-w {
+    position: relative;
+    margin-top: 100rpx;
+    text-align: center;
+    .pt-img {
+      width: 132rpx;
+      height: 132rpx;
+    }
+    .pt-i-n {
+      margin-top: 24rpx;
+    }
+  }
+
+  .money-wrap {
+    margin: 0 20rpx;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    .money {
+      width: 206rpx;
+      margin: 5rpx;
+      margin-top: 50rpx;
+      line-height: 83rpx;
+      text-align: center;
+      font-size: 36rpx;
+      border: 1rpx solid #999;
+      transition: all 0.5s;
+      overflow: inherit;
+    }
+    .moneyChoose {
+      color: #0db905 !important;
+      border-color: #0db905;
+    }
+  }
+  .t-tips {
+    margin-top: 30rpx;
+  }
+  .customMoney, .t-b-tips {
+    color: #556eb4;
+  }
+  .t-b-tips {
+    margin-top: 30rpx;
+  }
+
+  .mask-input {
+
+    .mask-toast {
+      min-width: 80%;
+      padding-bottom: 90rpx;
+      .mask-btn {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        line-height: 80rpx;
+        view {
+          flex: 1;
+          text-align: center;
+        }
+        .cancel {
+          background-color: #eee;
+          border-bottom-left-radius: 10rpx;
+        }
+        .confirm {
+          color: #fff;
+          background-color: #22ac38;
+          border-bottom-right-radius: 10rpx;
+        }
+      }
+    }
+  }
+}
+
+.pageFour, .pageFive {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: #f6f6f6;
+  .comment-wrap {
+    padding: 20rpx;
+    display: flex;
+    background-color: #fff;
+    .user-img {
+      width: 75rpx;
+      height: 75rpx;
+      margin-right: 20rpx;
+      image {
+        width: inherit;
+        height: inherit;
+      }
+    }
+    .f26 {
+      line-height: 50rpx;
+    }
+    .c53 {
+      color: #5370a0 !important;
+    }
+    .second-comment {
+      margin-top: 20rpx;
+      .f30::before {
+        content: '';
+        width: 12rpx;
+        height: 26rpx;
+        display: inline-block;
+        background-color: #0db905;
+        margin-right: 14rpx;
+      }
+    }
+  }
+  .ly-btn {
+    background-color: #fff;
+    padding-bottom: 20rpx;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    width: 100%;
+    height: 23%;
+    transform: translate(-50%, 0);
+    button {
+      width: 95%;
+      margin-top: 20rpx;
+    }
+  }
+  .mask-in {
+    top: 30%;
+    .mask-title {
+      line-height: 100rpx;
+    }
+    textarea {
+      padding: 5rpx 0;
+      margin: 0 20rpx;
+      border-top: 1rpx solid #eee;
+      border-bottom: 1rpx solid #eee;
+    }
+    .mask-btn-wrap{
+      display: flex;
+      .mask-btn {
+        font-size: 36rpx;
+        line-height: 120rpx;
+        flex: 1;
+      }
+      .mask-btn:nth-child(2) {
+        color: #0db905;
+      }
+    }
+  }
+}
+
+.pageFive {
+  .five-nav {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    view {
+      flex: 1;
+      text-align: center;
+      margin: 0 50rpx;
+      height: 100%;
+      border-bottom: 5rpx solid transparent;
+      text {
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    .f-n-c {
+      color: #0db905;
+      border-bottom-color: #0db905;
+    }
+  }
+}

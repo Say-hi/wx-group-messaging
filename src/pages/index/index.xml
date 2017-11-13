@@ -1,85 +1,44 @@
 <!--首页-->
-<swiper indicator-active-color="#fedb03" indicator-color="#ffffff"  indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-    <block wx:for="{{imgUrls}}">
-        <swiper-item>
-            <image lazy-load="true" mode="aspectFill" src="{{item}}" class="slideImage" />
-        </swiper-item>
-    </block>
-</swiper>
-
-<view class="pr iconfont icon-shengyin">
-    <view class="pa {{ curNotice == index ? 'show' : 'hide' }}" wx:for="{{ notice }}">{{ item.content }}</view>
-</view>
-
-<view class="nav">
-    <view wx:for="{{ navLists }}" catchtap="jumpPage" data-t="{{ item.t }}" data-type="{{ item.type }}" data-url="{{ item.url }}">
-        <image lazy-load="true" mode="aspectFill" src="{{ item.src }}"></image>
-        <view>{{ item.t }}</view>
+<view class="top-search bd1">
+    <view catchtap="goSearch" class="t-s-wrap pr">
+        <text class="iconfont icon-tubiao17"></text>
+        <input disabled="true" class="t-s-input br15 bb" placeholder="试试搜索更多感兴趣的社群"/>
     </view>
-    <!--<view catchtap="jumpPage" data-type="navigateTo" data-url="../hshs/hshs">-->
-        <!--<image mode="aspectFill" src="{{ imgUrls[1] }}"></image>-->
-        <!--<view>绘声绘色</view>-->
-    <!--</view>-->
-    <!--<view catchtap="jumpPage" data-type="navigateTo" data-url="">-->
-        <!--<image mode="aspectFill" src="{{ imgUrls[2] }}"></image>-->
-        <!--<view>智能测试</view>-->
-    <!--</view>-->
+    <view catchtap="goClassify" class="t-classify f30 c3 tac">分类</view>
 </view>
 
-<view class="book bb">
-    <view class="b-t">学习反馈</view>
-    <view class="b-c bb">
-        <view class="b-c-i" wx:for="{{ fkLists }}" catchtap="jumpPage" data-type="{{ item.type }}" data-url="{{ item.url }}">
-            <image lazy-load="true" mode="aspectFill" src="{{ item.src }}"></image>
-            <view>{{ item.t }}</view>
+<view class="user-info">
+    <view class="u-count c9 bd1">我的社群({{ user.group.length || 0 }})</view>
+    <view class="u-group bd1" wx:for="{{ user.group }}">
+        <image class="br" lazy-load="true" src="{{ item.image }}"></image>
+        <view class="u-info">
+            <view class="f30 c3 ell1">{{ item.group_name }}</view>
+            <view class="c9 ell1">{{ item.name }}</view>
         </view>
-        <!--<veiw class="b-c-i">-->
-            <!--<image mode="aspectFill" src="{{ imgUrls[0] }}"></image>-->
-            <!--<view>错题本</view>-->
-        <!--</veiw>-->
-        <!--<veiw class="b-c-i">-->
-            <!--<image mode="aspectFill" src="{{ imgUrls[1] }}"></image>-->
-            <!--<view>英语故事听说</view>-->
-        <!--</veiw>-->
+        <view data-id="{{ item.id }}" data-op="{{ item.has_op }}" data-index="{{ index }}" catchtap="qunOp" class="iconfont icon-fenlei1"></view>
     </view>
+    <view catchtap="create" class="tac u-build iconfont icon-tianjia1">创建社群</view>
 </view>
 
-<view class="kt book bb">
-    <view class="b-t">速拼微课堂</view>
-    <view class="b-c bb">
-        <view class="b-c-i" wx:for="{{ ktLists }}" data-t="{{ item.t }}" catchtap="jumpPage" data-type="{{ item.type }}" data-url="{{ item.url }}">
-            <image lazy-load="true" mode="aspectFill" src="{{ item.src }}"></image>
-            <view>{{ item.t }}</view>
+<view class="recommend">
+    <view class="r-nav bd1">
+        <view catchtap="chooseNav" data-type="0" class="f30 c3 {{ cur == 0 ? 'choose' : '' }}">热群推荐</view>
+        <view catchtap="chooseNav" data-type="1" class="f30 c3 {{ cur == 1 ? 'choose' : '' }}">应用推荐</view>
+    </view>
+    <view class="u-group-w">
+        <view class="u-group bd1" wx:for="{{ recommendArr }}">
+            <image class="br" lazy-load="true" src="{{ item.image }}"></image>
+            <view class="u-info">
+                <view class="f30 c3 ell1">{{ item.group_name }}</view>
+                <view class="c9 ell1">{{ item.name }}</view>
+            </view>
+            <view data-id="{{ item.id }}" catchtap="goNext" data-cur="{{ cur }}" class="u-r br15">{{ cur == 0 ? '看一看' : '用一用' }}</view>
         </view>
-        <!--<veiw class="b-c-i">-->
-            <!--<image src="{{ imgUrls[0] }}"></image>-->
-            <!--<view>学科英语</view>-->
-        <!--</veiw>-->
-        <!--<veiw class="b-c-i">-->
-            <!--<image src="{{ imgUrls[1] }}"></image>-->
-            <!--<view>错题精讲</view>-->
-        <!--</veiw>-->
-        <!--<veiw class="b-c-i">-->
-            <!--<image src="{{ imgUrls[2] }}"></image>-->
-            <!--<view>决胜考场</view>-->
-        <!--</veiw>-->
+    </view>
+    <view class="bd1 more arrow">
+        更多社群
     </view>
 </view>
-
-<view class="zi book bb">
-<view class="b-t">学习参考资料</view>
-<view class="b-c bb">
-    <view class="b-c-i" wx:for="{{ zlLists }}" catchtap="jumpPage" data-type="{{ item.type }}" data-url="{{ item.url }}">
-        <image lazy-load="true" mode="aspectFill" src="{{ item.src }}"></image>
-        <view>{{ item.t }}</view>
-    </view>
-    <!--<veiw class="b-c-i">-->
-        <!--<image mode="aspectFill" src="{{ imgUrls[0] }}"></image>-->
-        <!--<view>词典</view>-->
-    <!--</veiw>-->
-    <!--<veiw class="b-c-i">-->
-        <!--<image mode="aspectFill" src="{{ imgUrls[1] }}"></image>-->
-        <!--<view>文化百科</view>-->
-    <!--</veiw>-->
-</view>
-</view>
+        <!--错误弹窗-->
+<import src="../template/template"></import>
+<template wx:if="{{ toast.show }}" is="showToast" data="{{ ...toast }}"></template>

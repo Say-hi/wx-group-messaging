@@ -1,0 +1,246 @@
+page {
+  background-color: #f6f6f6;
+}
+
+.info {
+  background-color: #fff;
+  line-height: 80rpx;
+  .e-w {
+    display: flex;
+    align-items: center;
+    margin-left: 20rpx;
+  }
+  .u-l {
+    font-weight: 700;
+    .red {
+      margin-left: 6rpx;
+    }
+  }
+  .u-r-i {
+    width: 75rpx;
+    height: 75rpx;
+    padding: 15rpx 0;
+    image {
+      width: inherit;
+      height: inherit;
+    }
+  }
+  .u-r {
+    flex: 1;
+    margin-right: 40rpx;
+    text-align: right;
+    .u-l {
+      margin-left: 0;
+    }
+    .textin {
+      text-align: left;
+      padding-left: 20rpx;
+    }
+    .ptextin {
+      padding-left: 50rpx;
+    }
+    .introduce {
+      width: 100%;
+      padding-top: 20rpx;
+      height: 150rpx;
+    }
+    .text-num {
+      padding-right: 20rpx;
+    }
+    button {
+      padding: 0;
+      margin: 0;
+      background-color: #fff;
+      border: none;
+      z-index: 10;
+      top: 50%;
+      right: 20rpx;
+      transform: translate(0, -50%);
+      min-width: 159rpx;
+      color: #f00;
+      font-size: 30rpx;
+    }
+    button::after {
+      border: none;
+    }
+  }
+  .intro {
+    margin-right: 0;
+  }
+  .tal {
+    margin-left: 38rpx;
+  }
+}
+.arrow::after {
+  right: 20rpx;
+  width: 10rpx;
+  height: 10rpx;
+  border: 4rpx solid #999;
+  border-color: #999 #999 transparent transparent;
+}
+.info:nth-child(4), .info:nth-child(7) {
+  margin-bottom: 20rpx;
+  .e-w {
+    margin-left: 0rpx;
+    padding-left: 20rpx;
+  }
+}
+.info:nth-child(1) {
+  margin-top: 20rpx;
+  border-top: 1rpx solid #eee;
+}
+
+.s-choose {
+  line-height: 90rpx;
+  border-top: 1rpx solid #eee;
+  .e-w {
+    margin-left: 0rpx;
+    padding-left: 20rpx;
+  }
+}
+
+.tips {
+  line-height: 100rpx;
+}
+
+.mask-input {
+
+  .mask-toast {
+    min-width: 80%;
+    padding-bottom: 90rpx;
+    .mask-btn {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      line-height: 80rpx;
+      view {
+        flex: 1;
+        text-align: center;
+      }
+      .cancel {
+        background-color: #eee;
+        border-bottom-left-radius: 10rpx;
+      }
+      .confirm {
+        color: #fff;
+        background-color: #22ac38;
+        border-bottom-right-radius: 10rpx;
+      }
+    }
+  }
+}
+
+.btn {
+  width: 96%;
+  background-color: #22ac38;
+  color: #fff;
+}
+
+.mask {
+  .mask-in {
+    overflow: hidden;
+    .mask-title {
+      font-weight: 700;
+    }
+    .mask-content {
+      margin: 0 20rpx;
+    }
+    .mask-btn-wrap {
+      margin-top: 20rpx;
+      display: flex;
+      .mask-btn {
+        border-top: 1rpx solid #eee;
+        line-height: 60rpx;
+        flex: 1;
+      }
+      .mask-btn-confirm {
+        border-top: 1rpx solid #29e33f;
+        background-color: #29e33f;
+        color: #fff;
+      }
+    }
+  }
+  .mask-qun-money {
+    width: 100%;
+    height: 100%;
+    background-color: #fcfcfc;
+    .mask-money-type-wrap {
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      .mask-money-type {
+        border-bottom: 4rpx solid #fff;
+        line-height: 80rpx;
+        padding: 0 15rpx;
+        transition: all 0.7s;
+      }
+      .chooseMoney {
+        border-bottom-color: #22ac38;
+        color: #22ac38;
+      }
+      
+    }
+    .mask-money-input {
+      display: flex;
+      background-color: #fff;
+      line-height: 120rpx;
+      align-items: center;
+      input {
+        flex: 1;
+      }
+    }
+    .icon-wenhao {
+      color: #f00;
+      font-size: 24rpx;
+      //display: flex;
+      //align-items: center;
+      width: 100%;
+      line-height: 60rpx;
+    }
+    .icon-wenhao::before {
+      margin-right: 10rpx;
+      font-size: 40rpx;
+      vertical-align: middle;
+    }
+    .m-btn {
+      width: 90%;
+      margin-top: 40rpx;
+    }
+  }
+  .br15 {
+    width: 635rpx;
+    button {
+      margin-top: 20rpx;
+      color: #09b307;
+      background-color: #fff;
+      border: none;
+      border-top: 1rpx solid #eee;
+      border-radius: 0;
+    }
+    button::after {
+      border: none;
+    }
+  }
+  .mask-close {
+    text-align: right;
+    padding: 5rpx;
+    height: 37rpx;
+    text {
+      display: block;
+      color: #fff;
+      font-weight: 700;
+      width: 37rpx;
+      height: 37rpx;
+      float: right;
+      text-align: center;
+      line-height: 37rpx;
+      background-color: #09bb07;
+    }
+  }
+}
+
+

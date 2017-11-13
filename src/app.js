@@ -59,24 +59,24 @@ const wxParse = require('./wxParse/wxParse')
 //     }
 //   }
 // })
-// const Moment = require('./utils/moment')
-// Moment.locale('en', {
-//   relativeTime : {
-//     future: "差 %s",
-//     past:   "%s前",
-//     s:  "几秒",
-//     m:  "一分钟",
-//     mm: "%d分钟",
-//     h:  "一小时",
-//     hh: "%d小时",
-//     d:  "一天",
-//     dd: "%d天",
-//     M:  "一个月",
-//     MM: "%d月",
-//     y:  "一年",
-//     yy: "%d年"
-//   }
-// });
+const Moment = require('./utils/moment')
+Moment.locale('en', {
+  relativeTime : {
+    future: '差 %s',
+    past:   '%s前',
+    s:  '几秒',
+    m:  '一分钟',
+    mm: '%d分钟',
+    h:  '一小时',
+    hh: '%d小时',
+    d:  '一天',
+    dd: '%d天',
+    M:  '一个月',
+    MM: '%d月',
+    y:  '一年',
+    yy: '%d年'
+  }
+})
 // moment.locale('zh-cn')
 App({
   data: {
@@ -88,9 +88,9 @@ App({
     wxParse.wxParse(title, type, data, that, image)
   },
   // 解析时间
-  // moment (time) {
-  //   return Moment(time, 'YYYYMMDD HH:mm:ss').fromNow()
-  // },
+  moment (time) {
+    return Moment(time, 'YYYYMMDD HH:mm:ss').fromNow()
+  },
   // 发起微信支付
   wxpay (obj) {
     let objs = {
@@ -148,7 +148,38 @@ App({
       fail: obj.fail || function (err) {
         console.log('未传入fail回调函数,err:' + err.errMsg)
       },
-      complete: obj.complete || function () {}
+      complete: obj.complete || function (res) {
+        // sessionId 失效
+        if (res.data.code === 401) {
+          wx.login({
+            success (res) {
+              if (res.code) {
+                wx.getUserInfo({
+                  success (res2) {
+                    that.wxrequest({
+                      url: useUrl.login,
+                      data: {
+                        code: res.code,
+                        iv: res2.iv,
+                        encryptedData: res.encryptedData
+                      },
+                      success (res) {
+                        wx.setStorageSync('session_key', res.data.data.session_key)
+                        obj.data.session_key = that.gs()
+                        that.wxrequest(obj)
+                      }
+                    })
+                  }
+                })
+              } else {
+                wx.showToast({
+                  content: '请删除小程序后，重新打开并授权'
+                })
+              }
+            }
+          })
+        }
+      }
     })
   },
   // 用户登陆
@@ -265,8 +296,8 @@ App({
     }
   },
   // 获取缓存session_key
-  gs () {
-    return wx.getStorageSync('session_key')
+  gs (key) {
+    return wx.getStorageSync(key || 'session_key')
   },
   // 设置页面是否加载
   setMore (params, that) {
@@ -362,6 +393,14 @@ App({
       that.setData({
         transText: value // 翻译
       })
+    } else if (type === 'introduce') {
+      that.setData({
+        introduceText: value // 介绍输入
+      })
+    } else if (type === 'money') {
+      that.setData({
+        outMoney: value
+      })
     }
   },
   // 跳转绘本详情
@@ -393,31 +432,79 @@ App({
       })
     }, (time || 1500))
   },
+  // 设置公众号弹窗
+  setGzh (that, gzh) {
+    let defaultToast = {
+      image: '../../images/gzh.png',
+      name: '群消息',
+      show: true
+    }
+    Object.assign(defaultToast, gzh)
+    wx.setClipboardData({
+      data: defaultToast.name
+    })
+    that.setData({
+      gzh: defaultToast
+    })
+  },
+  // 关闭公众号弹窗
+  closeGzh (that) {
+    that.data.gzh.show = false
+    that.setData({
+      gzh: that.data.gzh
+    })
+  },
+  // 预览图片
+  showImg (e, imgArr) {
+    let index = e.currentTarget.dataset.index
+    wx.previewImage({
+      current: imgArr[index],
+      urls: imgArr
+    })
+  },
+  // 跳转方式判断
+  gn (url) {
+    if (getCurrentPages().length >= 5) {
+      wx.redirectTo({
+        url
+      })
+    } else {
+      wx.navigateTo({
+        url
+      })
+    }
+  },
+  // 设置顶部文字
+  setBar (text) {
+    wx.setNavigationBarTitle({
+      title: text
+    })
+  },
   /**
    * 生命周期函数--监听小程序初始化
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
   onLaunch () {
-    console.log(`
-  ┏┛┻━━━┛┻┓
-  ┃｜｜｜｜｜｜｜┃
-  ┃　　　━　　　┃
-  ┃　┳┛　┗┳　┃
-  ┃　　　　　　　┃
-  ┃　　　┻　　　┃
-  ┃　　　　　　　┃
-  ┗━┓　　　┏━┛
-  　　┃　史　┃
-  　　┃　诗　┃
-  　　┃　之　┃
-  　　┃　宠　┃
-  　　┃　　　┗━━━━━━┓
-  　　┃　　　神兽坐镇　　　┣━━┓
-  　　┃　　　永不宕机　　　┃
-  　　┗┓┓┏━┳┓┏━━━┛
-  　　　┃┫┫　┃┫┫
-  　　　┗┻┛　┗┻┛
-`)
+//     console.log(`
+//   ┏┛┻━━━┛┻┓
+//   ┃｜｜｜｜｜｜｜┃
+//   ┃　　　━　　　┃
+//   ┃　┳┛　┗┳　┃
+//   ┃　　　　　　　┃
+//   ┃　　　┻　　　┃
+//   ┃　　　　　　　┃
+//   ┗━┓　　　┏━┛
+//   　　┃　史　┃
+//   　　┃　诗　┃
+//   　　┃　之　┃
+//   　　┃　宠　┃
+//   　　┃　　　┗━━━━━━┓
+//   　　┃　　　神兽坐镇　　　┣━━┓
+//   　　┃　　　永不宕机　　　┃
+//   　　┗┓┓┏━┳┓┏━━━┛
+//   　　　┃┫┫　┃┫┫
+//   　　　┗┻┛　┗┻┛
+// `)
     // console.log(' ========== Application is launched ========== ')
     // this.wxlogin()
   },

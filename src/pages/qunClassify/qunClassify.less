@@ -1,0 +1,62 @@
+page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.left-w {
+  min-width: 179rpx;
+  height: 100%;
+  .left {
+    height: 100%;
+    width: 100%;
+    background-color: #f6f6f6;
+    padding-right: 20rpx;
+    .l-t {
+      line-height: 65rpx;
+      padding-left: 22rpx;
+    }
+    @radius: 65rpx;
+    .l-t-c {
+      color: #fff !important;
+      background-color: #09bb07;
+      border-bottom-right-radius: @radius;
+      border-top-right-radius: @radius;
+    }
+  }
+}
+.right-w {
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+  .right {
+    width: 100%;
+    height: 100%;
+    padding-left: 30rpx;
+    .right-i-w {
+      min-height: 137rpx;
+      display: flex;
+      align-items: center;
+      .r-i-w-img {
+        width: 82rpx;
+        height: 82rpx;
+        margin-right: 20rpx;
+        .br {
+          width: inherit;
+          height: inherit;
+        }
+      }
+      .r-i-w-t {
+        flex: 1;
+        .ell1 {
+          word-break: break-all;
+          //max-width: 450rpx;
+          font-size: 28rpx;
+        }
+        .f30 {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}

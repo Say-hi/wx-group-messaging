@@ -1,0 +1,29 @@
+<!--关于群信息-->
+<view class="top">
+  <image class="br" lazy-load="true" src="{{ qunImage }}"></image>
+  <view class="tac t-t c3">群信息</view>
+  <view class="tac">{{ qunIntroduce }}</view>
+</view>
+
+<view class="c">
+  <view class="q-c q-c-a bd1">
+    <view class="f30 c3">服务类目</view>
+    <view class="f30 c9">{{ fuwu }}</view>
+  </view>
+  <view class="q-c bd1">
+    <view class="f30 c3">主体信息</view>
+    <view class="f30 c9">{{ company }}</view>
+  </view>
+  <view class="q-c bd1">
+    <view class="f30 c3">相关公众号</view>
+    <view class="f30 c9">
+      <image class="br" wx:for="{{ gzArr }}" lazy-load="true" src="{{ item }}"></image>
+    </view>
+  </view>
+</view>
+
+<button class="btn f30" type="primary">进入小程序</button>
+<button class="btn f30">推荐给朋友</button>
+        <!--错误弹窗-->
+<import src="../template/template"></import>
+<template wx:if="{{ toast.show }}" is="showToast" data="{{ ...toast }}"></template>

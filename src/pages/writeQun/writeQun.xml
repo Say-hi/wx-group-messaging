@@ -1,0 +1,24 @@
+<!--发布群友圈-->
+<textarea class="textI bb" placeholder="这一刻的想法..."></textarea>
+<view class="iconfont bd1 f26 c9 icon-dingwei">{{ address || '未选择位置，请选择您的位置信息' }}</view>
+<view class="type bd1">
+    <text wx:for="{{ typeArr }}" catchtap="tC" data-index='{{ index }}' class="{{ typeChoose == index ? 't-choose' : 'c9' }} iconfont {{ item }}"></text>
+</view>
+<view class="img">
+    <view class="f30 c9">{{ imgArr.length }}/9</view>
+    <image mode="aspectFilll" wx:for="{{ imgArr }}" src="{{ item }}"></image>
+    <view class="iconfont icon-tianjia c9"></view>
+</view>
+<view class="voice">
+    <button bindtap="startRecord" type="primary">点击录音</button>
+    <image catchtap="playVoice" src="../../images/yuying.png"></image>
+</view>
+
+<view class="url">
+    <input placeholder="请输入公众号文章链接"/>
+</view>
+<view class="comment bd1">
+    <text class="f30 c3">允许评论</text>
+    <switch></switch>
+</view>
+<button type='primary'>发布</button>

@@ -1,0 +1,251 @@
+<!--加入社群-->
+<view class="top">
+<image mode="aspectFill" class="bg-img" src="{{ info.bgImg }}"></image>
+<view class="t-show bb">
+    <view class="t-s-t">
+        <image class="br" src="{{ info.img }}"></image>
+        <view class="t-s-t-c">
+            <view>{{ info.name }}<text class="iconfont icon-renzheng"></text></view>
+            <view>{{ info.type }}</view>
+        </view>
+        <view class="t-s-t-r">
+            <view class="iconfont icon-erweima">社群码</view>
+            <view class="iconfont icon-member">通讯录</view>
+        </view>
+    </view>
+    <view class="t-s-c ell3 f24">
+        {{ info.content }}
+    </view>
+    <view class="t-s-b f24">
+        <view class="t-s-b-i">
+            <view class="iconfont icon-huoyue"></view>
+            <veiw>活跃: {{ info.alive }}</veiw>
+        </view>
+        <view class="t-s-b-i">
+            <view class="iconfont icon-mingpianxuanzhong06"></view>
+            <veiw>热度: {{ info.hot }}</veiw>
+        </view>
+        <view class="t-s-b-i">
+            <view class="iconfont icon-member"></view>
+            <veiw>成员: {{ info.member }}</veiw>
+        </view>
+    </view>
+</view>
+</view>
+<view class="nav bd1">
+    <view catchtap="chooseNav" data-index="{{ index }}" class="n-i tr7 f30 c3 {{ navChoose == index ? 'n-i-c' : '' }}" wx:for="{{ navArr }}">{{ item }}</view>
+</view>
+<view class="find-info bb">
+    <block wx:for="{{ infoArr }}" wx:for-index="cIndex">
+        <template is="{{ item.type == 0 ? 'tw': item.type == 1 ? 'yy' : 'wz' }}" data="{{ ...item, cur, cIndex, chooseIndex }}"></template>
+    </block>
+</view>
+<view class="tac">--- {{ more ? '上拉加载更多' : '没有更多内容了' }} ---</view>
+
+<view class="zw"></view>
+
+<view class="bottom-op">
+    <view catchtap="back" class="f24 bb c9 iconfont icon-goback">返回</view>
+    <button open-type="share" class="c9 btn iconfont icon-fenxiang">分享</button>
+    <view catchtap="addQun" class="add f30">{{ info.money ? ('￥' + info.money + '加入') : info.code ?  '验证码加入' : '申请加入'  }}</view>
+</view>
+
+<view wx:if="{{ showCreateMP }}" class="mask">
+    <view class="mask-in br15">
+        <view class="mask-title f30 c9">你还没有名片哦，创建名片后才可查看对方名片，其他人也能了解你哦~</view>
+        <view class="mask-btn-wrap">
+            <view catchtap="mpOp" data-type="back" class="mask-btn c3">知道了</view>
+            <view catchtap="mpOp" data-type="create" class="mask-btn">去创建</view>
+        </view>
+    </view>
+</view>
+        <!--图文模式-->
+<template name="tw">
+<view class="bd1 bb">
+    <view class="f-user-img-w">
+        <image class="f-user-img" src="{{ image }}"></image>
+    </view>
+
+    <view class="f-r tw">
+        <view class="f-name f30"><text data-id="{{ id }}" catchtap="goUserMp">{{ name }}</text><text wx:if="{{ top == 1 }}" class="iconfont icon-lingdang">置顶</text></view>
+        <view catchtap="goDetail" data-id="{{ id }}">
+            <view class="ell2 c3">{{ content }}</view>
+            <view class="f-img">
+                <image wx:for="{{ contentImg }}" wx:for-item="img" src="{{ img }}"></image>
+            </view>
+            <view class="address ell1">{{ address }}</view>
+        </view>
+        <view class="time c9">
+            <view>{{ time }}</view>
+            <view class="user-op pr">
+                <view class="pa op-w-w">
+                    <view class="tr7 pa op-wrap br15 f24 {{ chooseIndex == cIndex ? 'backleft' :  '' }}">
+                        <view class="iconfont icon-hongbao">打赏</view>
+                        <view class="iconfont icon-zan1">点赞</view>
+                        <view class="iconfont icon-pinglun">评论</view>
+                    </view>
+                </view>
+                <text catchtap="showOp" data-index="{{ cIndex }}" class="iconfont icon-pinglun"></text>
+            </view>
+        </view>
+        <!--<view class="qun">-->
+        <!--<view class="iconfont icon-shequn ell1">{{ qun }}</view>-->
+        <!--<view class="iconfont icon-zan1 c9">{{ xin }}</view>-->
+        <!--<view class="iconfont icon-pinglun c9">{{ talk }}</view>-->
+        <!--</view>-->
+        <view wx:if="{{ dzPeople.length > 0 || userComment.length > 0 }}" class="dz-c-wrap pr">
+            <view wx:if="{{ dzPeople.length > 0 }}" class="dz bd1">
+                <view class="iconfont icon-zan1"></view>
+                <view class="f24 c9">
+                    <text catchtap="goUserMp" class="dz-p" wx:for="{{ dzPeople }}" wx:for-item="dzItem" wx:for-index="dzIndex" data-id="{{ dzItem.id }}">{{ dzItem.name }}<text wx:if="{{ dzIndex != (dzPeople.length - 1) }}">、</text></text>
+                    <text>　等{{ dzPeople.length }}人觉得很赞</text>
+                </view>
+            </view>
+            <view wx:if="{{ userComment.length > 0 }}" class="comment">
+                <view class="f24 c3" wx:for="{{ userComment }}" wx:for-item="ucItem"><text catchtap="goUserMp" data-id="{{ ucItem.reply_id }}" wx:if="{{ ucItem.r_name }}" class="c-p">{{ ucItem.r_name }}<text class="c3">回复</text></text><text catchtap="goUserMp" data-id="{{ ucItem.id }}" class="c-p">{{ ucItem.name }}</text>:{{ ucItem.content }}</view>
+            </view>
+        </view>
+    </view>
+</view>
+</template>
+        <!--语音模式-->
+<template name="yy">
+<view  class="bd1 bb">
+    <!--<view hidden="{{ cur == 0 || cur == 3 }}" class="bd1 bb">-->
+    <view class="f-user-img-w">
+        <image class="f-user-img" src="{{ image }}"></image>
+    </view>
+    <view class="f-r yy">
+        <view class="f-name f30"><text data-id="{{ id }}" catchtap="goUserMp">{{ name }}</text><text wx:if="{{ top == 1 }}" class="iconfont icon-lingdang">置顶</text></view>
+        <view catchtap="goDetail" data-id="{{ id }}">
+            <view class="ell2 c3">{{ content }}</view>
+            <view class="yy-img">
+                <image src="../../images/yuying.png"></image>
+            </view>
+            <view class="address ell1">{{ address }}</view>
+        </view>
+        <view class="time c9">
+            <view>{{ time }}</view>
+            <view class="user-op pr">
+                <view class="pa op-w-w">
+                    <view class="tr7 pa op-wrap br15 f24 {{ chooseIndex == cIndex ? 'backleft' :  '' }}">
+                        <view class="iconfont icon-hongbao">打赏</view>
+                        <view class="iconfont icon-zan1">点赞</view>
+                        <view class="iconfont icon-pinglun">评论</view>
+                    </view>
+                </view>
+                <text catchtap="showOp" data-index="{{ cIndex }}" class="iconfont icon-pinglun"></text>
+            </view>
+        </view>
+        <!--<view class="qun">-->
+        <!--<view class="iconfont icon-shequn ell1">{{ qun }}</view>-->
+        <!--<view class="iconfont icon-zan1 c9">{{ xin }}</view>-->
+        <!--<view class="iconfont icon-pinglun c9">{{ talk }}</view>-->
+        <!--</view>-->
+        <view wx:if="{{ dzPeople.length > 0 || userComment.length > 0 }}" class="dz-c-wrap pr">
+            <view wx:if="{{ dzPeople.length > 0 }}" class="dz bd1">
+                <view class="iconfont icon-zan1"></view>
+                <view class="f24 c9">
+                    <text catchtap="goUserMp" class="dz-p" wx:for="{{ dzPeople }}" wx:for-item="dzItem" wx:for-index="dzIndex" data-id="{{ dzItem.id }}">{{ dzItem.name }}<text wx:if="{{ dzIndex != (dzPeople.length - 1) }}">、</text></text>
+                    <text>　等{{ dzPeople.length }}人觉得很赞</text>
+                </view>
+            </view>
+            <view wx:if="{{ userComment.length > 0 }}" class="comment">
+                <view class="f24 c3" wx:for="{{ userComment }}" wx:for-item="ucItem"><text catchtap="goUserMp" data-id="{{ ucItem.reply_id }}" wx:if="{{ ucItem.r_name }}" class="c-p">{{ ucItem.r_name }}<text class="c3">回复</text></text><text catchtap="goUserMp" data-id="{{ ucItem.id }}" class="c-p">{{ ucItem.name }}</text>:{{ ucItem.content }}</view>
+            </view>
+        </view>
+    </view>
+</view>
+</template>
+        <!--文章模式-->
+<template name="wz">
+<view class="bd1 bb">
+    <!--<view hidden="{{ cur == 1 || cur == 2 }}" class="bd1 bb">-->
+    <view class="f-user-img-w">
+        <image class="f-user-img" src="{{ image }}"></image>
+    </view>
+    <view class="f-r wz">
+        <view class="f-name f30"><text data-id="{{ id }}" catchtap="goUserMp">{{ name }}</text><text wx:if="{{ top == 1 }}" class="iconfont icon-lingdang">置顶</text></view>
+        <view catchtap="goDetail" data-id="{{ id }}">
+            <view class="ell2 c3 wz-b">{{ content }}</view>
+            <view class="wz-wrap">
+                <view class="wz-w-img">
+                    <image src="{{ wzimg }}"></image>
+                </view>
+                <view class="ell2 c3">{{ wztitle }}</view>
+            </view>
+            <view class="address ell1">{{ address }}</view>
+        </view>
+        <view class="time c9">
+            <view>{{ time }}</view>
+            <view class="user-op pr">
+                <view class="pa op-w-w">
+                    <view class="tr7 pa op-wrap br15 f24 {{ chooseIndex == cIndex ? 'backleft' :  '' }}">
+                        <view class="iconfont icon-hongbao">打赏</view>
+                        <view class="iconfont icon-zan1">点赞</view>
+                        <view class="iconfont icon-pinglun">评论</view>
+                    </view>
+                </view>
+                <text catchtap="showOp" data-index="{{ cIndex }}" class="iconfont icon-pinglun"></text>
+            </view>
+        </view>
+        <!--<view class="qun">-->
+        <!--<view class="iconfont icon-shequn ell1">{{ qun }}</view>-->
+        <!--<view class="iconfont icon-zan1 c9">{{ xin }}</view>-->
+        <!--<view class="iconfont icon-pinglun c9">{{ talk }}</view>-->
+        <!--</view>-->
+        <view wx:if="{{ dzPeople.length > 0 || userComment.length > 0 }}" class="dz-c-wrap pr">
+            <view wx:if="{{ dzPeople.length > 0 }}" class="dz bd1">
+                <view class="iconfont icon-zan1"></view>
+                <view class="f24 c9">
+                    <text catchtap="goUserMp" class="dz-p" wx:for="{{ dzPeople }}" wx:for-item="dzItem" wx:for-index="dzIndex" data-id="{{ dzItem.id }}">{{ dzItem.name }}<text wx:if="{{ dzIndex != (dzPeople.length - 1) }}">、</text></text>
+                    <text>　等{{ dzPeople.length }}人觉得很赞</text>
+                </view>
+            </view>
+            <view wx:if="{{ userComment.length > 0 }}" class="comment">
+                <view class="f24 c3" wx:for="{{ userComment }}" wx:for-item="ucItem"><text catchtap="goUserMp" data-id="{{ ucItem.reply_id }}" wx:if="{{ ucItem.r_name }}" class="c-p">{{ ucItem.r_name }}<text class="c3">回复</text></text><text catchtap="goUserMp" data-id="{{ ucItem.id }}" class="c-p">{{ ucItem.name }}</text>:{{ ucItem.content }}</view>
+            </view>
+        </view>
+    </view>
+</view>
+</template>
+        <!--错误弹窗-->
+<import src="../template/template"></import>
+<template wx:if="{{ toast.show }}" is="showToast" data="{{ ...toast }}"></template>
+        <!--公众号弹窗-->
+<template wx:if="{{ gzh.show }}" is="showGzh" data="{{ ...gzh }}"></template>
+<!--加群规则提示-->
+<view wx:if="{{ addQS }}" class="mask-t gzh">
+    <view class="mask-toast gzh-w">
+        <view class="mask-title tac c3">温馨提示</view>
+        <view class="mask-content c9 add-qun">
+            群信息致力于为用户提供文明健康、规范有序的网络环境，含淫秽色情、欺诈、低俗、暴力、时政、新闻、盗版和引诱信息的社群，违反了《即时通信工具公众信息服务发展管理暂行规定》等平台及国家法律相关规范，对此我们坚决进行清理、清退。
+        </view>
+        <view class="mask-content c9 add-qun">
+            我们希望营造一个健康向上的网络环境，作为运营者，对淫秽色情、欺诈、低俗、暴力、时政、新闻、盗版和引诱信息坚决查封， 清除社群内此类有害信息、封禁违规社群和相关账号是我们的权利和义务。而对于用户，群信息希望你们如在使用过程中遇到不良信息、社群时积极向我们举报，一旦核实我们将立刻查封，一起维护和营造健康纯洁的群信息环境。
+        </view>
+        <view catchtap="addQunShow" class="btn">
+            我已阅读并同意
+        </view>
+    </view>
+</view>
+
+<view wx:if="{{ codeS }}" class="mask-t gzh">
+    <view class="mask-toast code-add">
+        <input focus="true" class="br10" type="number" placeholder="请输入群验证码" />
+        <view class="mask-btn-wrap">
+            <view catchtap="codeShow" data-type="cancel" class="mask-btn c9">取消</view>
+            <view catchtap="codeShow" data-type="confirm" class="mask-btn">加入</view>
+        </view>
+    </view>
+</view>
+<!--用户是否关注公众号 提示用户加入交流群-->
+<view wx:if="{{ jlqS }}" class="mask-t gzh">
+    <view class="mask-toast code-add">
+        <view class="mask-content c9">想在第一时间接收到群信息吗？那就赶紧加入用户交流群吧！</view>
+        <view class="mask-btn-wrap">
+            <view catchtap="jlqShow" data-type="cancel" class="mask-btn c3">暂不</view>
+            <view catchtap="jlqShow" data-type="confirm" class="mask-btn">去加入</view>
+        </view>
+    </view>
+</view>

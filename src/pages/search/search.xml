@@ -1,0 +1,15 @@
+<view  bindtap="searchTap" class="search-top bb pr bd1">
+  <view class="iconfont icon-tubiao17 c9 pa bb {{ getIn ? 'at-center' : 'back-left' }}">{{ getIn ? '搜索' : '' }}</view>
+  <input focus="{{ focus }}" confirm-type="search" bindblur="outBlur" class="br10 bb" />
+</view>
+<view class="zw"></view>
+<view class="right-i-w bb bd1" wx:for="{{ listArr }}">
+  <view class="r-i-w-img">
+    <image lazy-load="true" mode="aspectFill" class="br" src="{{ item.img }}"></image>
+  </view>
+  <view class="r-i-w-t bb">
+    <view class="ell1 f30 c3">{{ item.qun_name }}</view>
+    <view class="ell1 c9">{{ item.hold }}</view>
+  </view>
+</view>
+<view class="tac" wx:if="{{ listArr.length <= 0 }}">搜索您想要的社群吧</view>

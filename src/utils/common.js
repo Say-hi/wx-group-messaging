@@ -17,7 +17,6 @@ module.exports = {
           mask: true
         })
         let coverImgArr = that.data[imgArr] || []
-        console.log(coverImgArr)
         for (let i of res.tempFilePaths) {
           let upImg = {
             url: serviceUrl.uploadPhotos,
