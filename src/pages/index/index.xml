@@ -1,3 +1,7 @@
+<!--消息数量-->
+<view catchtap="goMessage" wx:if="{{ messageCount * 1 > 0 }}" class="message-count br15 iconfont icon-xinfeng2">
+    {{ messageCount }}
+</view>
 <!--首页-->
 <view class="top-search bd1">
     <view catchtap="goSearch" class="t-s-wrap pr">
@@ -8,16 +12,17 @@
 </view>
 
 <view class="user-info">
-    <view class="u-count c9 bd1">我的社群({{ user.group.length || 0 }})</view>
-    <view class="u-group bd1" wx:for="{{ user.group }}">
-        <image class="br" lazy-load="true" src="{{ item.image }}"></image>
+    <view class="u-count c9 bd1">我的社群({{ user.length || 0 }})</view>
+    <view catchtap="goDetail" data-id="{{ item.group_id }}" class="u-group bd1 {{ item.is_top_index == 1 ? 'top' : '' }}"  wx:for="{{ user }}" wx:key="*1">
+        <image class="br" lazy-load="true" src="{{ item.group_image }}"></image>
         <view class="u-info">
-            <view class="f30 c3 ell1">{{ item.group_name }}</view>
-            <view class="c9 ell1">{{ item.name }}</view>
+            <view class="f30 c3"><view class="ell1">{{ item.group_name }}</view><text class="u-i-t br10" wx:if="{{ item.is_main_group == 1 || item.is_manager_group == 1 }}">{{ item.is_main_group == 1 ? '群主' : item.is_manager_group == 1 ? '群管' : '' }}</text> </view>
+            <view class="c9 ell1">{{ item.nickname }}</view>
         </view>
-        <view data-id="{{ item.id }}" data-op="{{ item.has_op }}" data-index="{{ index }}" catchtap="qunOp" class="iconfont icon-fenlei1"></view>
+        <view data-id="{{ item.group_id }}" data-name="{{ item.group_name }}" data-top="{{ item.is_top_index }}" data-qunzhu="{{ item.is_main_group }}" data-manager="{{ item.is_manager_group }}" data-index="{{ index }}" catchtap="qunOp" class="iconfont icon-fenlei1"></view>
     </view>
-    <view catchtap="create" class="tac u-build iconfont icon-tianjia1">创建社群</view>
+    <view wx:if="{{ user.length == 0 }}" class="tac">您还没有加入社群，快去加入吧或者创建一个~</view>
+    <!--<view catchtap="create" class="tac u-build iconfont icon-tianjia1">创建社群</view>-->
 </view>
 
 <view class="recommend">
@@ -26,16 +31,16 @@
         <view catchtap="chooseNav" data-type="1" class="f30 c3 {{ cur == 1 ? 'choose' : '' }}">应用推荐</view>
     </view>
     <view class="u-group-w">
-        <view class="u-group bd1" wx:for="{{ recommendArr }}">
-            <image class="br" lazy-load="true" src="{{ item.image }}"></image>
+        <view class="u-group bd1" wx:key="*2" wx:for="{{ cur == 1 ? appList : hotQun }}">
+            <image class="br" lazy-load="true" src="{{ item.group_image || item.app_image }}"></image>
             <view class="u-info">
-                <view class="f30 c3 ell1">{{ item.group_name }}</view>
-                <view class="c9 ell1">{{ item.name }}</view>
+                <view class="f30 c3 ell1">{{ item.group_name || item.app_name }}</view>
+                <view class="c9 ell1">{{ item.group_desc || item.app_desc }}</view>
             </view>
-            <view data-id="{{ item.id }}" catchtap="goNext" data-cur="{{ cur }}" class="u-r br15">{{ cur == 0 ? '看一看' : '用一用' }}</view>
+            <view data-id="{{ item.group_id || item.app_id }}" data-appid="{{ item.app_appid }}" catchtap="goNext" data-cur="{{ cur }}" class="u-r br15">{{ cur == 0 ? '看一看' : '用一用' }}</view>
         </view>
     </view>
-    <view class="bd1 more arrow">
+    <view wx:if="{{ cur == 0 }}" catchtap="goClassify" class="bd1 more arrow">
         更多社群
     </view>
 </view>

@@ -1,6 +1,6 @@
 // 获取全局应用程序实例对象
-// const app = getApp()
-
+const app = getApp()
+const useUrl = require('../../utils/service')
 // 创建页面实例对象
 Page({
   /**
@@ -19,9 +19,10 @@ Page({
         focus: false
       })
     } else {
-      this.setData({
-        value: e.detail.value
-      })
+      // this.setData({
+      //   value: e.detail.value
+      // })
+      this.getSearch(e)
       // todo search操作
     }
   },
@@ -31,6 +32,31 @@ Page({
       getIn: false,
       focus: true
     })
+  },
+  // 获取用户搜索的内容
+  getSearch (e) {
+    let that = this
+    app.wxrequest({
+      url: useUrl.getGroupLists,
+      data: {
+        session_key: app.gs(),
+        group_name: e.detail.value
+      },
+      success (res) {
+        wx.hideLoading()
+        if (res.data.code === 200) {
+          that.setData({
+            list: res.data.data
+          })
+        } else {
+          app.setToast(that, {content: res.data.message})
+        }
+      }
+    })
+  },
+  // 跳转到群
+  goQun (e) {
+    app.gn(`../addQun/addQun?id=${e.currentTarget.dataset.id}`)
   },
   /**
    * 生命周期函数--监听页面加载

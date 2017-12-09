@@ -2,14 +2,14 @@
 <image class="user_bg" src="{{ user_bg }}"></image>
 <view class="user">
     <view class="u-img pr">
-        <image class="user-img br pa" src="{{ userInfo.img }}"></image>
+        <image class="user-img br pa" src="{{ userInfo.avatar }}"></image>
     </view>
     <view class="user-op">
-        <view catchtap="op" data-type="{{ item.type }}" wx:for="{{ userOp }}" class="iconfont c3 {{ item.ico }}">{{ item.t }}</view>
+        <view catchtap="op" data-type="{{ item.type }}" wx:key="*10" wx:for="{{ userOp }}" class="iconfont c3 {{ item.ico }}">{{ item.t }}</view>
     </view>
 </view>
 
-<view data-index="{{ index }}" data-type="{{ item.type }}" wx:for="{{ userInfoShow }}" class=" bb info">
+<view data-index="{{ index }}" data-type="{{ item.type }}" wx:key="*9" wx:for="{{ userInfoShow }}" class=" bb info">
 <!--<view data-index="{{ index }}" data-type="{{ item.type }}" wx:for="{{ userInfoShow }}" class=" bb info {{ index < 6 ? 'arrow' : '' }}">-->
     <view class="e-w bb bd1">
         <view class="u-l f30 c3">{{ item.l }}</view>
@@ -20,13 +20,13 @@
         <view class="u-r f30 c9 ell1" wx:if="{{ index > 0 && index != 4 && (index != userInfoShow.length - 1)}}">{{ item.r }}</view>
         <view class="u-r img" wx:if="{{ index == userInfoShow.length - 1 }}">
             <view class="u-r-img">
-                <image catchtap="preview" wx:for-index="imgIndex" data-index="{{ imgIndex }}" mode="aspectFill" wx:for="{{ item.r }}" lazy-load="true" wx:for-item="imgItem" src="{{ imgItem }}"></image>
+                <image catchtap="preview" wx:for-index="imgIndex" data-index="{{ imgIndex }}" mode="aspectFill" wx:key="*14" wx:for="{{ userInfo.image_lists }}" lazy-load="true" wx:for-item="imgItem" src="{{ imgItem }}"></image>
             </view>
         </view>
     </view>
 </view>
 
-<button class="btn" type="primary">给微信好友分享该名片</button>
+<button class="btn" open-type="share" type="primary">给微信好友分享该名片</button>
 <button wx:if="{{ !share }}" bindtap="edit" class="btn btnf">编辑我的名片</button>
 
 <view class="b-tips">
@@ -36,9 +36,9 @@
 <!--分享码-->
 <view wx:if="{{ showPageTwo }}" class="pageTwo bb">
     <view class="two-img">
-        <image lazy-load="true" src="{{ erweima }}"></image>
+        <image lazy-load="true" src="{{ userInfo.qrcode }}"></image>
     </view>
-    <button class="btn" type="primary">分享好友</button>
+    <button class="btn" open-type="share" type="primary">分享好友</button>
     <view class="share c9 s1">点击【分享好友】</view>
     <view class="share c9">分享的还有加入任何付费群</view>
     <view class="share c9">您都可获得费20%的分享奖励</view>
@@ -49,22 +49,22 @@
 <view wx:if="{{ showPageThree }}" class="pageThree bb">
     <view class="circle br pa clearfix"></view>
     <view class="pt-img-w">
-        <image class="pt-img br" src="{{ userInfo.img }}"></image>
-        <view class="pt-i-n f30 c3">{{ userInfo.name }}</view>
+        <image class="pt-img br" src="{{ userInfo.avatar }}"></image>
+        <view class="pt-i-n f30 c3">{{ userInfo.nickname }}</view>
     </view>
     <view class="money-wrap">
-        <view catchtap="chooseMoney" data-index="{{ index }}" data-money="{{ item }}" class="money c9 {{ moneyChoose == index ? 'moneyChoose br10' : '' }}" wx:for="{{ moneyArr }}">{{ item }}元</view>
+        <view catchtap="chooseMoney" data-index="{{ index }}" data-money="{{ item }}" class="money c9 {{ moneyChoose == index ? 'moneyChoose br10' : '' }}" wx:key="*13" wx:for="{{ moneyArr }}">{{ item }}元</view>
     </view>
     <view class="t-tips tac c9">没有满意的数额？</view>
     <view class=" tac c9">试试<text catchtap="customM" class="customMoney">自定义金额(元)</text></view>
     <button catchtap="pay" class="btn" type="primary">打赏Ta</button>
     <button catchtap="back" class="btn">取消</button>
-    <view class="tac t-b-tips">关注公众号“群消息”</view>
+    <view catchtap="showGzh" class="tac t-b-tips">关注公众号“群消息”</view>
 
     <view wx:if="{{ customMI }}" class="mask-t mask-input">
         <view class="mask-toast">
             <view class="tac mask-title">输入自定义金额</view>
-            <input class="bd1" type="number" bindinput="inputValue" data-type="money" placeholder="请输入金额"/>
+            <input class="bd1" type="digit" bindinput="inputValues" data-type="money" placeholder="请输入金额"/>
             <view class="mask-btn f30">
                 <view catchtap="btnChoose" data-type="cancel" class="cancel">取消</view>
                 <view catchtap="btnChoose" data-type="confirm" class="confirm">确认</view>
@@ -75,23 +75,24 @@
 <!--用户留言-->
 <view wx:if="{{ showPageFour }}" style="height: 100%;" class="pageFour bb">
     <scroll-view scroll-y="true" style="height: 78%;">
-        <view class="comment-wrap" wx:for="{{ commentArr }}" wx:for-item="commentItem" wx:for-index="commentIndex">
+        <view class="comment-wrap" wx:key="*12" wx:for="{{ commentArr }}" wx:for-item="commentItem" wx:for-index="commentIndex">
             <view class="user-img">
-                <image src="{{ commentItem.img }}"></image>
+                <image src="{{ commentItem.user_avatar }}"></image>
             </view>
             <view class="user-comment">
                 <view class="first-comment">
-                    <view class="f30 c53">{{ commentItem.name }}</view>
-                    <view class="c3 f26">{{ commentItem.comment }}</view>
-                    <view class="c3 f24">{{ commentItem.time }} <text class="c53" catchtap="commentDel" data-id="{{ user.id }}">删除</text></view>
+                    <view class="f30 c53">{{ commentItem.nickname }}</view>
+                    <view class="c3 f26">{{ commentItem.content }}</view>
+                    <view class="c3 f24">{{ commentItem.add_time }} <text wx:if="{{ commentItem.user_id == selfInfo.user_id }}" class="c53" catchtap="commentDel" data-id="{{ commentItem.id }}">删除</text></view>
                 </view>
-                <view class="second-comment">
-                    <view class="f30 c53">{{ commentItem.reply.name }}<text class="c3">　回复</text></view>
-                    <view class="c3 f26">{{ commentItem.reply.comment }}</view>
-                    <view class="c3 f24">{{ commentItem.reply.time }} <text class="c53" catchtap="commentDel" data-id="{{ user.id }}">删除</text></view>
+                <view wx:if="{{ commentItem.huifu.add_time }}" class="second-comment">
+                    <view class="f30 c53">{{ commentItem.huifu.nickname }}<text class="c3">　回复</text></view>
+                    <view class="c3 f26">{{ commentItem.huifu.content }}</view>
+                    <view class="c3 f24">{{ commentItem.huifu.add_time }}</view>
                 </view>
             </view>
         </view>
+        <view wx:if="{{ commentArr.length == 0 }}" class="tac">哎呀，还没有人留过言，快来给Ta留言吧</view>
         <view class="zw"></view>
     </scroll-view>
     <view class="ly-btn bb">
@@ -102,7 +103,7 @@
     <view wx:if="{{ inputLY }}" class="mask">
         <view class="mask-in br15">
             <view class="mask-title tac f30 c3">给Ta留言</view>
-            <textarea bindinput="inputValues" data-type="commentIn" placeholder="请输入您的留言"></textarea>
+            <textarea bindinput="inputValues" data-type="comment" placeholder="请输入您的留言"></textarea>
             <view class="mask-btn-wrap">
                 <view catchtap="lyBtnIOp" data-type="cancel" class="mask-btn c3 tac">取消</view>
                 <view catchtap="lyBtnIOp" data-type="confirm" class="mask-btn tac">确定</view>
@@ -117,27 +118,34 @@
         <view catchtap="fiveNavC" data-index="1" class="pr {{ fiveChoose == 1 ? 'f-n-c' : '' }}"><text class="pa">我给谁留言</text></view>
     </view>
     <scroll-view scroll-y="true" style="height: 94%;">
-        <view class="comment-wrap" wx:for="{{ commentArr }}" wx:for-item="commentItem" wx:for-index="commentIndex">
+        <view class="comment-wrap" wx:key="*11" wx:for="{{ commentArr }}" wx:for-item="commentItem" wx:for-index="commentIndex">
         <view class="user-img">
-            <image src="{{ commentItem.img }}"></image>
+            <image src="{{ commentItem.user_avatar }}"></image>
         </view>
         <view class="user-comment">
             <view class="first-comment">
-                <view class="f30 c53">{{ commentItem.name }}</view>
-                <view class="c3 f26">{{ commentItem.comment }}</view>
-                <view class="c3 f24">{{ commentItem.time }} <text class="c53" catchtap="commentDel" data-id="{{ user.id }}">删除</text></view>
+                <view class="f30 c53">{{ commentItem.nickname }}</view>
+                <view  class="c3 f26">{{ commentItem.content }}</view>
+                <view class="c3 f24">{{ commentItem.add_time }} <text class="c53" catchtap="commentDel" data-id="{{ commentItem.id }}">删除</text><text wx:if="{{ commentItem.huifu.length == 0 && !fiveChoose }}" class="c53" catchtap="reply" data-index="{{ commentIndex }}" data-id="{{ commentItem.id }}">回复</text></view>
             </view>
-            <view class="second-comment">
-                <view class="f30 c53">{{ commentItem.reply.name }}<text class="c3">　回复</text></view>
-                <view class="c3 f26">{{ commentItem.reply.comment }}</view>
-                <view class="c3 f24">{{ commentItem.reply.time }} <text class="c53" catchtap="commentDel" data-id="{{ user.id }}">删除</text></view>
+            <view wx:if="{{ commentItem.huifu.add_time }}" class="second-comment">
+                <view class="f30 c53">{{ commentItem.huifu.nickname }}<text class="c3">　回复</text></view>
+                <view class="c3 f26">{{ commentItem.huifu.content }}</view>
+                <view class="c3 f24">{{ commentItem.huifu.add_time }} <text wx:if="{{ fiveChoose == 0 }}" class="c53" catchtap="commentDel" data-id="{{ commentItem.huifu.id }}">删除</text></view>
             </view>
         </view>
     </view>
+        <view wx:if="{{ commentArr.length == 0 }}" class="tac">哎呀，还没有人给您留过言</view>
+        <view wx:if="{{ replyName }}" class="reply bb f30 c3">
+            <text>{{ userInfo.nickname }}回复{{ replyName }}</text><input focus="{{ !!replyName }}" bindblur="replyUp" />
+        </view>
         <view class="zw"></view>
     </scroll-view>
+
+    <button class="my-btn" catchtap="lyBtnOp" data-type="cancel" type="danger">返回</button>
 </view>
 
         <!--错误弹窗-->
 <import src="../template/template"></import>
 <template wx:if="{{ toast.show }}" is="showToast" data="{{ ...toast }}"></template>
+<template wx:if="{{ gzh.show }}" is="showGzh" data="{{ ...gzh }}"></template>

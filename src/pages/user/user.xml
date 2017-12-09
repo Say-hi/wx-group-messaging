@@ -1,12 +1,12 @@
 <!--我的-->
 <view class="top bd1">
   <view class="t-img" catchtap="goNameCard">
-    <image class="br" src="{{ user.img }}"></image>
+    <image class="br" src="{{ user.avatar }}"></image>
   </view>
   <view class="t-c">
-    <view class="ell1 t-name c3">{{ user.name }}</view>
-    <view class="ell1 t-phone c9">{{ user.phone }}</view>
-    <view catchtap="goNameCard" class="ell1 t-mp iconfont {{ user.status == 0 ? 'icon-bianji' : 'icon-dianzan' }}">{{ user.status == 0 ? '创建名片' : '分享名片' }}</view>
+    <view class="ell1 t-name c3">{{ user.nickname }}</view>
+    <view class="ell1 t-phone c9">{{ user.mobile || '未填写' }}</view>
+    <view catchtap="goNameCard" class="ell1 t-mp iconfont {{ user.is_has_card == 0 ? 'icon-bianji' : 'icon-dianzan' }}">{{ user.is_has_card == 0 ? '创建名片' : '分享名片' }}</view>
   </view>
   <view catchtap="edit" class="arrow c9">
     编辑
@@ -15,10 +15,20 @@
 
 <view class="top-b f30 c3">
   <view catchtap="goWallet" class="bb bd1 iconfont icon-qianbao">钱包</view>
-  <view class="bb bd1 iconfont icon-pengyouquan">群友圈</view>
+  <view catchtap="goQunCircle" class="bb bd1 iconfont icon-pengyouquan">群友圈</view>
 </view>
 
-<navigator url="{{ item.url }}" wx:for="{{ operation }}" class="bb bd1 {{ index == 0 ? 'co' : index == 1 ? 'pink' :  '' }} f30 c3 arrow u-operation iconfont {{ item.ico }}">{{ item.t }}</navigator>
+<view wx:key="*14" class="pr" wx:for="{{ operation }}">
+  <navigator wx:if="{{ item.url != 'button' }}" bindtap="tapNav" data-t="{{ item.t }}"  url="{{ item.url }}" class="bb bd1 {{ index == 0 ? 'co' : index == 1 ? 'pink' :  '' }} f30 c3 arrow u-operation iconfont {{ item.ico }}">{{ item.t }}</navigator>
+  <view wx:if="{{ item.url == 'button' }}" class="sssss arrow">
+    <button open-type="contact" class="iconfont f30 c3 {{ item.ico }}" >{{ item.t }}</button>
+  </view>
+
+</view>
+
+<view catchtap="goMessage" wx:if="{{ messageCount * 1 > 0 }}" class="message-count br15 iconfont icon-xinfeng2">
+{{ messageCount }}
+</view>
 
 <view catchtap="showGzh" class="tac">关注公众号“群信息”</view>
         <!--错误弹窗-->

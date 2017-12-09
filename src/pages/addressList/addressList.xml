@@ -6,15 +6,19 @@
 
   <view class="zw"></view>
 
-  <view class="right-i-w bb bd1" wx:for="{{ listArr }}">
+  <view class="right-i-w bb bd1 {{ item.is_top_mail_list == 1 ? 'top' : '' }}" wx:for="{{ listArr }}">
     <view class="r-i-w-img">
-      <image lazy-load="true" mode="aspectFill" class="br" src="{{ item.img }}"></image>
+      <!--<image catchtap="goUserMp" data-id="{{ item.id }}" lazy-load="true" mode="aspectFill" class="br" src="{{ item.avatar }}"></image>-->
+      <image lazy-load="true" mode="aspectFill" class="br" src="{{ item.avatar }}"></image>
     </view>
     <view class="r-i-w-t bb">
-      <view class="ell1 f30 c3"><text class="name">{{ item.name }}</text> <text class="n-r br10" wx:if="{{ item.qunzhu || item.qunguan }}">{{ item.qunzhu ? '群主' : item.qunguan ? '群管' : '' }}</text></view>
-      <view class="ell1 c9">{{ item.company || '暂无' }}　{{ item.job || '暂无' }}</view>
+      <view class="ell1 f30 c3"><text class="name">{{ item.nickname }}</text> <text class="n-r br10" wx:if="{{ item.is_main_group == 1 || item.is_manager_group == 1 }}">{{ item.is_main_group == 1 ? '群主' : item.is_manager_group == 1 ? '群管' : '' }}</text><text wx:if="{{ item.is_top_mail_list == 1 }}" class="n-r br10">置顶</text></view>
+      <view class="ell1 c9">{{ item.occupation || '暂无' }}</view>
+      <!--<view class="ell1 c9">{{ item.company || '暂无' }}　{{ item.occupation || '暂无' }}</view>-->
     </view>
-    <view catchtap="setManager" data-index="{{ index }}" data-id="{{ item.id }}" wx:if="{{ from == 'qunzhu' && !item.qunzhu }}" class="iconfont c9 icon-fenlei1"></view>
+    <!--<view catchtap="setManager" data-index="{{ index }}" data-id="{{ item.id }}" wx:if="{{ from == 'qunzhu' ? item.is_main_group != 1 ? 'true' : from == 'qunguan' ? (item.is_main_group != 1 || item.is_manager_group != 1) ? 'true' : '' }}" class="iconfont c9 icon-fenlei1"></view>-->
+    <!--<view catchtap="setManager" data-top="{{ item.is_top_mail_list }}" data-qunguan="{{ item.is_manager_group }}" data-index="{{ index }}" data-id="{{ item.id }}" wx:if="{{ from == 'qunzhu' ? (item.is_main_group != 1) ? 'true' : (from == 'qunguan') ? (item.is_main_group != 1 || item.is_manager_group != 1) ? 'true' : '' : '' : '' }}" class="iconfont c9 icon-fenlei1"></view>-->
+    <view catchtap="getPermission" data-top="{{ item.is_top_mail_list }}" data-qunguan="{{ item.is_manager_group }}" data-index="{{ index }}" data-id="{{ item.id }}" wx:if="{{ (from == 'qunzhu' ? item.is_main_group == 1 ? '' : 'true' : '') || (from == 'qunguan' ? item.is_main_group == 1 ? '' : item.is_manager_group == 1 ? '' : 'true' : '') }}" class="iconfont c9 icon-fenlei1"></view>
   </view>
 
   <view class="tac">点击右上角，分享给微信好友</view>
@@ -23,26 +27,30 @@
   <view class="zw"></view>
 
   <!--<view class="bottom-op" style="height: {{ !show ? 80 : (height * 1 + 80) }}px;">-->
-  <view class="b-s tr7" style="transform: translateY({{ height }}px)">
+  <view class="b-s tr7 {{ show ? '' : 'b-s-up' }}" style="transform: translateY({{ height }}px)">
     <view catchtap="showQun" class="b-s-i">
       <image class="b-s-i" src="../../images/change_qun.png"></image>
     </view>
     <view id="b-s-c-w" class="b-s-c">
       <scroll-view scroll-y="true" class="bscw-scroll">
-        <view catchtap="changeQun" data-id="{{ item.id }}" data-index="{{ index }}" class="b-s-c-q bd1 bb" wx:for="{{ qunList }}">
-          <image class="br" src="{{ item.img }}"></image>
+        <view catchtap="changeQun" data-id="{{ item.group_id }}" data-qunzhu="{{ item.is_main_group }}" data-qunguan="{{ item.is_manager_group }}" data-index="{{ index }}" class="b-s-c-q bd1 bb" wx:for="{{ qunList }}">
+          <image class="br" src="{{ item.group_image }}"></image>
           <view class='bsc-n-w'>
             <view class="bsc-n-o">
-              <text class="f30 c3 ell1">{{ item.qun_name }}</text>
-              <text class="f24 br10 c9 {{ item.permission ? 'guan' : '' }}">{{ item.permission ? '管理' : '退出' }}</text>
+              <text class="f30 c3 ell1">{{ item.group_name }}</text>
+              <text class="f24 br10 c9 {{ item.is_main_group == 1 || item.is_manager_group == 1 ? 'guan' : '' }}">{{ item.is_main_group == 1 ? '群主' : item.is_manager_group == 1 ? '管理' : '退出' }}</text>
             </view>
-            <text class="bsc-n c9 ell1">{{ item.name }}</text>
+            <text class="bsc-n c9 ell1">{{ item.nickname }}</text>
           </view>
           <view class="iconfont {{ qunChooseIndex == index ? 'icon-dui' : '' }}"></view>
         </view>
       </scroll-view>
-      <view catchtap='goCreateQun' class="tac f30">创建社群</view>
+      <!--<view catchtap='goCreateQun' class="tac f30">创建社群</view>-->
     </view>
+  </view>
+  <!--消息数量-->
+  <view catchtap="goMessage" wx:if="{{ messageCount * 1 > 0 }}" class="message-count br15 iconfont icon-xinfeng2">
+    {{ messageCount }}
   </view>
   <view class="bottom-op">
     <view class="b-s-n">
@@ -61,3 +69,15 @@
   <button catchtap="pBtnOp" data-type="confirm" class="p-btn" type="primary">完成</button>
   <button catchtap="pBtnOp" data-type="cancel" class="p-btn" type="danger">取消</button>
 </view>
+<!--<view wx:if="{{ showCreateMP }}" class="mask">-->
+<!--<view class="mask-in br15">-->
+  <!--<view class="mask-content f30 c9">你还没有名片哦，创建名片后才可查看对方名片，其他人也能了解你哦~</view>-->
+  <!--<view class="mask-btn-wrap">-->
+    <!--<view catchtap="mpOp" data-type="back" class="mask-btn c3">知道了</view>-->
+    <!--<view catchtap="mpOp" data-type="create" class="mask-btn">去创建</view>-->
+  <!--</view>-->
+<!--</view>-->
+<!--</view>-->
+        <!--错误弹窗-->
+<import src="../template/template"></import>
+<template wx:if="{{ toast.show }}" is="showToast" data="{{ ...toast }}"></template>

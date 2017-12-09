@@ -8,15 +8,17 @@ Page({
    */
   data: {
     cur: 0,
+    showCur: -1,
     infoArr: []
   },
 // 选择导航栏
   chooseNav (e) {
     if (e.currentTarget.dataset.type * 1 === this.data.cur) return
     this.setData({
-      cur: e.currentTarget.dataset.type
+      cur: e.currentTarget.dataset.type,
+      showCur: e.currentTarget.dataset.type * 1 + 1
     })
-    this.getQun(e.currentTarget.dataset.type)
+    // this.getQun(e.currentTarget.dataset.type)
   },
   // 展示内容详情
   goDetail (e) {
@@ -27,18 +29,16 @@ Page({
     app.gn(`../myQun/myQun?id=${e.currentTarget.dataset.id}`)
   },
   // 群群友主页
-  goUser (e) {
-    app.gn(`../nameCard/nameCard?id=${e.currentTarget.dataset.id}`)
-  },
+  // goUser (e) {
+  //   app.gn(`../nameCard/nameCard?id=${e.currentTarget.dataset.id}`)
+  // },
   // 获取群友圈
-  getQun (type, page = 1) {
+  getQun (page = 1) {
     let that = this
     app.wxrequest({
-      url: useUrl.userFindLists,
+      url: useUrl.getUserGroupFriendCircleLists,
       data: {
-        session_key: app.gs(),
-        page,
-        type
+        session_key: app.gs()
       },
       success (res) {
         wx.hideLoading()
@@ -60,11 +60,6 @@ Page({
       }
     })
   },
-  goMessage () {
-    wx.switchTab({
-      url: '../message/message'
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -84,7 +79,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow () {
-    app.gML(this)
     // TODO: onShow
   },
 
@@ -101,16 +95,16 @@ Page({
   onUnload () {
     // TODO: onUnload
   },
-  onReachBottom () {
-    if (this.data.more) {
-      this.getQun(this.data.cur, ++this.data.page)
-    }
-  },
+  // onReachBottom () {
+  //   if (this.data.more) {
+  //     this.getQun(++this.data.page)
+  //   }
+  // },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh () {
-    this.getQun(this.data.cur)
+    this.getQun()
     // TODO: onPullDownRefresh
   }
 })

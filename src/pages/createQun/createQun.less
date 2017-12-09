@@ -103,35 +103,35 @@ page {
   line-height: 100rpx;
 }
 
-.mask-input {
-
-  .mask-toast {
-    min-width: 80%;
-    padding-bottom: 90rpx;
-    .mask-btn {
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      line-height: 80rpx;
-      view {
-        flex: 1;
-        text-align: center;
-      }
-      .cancel {
-        background-color: #eee;
-        border-bottom-left-radius: 10rpx;
-      }
-      .confirm {
-        color: #fff;
-        background-color: #22ac38;
-        border-bottom-right-radius: 10rpx;
-      }
-    }
-  }
-}
+//.mask-input {
+//
+//  .mask-toast {
+//    min-width: 80%;
+//    padding-bottom: 90rpx;
+//    .mask-btn {
+//      position: fixed;
+//      left: 0;
+//      bottom: 0;
+//      width: 100%;
+//      display: flex;
+//      align-items: center;
+//      line-height: 80rpx;
+//      view {
+//        flex: 1;
+//        text-align: center;
+//      }
+//      .cancel {
+//        background-color: #eee;
+//        border-bottom-left-radius: 10rpx;
+//      }
+//      .confirm {
+//        color: #fff;
+//        background-color: #22ac38;
+//        border-bottom-right-radius: 10rpx;
+//      }
+//    }
+//  }
+//}
 
 .btn {
   width: 96%;
@@ -144,16 +144,24 @@ page {
     overflow: hidden;
     .mask-title {
       font-weight: 700;
+      line-height: 90rpx;
     }
     .mask-content {
       margin: 0 20rpx;
+      input {
+        border: 1rpx solid #eee;
+        width: 100%;
+        line-height: 80rpx;
+        padding-left: 20rpx;
+        height: inherit;
+      }
     }
     .mask-btn-wrap {
       margin-top: 20rpx;
       display: flex;
       .mask-btn {
         border-top: 1rpx solid #eee;
-        line-height: 60rpx;
+        line-height: 90rpx;
         flex: 1;
       }
       .mask-btn-confirm {
@@ -191,6 +199,7 @@ page {
       align-items: center;
       input {
         flex: 1;
+        border: none;
       }
     }
     .icon-wenhao {
@@ -239,6 +248,45 @@ page {
       text-align: center;
       line-height: 37rpx;
       background-color: #09bb07;
+    }
+  }
+}
+
+.backimgs{
+  background-color: #fff;
+  .back-title {
+    font-size: 30rpx;
+    color: #2b2f41;
+  }
+  .btn-choose {
+    display: flex;
+    justify-content: space-around;
+    view {
+      width: 200rpx;
+      line-height: 60rpx;
+      border-radius: 15rpx;
+      background-color: #ccc;
+      color: #fff;
+      text-align: center;
+    }
+    view:nth-child(2) {
+      background-color: #0abb07;
+    }
+  }
+  .imgWrap {
+    margin-top: 40rpx;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    image {
+      margin: 10rpx 0;
+      width: 200rpx;
+      height: 100rpx;
+      transition: all 0.5s;
+    }
+    .chooseImg {
+      transform: scale(1.2);
+      box-shadow: 2rpx 2rpx 2rpx 2rpx #ccc;
     }
   }
 }

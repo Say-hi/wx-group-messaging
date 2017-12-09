@@ -22,8 +22,8 @@
   </view>
 </view>
 
-<button class="btn f30" type="primary">进入小程序</button>
-<button class="btn f30">推荐给朋友</button>
+<button bindtap="goIndex" class="btn f30" type="primary">进入小程序</button>
+<button open-type="share" class="btn f30">推荐给朋友</button>
         <!--错误弹窗-->
 <import src="../template/template"></import>
 <template wx:if="{{ toast.show }}" is="showToast" data="{{ ...toast }}"></template>

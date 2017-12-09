@@ -21,78 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="nameCard.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/nameCard/nameCard.xml">
+      <file leaf-file-name="index.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/index/index.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="55" column="98" lean-forward="false" selection-start-line="55" selection-start-column="93" selection-end-line="55" selection-end-column="98" />
-              <folding>
-                <element signature="n#view#0;n#!!top" expanded="false" />
-                <element signature="n#view#1;n#!!top" expanded="false" />
-                <element signature="n#view#2;n#!!top" expanded="false" />
-                <element signature="n#view#3;n#!!top" expanded="false" />
-                <element signature="n#view#5;n#!!top" expanded="false" />
-                <element signature="n#scroll-view#0;n#view#5;n#!!top" expanded="false" />
-                <element signature="n#view#0;n#view#5;n#!!top" expanded="false" />
-                <element signature="n#view#1;n#view#5;n#!!top" expanded="false" />
-                <element signature="n#view#6;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nameCard.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/nameCard/nameCard.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="200" column="20" lean-forward="true" selection-start-line="200" selection-start-column="20" selection-end-line="200" selection-end-column="20" />
-              <folding>
-                <element signature="e#5#37#0" expanded="false" />
-                <element signature="e#48#84#0" expanded="false" />
-                <element signature="e#92#836#0" expanded="false" />
-                <element signature="e#844#1459#0" expanded="false" />
-                <element signature="e#1474#1604#0" expanded="false" />
-                <element signature="e#1644#1732#0" expanded="false" />
-                <element signature="e#1752#1807#0" expanded="false" />
-                <element signature="e#1827#1861#0" expanded="false" />
-                <element signature="e#1868#1928#0" expanded="false" />
-                <element signature="e#1935#1964#0" expanded="false" />
-                <element signature="e#1974#2074#0" expanded="false" />
-                <element signature="e#2085#2681#0" expanded="false" />
-                <element signature="e#4370#5745#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="service.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/service.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="16" column="27" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="find.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/find/find.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="45" column="19" lean-forward="true" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="19" />
-              <folding>
-                <element signature="n#template#2;n#!!top" expanded="false" />
-                <element signature="n#template#3;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="qunMessageDetail.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/qunMessageDetail/qunMessageDetail.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="174" column="29" lean-forward="true" selection-start-line="174" selection-start-column="29" selection-end-line="174" selection-end-column="29" />
+            <state relative-caret-position="311">
+              <caret line="18" column="42" lean-forward="false" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -101,68 +34,103 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="149" column="8" lean-forward="true" selection-start-line="149" selection-start-column="8" selection-end-line="149" selection-end-column="8" />
+            <state relative-caret-position="518">
+              <caret line="106" column="27" lean-forward="true" selection-start-line="106" selection-start-column="27" selection-end-line="106" selection-end-column="27" />
               <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="e#2431#2488#0" expanded="false" />
-                <element signature="e#2516#2576#0" expanded="false" />
-                <element signature="e#2604#3065#0" expanded="false" />
-                <element signature="e#3096#3555#0" expanded="false" />
-                <element signature="e#5147#8726#0" expanded="false" />
-                <element signature="e#8760#8816#0" expanded="false" />
-                <element signature="e#8857#9011#0" expanded="false" />
-                <element signature="e#9045#9359#0" expanded="false" />
-                <element signature="e#9385#9717#0" expanded="false" />
-                <element signature="e#9756#10120#0" expanded="false" />
-                <element signature="e#10155#11093#0" expanded="false" />
-                <element signature="e#11124#11262#0" expanded="false" />
-                <element signature="e#11299#11382#0" expanded="false" />
-                <element signature="e#11425#11744#0" expanded="false" />
-                <element signature="e#11780#12039#0" expanded="false" />
-                <element signature="e#12072#12159#0" expanded="false" />
-                <element signature="e#12193#12322#0" expanded="false" />
-                <element signature="e#12347#12498#0" expanded="false" />
-                <element signature="e#12528#12589#0" expanded="false" />
+                <element signature="e#1732#1789#0" expanded="false" />
+                <element signature="e#1817#1877#0" expanded="false" />
+                <element signature="e#1905#2366#0" expanded="false" />
+                <element signature="e#3121#3580#0" expanded="false" />
+                <element signature="e#3610#6958#0" expanded="false" />
+                <element signature="e#3651#3702#0" expanded="false" />
+                <element signature="e#3835#3918#0" expanded="false" />
+                <element signature="e#3962#4009#0" expanded="false" />
+                <element signature="e#4050#4112#0" expanded="false" />
+                <element signature="e#7003#10826#0" expanded="false" />
+                <element signature="e#8796#8957#0" expanded="false" />
+                <element signature="e#10860#10916#0" expanded="false" />
+                <element signature="e#10957#11111#0" expanded="false" />
+                <element signature="e#11145#11459#0" expanded="false" />
+                <element signature="e#11485#11817#0" expanded="false" />
+                <element signature="e#11850#11887#0" expanded="false" />
+                <element signature="e#11926#12290#0" expanded="false" />
+                <element signature="e#12325#13353#0" expanded="false" />
+                <element signature="e#13384#13522#0" expanded="false" />
+                <element signature="e#13559#13642#0" expanded="false" />
+                <element signature="e#13685#14004#0" expanded="false" />
+                <element signature="e#14040#14299#0" expanded="false" />
+                <element signature="e#14332#14419#0" expanded="false" />
+                <element signature="e#14453#14582#0" expanded="false" />
+                <element signature="e#14607#14758#0" expanded="false" />
+                <element signature="e#14788#14849#0" expanded="false" />
+                <element signature="e#14893#14939#0" expanded="false" />
+                <element signature="e#14996#16230#0" expanded="false" />
+                <element signature="e#15046#15076#0" expanded="false" />
+                <element signature="e#15136#15304#0" expanded="false" />
+                <element signature="e#15323#16186#0" expanded="false" />
+                <element signature="e#15525#16171#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="find.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/find/find.js">
+      <file leaf-file-name="service.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="113" column="56" lean-forward="false" selection-start-line="113" selection-start-column="56" selection-end-line="113" selection-end-column="56" />
+            <state relative-caret-position="420">
+              <caret line="14" column="47" lean-forward="true" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="myQun.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/myQun/myQun.js">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/index/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="10" column="36" lean-forward="true" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+            <state relative-caret-position="620">
+              <caret line="155" column="47" lean-forward="true" selection-start-line="155" selection-start-column="47" selection-end-line="155" selection-end-column="47" />
               <folding>
-                <element signature="e#173#492#0" expanded="false" />
-                <element signature="e#1047#1477#0" expanded="false" />
-                <element signature="e#1500#2083#0" expanded="false" />
-                <element signature="e#2878#3302#0" expanded="false" />
-                <element signature="e#3310#3870#0" expanded="false" />
-                <element signature="e#3878#4438#0" expanded="false" />
-                <element signature="e#4446#4854#0" expanded="false" />
-                <element signature="e#4913#6554#0" expanded="false" />
+                <element signature="e#136#346#0" expanded="false" />
+                <element signature="e#373#651#0" expanded="false" />
+                <element signature="e#680#940#0" expanded="false" />
+                <element signature="e#970#1366#0" expanded="false" />
+                <element signature="e#1853#2240#0" expanded="false" />
+                <element signature="e#2267#2975#0" expanded="false" />
+                <element signature="e#3005#3051#0" expanded="false" />
+                <element signature="e#3075#3248#0" expanded="false" />
+                <element signature="e#5246#5662#0" expanded="false" />
+                <element signature="e#5690#5726#0" expanded="false" />
+                <element signature="e#5905#6226#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nameCard.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/nameCard/nameCard.js">
+      <file leaf-file-name="createQun.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/createQun/createQun.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="356" column="27" lean-forward="true" selection-start-line="356" selection-start-column="27" selection-end-line="356" selection-end-column="27" />
+            <state relative-caret-position="286">
+              <caret line="274" column="8" lean-forward="true" selection-start-line="274" selection-start-column="8" selection-end-line="274" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="writeQun.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/writeQun/writeQun.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="211">
+              <caret line="74" column="19" lean-forward="false" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.less" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/index/index.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -171,13 +139,47 @@
       <file leaf-file-name="myQun.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/myQun/myQun.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
-              <caret line="240" column="103" lean-forward="true" selection-start-line="240" selection-start-column="103" selection-end-line="240" selection-end-column="103" />
+            <state relative-caret-position="2040">
+              <caret line="68" column="22" lean-forward="false" selection-start-line="68" selection-start-column="22" selection-end-line="68" selection-end-column="22" />
               <folding>
-                <element signature="n#view#0;n#view#11;n#!!top" expanded="false" />
+                <element signature="n#view#10;n#!!top" expanded="false" />
+                <element signature="n#view#11;n#!!top" expanded="false" />
                 <element signature="n#view#12;n#!!top" expanded="false" />
+                <element signature="n#view#13;n#!!top" expanded="false" />
                 <element signature="n#template#0;n#!!top" expanded="false" />
                 <element signature="n#template#1;n#!!top" expanded="false" />
+                <element signature="n#template#2;n#!!top" expanded="false" />
+                <element signature="n#view#2;n#view#1;n#view#0;n#template#2;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addressList.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/addressList/addressList.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1500">
+              <caret line="50" column="13" lean-forward="false" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
+              <folding>
+                <element signature="n#view#1;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="createQun.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/createQun/createQun.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="91" column="41" lean-forward="false" selection-start-line="91" selection-start-column="41" selection-end-line="91" selection-end-column="41" />
+              <folding>
+                <element signature="n#view#0;n#!!top" expanded="false" />
+                <element signature="n#view#0;n#view#0;n#!!top" expanded="false" />
+                <element signature="n#view#1;n#!!top" expanded="false" />
+                <element signature="n#view#2;n#!!top" expanded="false" />
+                <element signature="n#view#3;n#!!top" expanded="false" />
+                <element signature="n#view#0;n#view#3;n#!!top" expanded="false" />
+                <element signature="n#view#1;n#view#3;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -194,36 +196,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>comment</find>
-      <find>chooseIndex</find>
-      <find>ell2</find>
-      <find>dz-c-wrap</find>
-      <find>dz</find>
-      <find>goDetail</find>
+      <find>userCenterInfo</find>
+      <find>getUserNameCard</find>
+      <find>showImg</find>
+      <find>is_has_card</find>
+      <find>showCreateMP</find>
+      <find>shareQun</find>
+      <find>accoun</find>
+      <find>message-count</find>
+      <find>bottom-op</find>
+      <find>goNext</find>
       <find>b-s</find>
-      <find>showQun</find>
-      <find>f24</find>
-      <find>icon-dui</find>
-      <find>b-s-n</find>
-      <find>b-s-c</find>
-      <find>mpOp</find>
-      <find>releaseQun</find>
-      <find>.zw</find>
-      <find>name</find>
-      <find>right-i-w</find>
-      <find>gzh</find>
-      <find>addQun</find>
-      <find>manageArr</find>
-      <find>mask</find>
-      <find>setmor</find>
-      <find>&quot;</find>
-      <find>share</find>
-      <find>btnChoose</find>
-      <find>back</find>
-      <find>onlo</find>
-      <find>gn</find>
-      <find>showPageFive</find>
-      <find>money</find>
+      <find>geth</find>
+      <find>getMessageList</find>
+      <find>onsho</find>
+      <find>uplo</find>
+      <find>switchChange</find>
+      <find>f-img</find>
+      <find>getMyQunLists</find>
+      <find>create</find>
+      <find>crea</find>
+      <find>getmyq</find>
+      <find>getGroupCategoryLists</find>
+      <find>edit</find>
+      <find>moneyPay</find>
+      <find>cover</find>
+      <find>imgWrap</find>
+      <find>chooseBackImg</find>
+      <find>outQun</find>
+      <find>goadd</find>
+      <find>joinArr</find>
     </findStrings>
     <replaceStrings>
       <replace>cover-view</replace>
@@ -239,61 +241,69 @@
       <replace>''</replace>
       <replace>icon-lingdang</replace>
       <replace>'</replace>
+      <replace>is_likes</replace>
+      <replace>is_likes[0].lists</replace>
+      <replace>comments</replace>
+      <replace>dzItem.user_id</replace>
+      <replace>that</replace>
+      <replace>infoDetail</replace>
+      <replace>options</replace>
+      <replace>is_top == 1</replace>
     </replaceStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pages/permission/permission.xml" />
-        <option value="$PROJECT_DIR$/pages/qunClassify/qunClassify.js" />
-        <option value="$PROJECT_DIR$/pages/qunClassify/qunClassify.xml" />
-        <option value="$PROJECT_DIR$/pages/search/search.json" />
-        <option value="$PROJECT_DIR$/pages/qunClassify/qunClassify.less" />
-        <option value="$PROJECT_DIR$/pages/manageQun/manageQun.json" />
-        <option value="$PROJECT_DIR$/pages/createQun/createQun.js" />
-        <option value="$PROJECT_DIR$/pages/createQun/createQun.xml" />
-        <option value="$PROJECT_DIR$/pages/createQun/createQun.less" />
-        <option value="$PROJECT_DIR$/pages/addQun/addQun.json" />
-        <option value="$PROJECT_DIR$/pages/index/index.xml" />
-        <option value="$PROJECT_DIR$/pages/qunMessageDetail/qunMessageDetail.json" />
-        <option value="$PROJECT_DIR$/pages/qunMessageDetail/qunMessageDetail.less" />
-        <option value="$PROJECT_DIR$/pages/qunMessageDetail/qunMessageDetail.js" />
-        <option value="$PROJECT_DIR$/pages/myQun/myQun.json" />
-        <option value="$PROJECT_DIR$/pages/index/index.js" />
-        <option value="$PROJECT_DIR$/pages/writeQun/writeQun.json" />
-        <option value="$PROJECT_DIR$/pages/writeQun/writeQun.less" />
-        <option value="$PROJECT_DIR$/pages/writeQun/writeQun.xml" />
-        <option value="$PROJECT_DIR$/pages/writeQun/writeQun.js" />
-        <option value="$PROJECT_DIR$/pages/addressList/addressList.json" />
-        <option value="$PROJECT_DIR$/pages/search/search.less" />
-        <option value="$PROJECT_DIR$/pages/search/search.xml" />
+        <option value="$PROJECT_DIR$/wxParse/wxParse.js" />
+        <option value="$PROJECT_DIR$/wxParse/wxParse.wxml" />
+        <option value="$PROJECT_DIR$/pages/nameCard/nameCard.less" />
+        <option value="$PROJECT_DIR$/pages/manageQun/manageQun.less" />
+        <option value="$PROJECT_DIR$/pages/createNameCard/createNameCard.js" />
+        <option value="$PROJECT_DIR$/pages/classify/classify.js" />
+        <option value="$PROJECT_DIR$/pages/addQun/addQun.less" />
+        <option value="$PROJECT_DIR$/pages/nameCard/nameCard.xml" />
         <option value="$PROJECT_DIR$/pages/search/search.js" />
-        <option value="$PROJECT_DIR$/pages/myQun/myQun.less" />
-        <option value="$PROJECT_DIR$/pages/addressList/addressList.less" />
-        <option value="$PROJECT_DIR$/pages/addressList/addressList.xml" />
-        <option value="$PROJECT_DIR$/pages/addressList/addressList.js" />
-        <option value="$PROJECT_DIR$/pages/permission/permission.js" />
-        <option value="$PROJECT_DIR$/pages/template/template.xml" />
+        <option value="$PROJECT_DIR$/pages/manageQun/manageQun.js" />
+        <option value="$PROJECT_DIR$/pages/manageQun/manageQun.xml" />
+        <option value="$PROJECT_DIR$/pages/addQun/addQun.xml" />
+        <option value="$PROJECT_DIR$/pages/kefu/kefu.xml" />
+        <option value="$PROJECT_DIR$/pages/kefu/kefu.js" />
+        <option value="$PROJECT_DIR$/pages/user/user.less" />
+        <option value="$PROJECT_DIR$/pages/userHelp/userHelp.json" />
+        <option value="$PROJECT_DIR$/pages/userHelp/userHelp.xml" />
+        <option value="$PROJECT_DIR$/pages/userHelp/userHelp.less" />
+        <option value="$PROJECT_DIR$/pages/nameCard/nameCard.js" />
+        <option value="$PROJECT_DIR$/pages/aboutQun/aboutQun.xml" />
+        <option value="$PROJECT_DIR$/pages/qunMessageDetail/qunMessageDetail.xml" />
+        <option value="$PROJECT_DIR$/pages/qunMessageDetail/qunMessageDetail.js" />
+        <option value="$PROJECT_DIR$/pages/wallet/wallet.xml" />
+        <option value="$PROJECT_DIR$/pages/aboutQun/aboutQun.js" />
+        <option value="$PROJECT_DIR$/pages/message/message.less" />
+        <option value="$PROJECT_DIR$/app.less" />
+        <option value="$PROJECT_DIR$/pages/find/find.js" />
+        <option value="$PROJECT_DIR$/pages/find/find.xml" />
         <option value="$PROJECT_DIR$/pages/user/user.js" />
         <option value="$PROJECT_DIR$/pages/user/user.xml" />
-        <option value="$PROJECT_DIR$/app.less" />
-        <option value="$PROJECT_DIR$/pages/addQun/addQun.less" />
-        <option value="$PROJECT_DIR$/pages/addQun/addQun.js" />
-        <option value="$PROJECT_DIR$/pages/addQun/addQun.xml" />
-        <option value="$PROJECT_DIR$/pages/manageQun/manageQun.less" />
-        <option value="$PROJECT_DIR$/pages/manageQun/manageQun.xml" />
-        <option value="$PROJECT_DIR$/pages/manageQun/manageQun.js" />
+        <option value="$PROJECT_DIR$/pages/wallet/wallet.js" />
+        <option value="$PROJECT_DIR$/pages/myQun/myQun.less" />
+        <option value="$PROJECT_DIR$/pages/addressList/addressList.less" />
+        <option value="$PROJECT_DIR$/pages/message/message.xml" />
+        <option value="$PROJECT_DIR$/pages/message/message.js" />
+        <option value="$PROJECT_DIR$/pages/writeQun/writeQun.xml" />
+        <option value="$PROJECT_DIR$/pages/writeQun/writeQun.js" />
+        <option value="$PROJECT_DIR$/pages/qunMessageDetail/qunMessageDetail.less" />
+        <option value="$PROJECT_DIR$/pages/addressList/addressList.js" />
+        <option value="$PROJECT_DIR$/pages/createQun/createQun.less" />
+        <option value="$PROJECT_DIR$/pages/createQun/createQun.xml" />
         <option value="$PROJECT_DIR$/app.json" />
-        <option value="$PROJECT_DIR$/utils/common.js" />
-        <option value="$PROJECT_DIR$/pages/find/find.xml" />
-        <option value="$PROJECT_DIR$/pages/find/find.js" />
-        <option value="$PROJECT_DIR$/pages/qunMessageDetail/qunMessageDetail.xml" />
-        <option value="$PROJECT_DIR$/pages/nameCard/nameCard.xml" />
-        <option value="$PROJECT_DIR$/pages/nameCard/nameCard.js" />
-        <option value="$PROJECT_DIR$/pages/myQun/myQun.xml" />
+        <option value="$PROJECT_DIR$/pages/addQun/addQun.js" />
         <option value="$PROJECT_DIR$/pages/myQun/myQun.js" />
-        <option value="$PROJECT_DIR$/pages/nameCard/nameCard.less" />
         <option value="$PROJECT_DIR$/utils/service.js" />
+        <option value="$PROJECT_DIR$/pages/index/index.xml" />
+        <option value="$PROJECT_DIR$/pages/myQun/myQun.xml" />
+        <option value="$PROJECT_DIR$/pages/addressList/addressList.xml" />
+        <option value="$PROJECT_DIR$/pages/index/index.js" />
+        <option value="$PROJECT_DIR$/pages/createQun/createQun.js" />
         <option value="$PROJECT_DIR$/app.js" />
       </list>
     </option>
@@ -311,8 +321,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="511" />
-    <option name="width" value="1409" />
+    <option name="x" value="585" />
+    <option name="y" value="2" />
+    <option name="width" value="1246" />
     <option name="height" value="1050" />
   </component>
   <component name="ProjectView">
@@ -330,8 +341,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -357,6 +368,42 @@
               <option name="myItemId" value="pages" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="writeQun" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="createQun" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -373,13 +420,15 @@
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\renma-work\wx-EnglishCopy\for-use\src\pages" />
-      <recent name="F:\renma-work\wx-weishangzao\for-use\src\utils" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\renma-work\wx-weishangzao\for-use\src\utils" />
       <recent name="F:\renma-work\wx-weishangzao\for-use\src\pages\template" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\renma-work\wx-group-messaging\for-use\src\images" />
+      <recent name="F:\renma-work\wx-group-messaging\for-use\src\pages\kefu" />
+      <recent name="F:\renma-work\wx-EnglishCopy\for-use\src\pages" />
+      <recent name="F:\renma-work\wx-weishangzao\for-use\src\utils" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -569,24 +618,44 @@
       <workItem from="1510037979299" duration="67000" />
       <workItem from="1510279046500" duration="3075000" />
       <workItem from="1510363325100" duration="11112000" />
+      <workItem from="1510536995275" duration="16515000" />
+      <workItem from="1510623067814" duration="31186000" />
+      <workItem from="1510710657640" duration="24013000" />
+      <workItem from="1510796091154" duration="29564000" />
+      <workItem from="1510881491168" duration="23497000" />
+      <workItem from="1511141107078" duration="25112000" />
+      <workItem from="1511229804905" duration="6193000" />
+      <workItem from="1511243967245" duration="12825000" />
+      <workItem from="1511323426713" duration="22051000" />
+      <workItem from="1511400464542" duration="22680000" />
+      <workItem from="1511487920399" duration="8286000" />
+      <workItem from="1511503162213" duration="12267000" />
+      <workItem from="1511574147517" duration="6111000" />
+      <workItem from="1511772775244" duration="4776000" />
+      <workItem from="1512021639418" duration="6927000" />
+      <workItem from="1512100153063" duration="11323000" />
+      <workItem from="1512366670544" duration="11566000" />
+      <workItem from="1512609383448" duration="2639000" />
+      <workItem from="1512721016758" duration="1119000" />
+      <workItem from="1512786112385" duration="1872000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1055228000" />
+    <option name="totallyTimeSpent" value="1335750000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="511" y="0" width="1409" height="1050" extended-state="0" />
+    <frame x="585" y="2" width="1246" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16776076" sideWeight="0.4943274" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20115894" sideWeight="0.48825502" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39651415" sideWeight="0.5037037" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973711" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24836601" sideWeight="0.4962963" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2161702" sideWeight="0.50567263" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29302832" sideWeight="0.4962963" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1042654" sideWeight="0.511745" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -623,43 +692,367 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="127" />
+      <option name="time" value="209" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pages/find/find.less">
+    <entry file="file://$PROJECT_DIR$/pages/search/search.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="132" selection-end-column="1" />
+        <state relative-caret-position="330">
+          <caret line="11" column="15" lean-forward="false" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/qunMessageDetail/qunMessageDetail.json">
+    <entry file="file://$PROJECT_DIR$/pages/manageQun/manageQun.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="793">
+          <caret line="401" column="23" lean-forward="false" selection-start-line="401" selection-start-column="23" selection-end-line="401" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/manageQun/manageQun.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="7" column="99" lean-forward="true" selection-start-line="7" selection-start-column="99" selection-end-line="7" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/wallet/wallet.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/kefu/kefu.less" />
+    <entry file="file://$PROJECT_DIR$/pages/kefu/kefu.json" />
+    <entry file="file://$PROJECT_DIR$/pages/kefu/kefu.xml" />
+    <entry file="file://$PROJECT_DIR$/pages/kefu/kefu.js" />
+    <entry file="file://$PROJECT_DIR$/pages/userHelp/userHelp.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="2" column="1" lean-forward="false" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/qunMessageDetail/qunMessageDetail.less">
+    <entry file="file://$PROJECT_DIR$/pages/userHelp/userHelp.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="256" column="8" lean-forward="false" selection-start-line="256" selection-start-column="8" selection-end-line="256" selection-end-column="8" />
+        <state relative-caret-position="210">
+          <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/userHelp/userHelp.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="10" column="24" lean-forward="false" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/user/user.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3480">
+          <caret line="116" column="30" lean-forward="false" selection-start-line="116" selection-start-column="30" selection-end-line="116" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/nameCard/nameCard.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3720">
+          <caret line="124" column="35" lean-forward="true" selection-start-line="124" selection-start-column="35" selection-end-line="124" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/nameCard/nameCard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="200" column="43" lean-forward="true" selection-start-line="200" selection-start-column="27" selection-end-line="200" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/aboutQun/aboutQun.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/qunMessageDetail/qunMessageDetail.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="497" column="11" lean-forward="false" selection-start-line="497" selection-start-column="11" selection-end-line="497" selection-end-column="11" />
+        <state relative-caret-position="346">
+          <caret line="330" column="19" lean-forward="true" selection-start-line="330" selection-start-column="19" selection-end-line="330" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/addQun/addQun.json">
+    <entry file="file://$PROJECT_DIR$/pages/wallet/wallet.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="1" lean-forward="false" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+        <state relative-caret-position="200">
+          <caret line="14" column="25" lean-forward="false" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/user/user.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/message/message.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/find/find.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="101" column="25" lean-forward="false" selection-start-line="101" selection-start-column="25" selection-end-line="101" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/find/find.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="62" column="2" lean-forward="false" selection-start-line="62" selection-start-column="2" selection-end-line="66" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/user/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="141" column="11" lean-forward="false" selection-start-line="141" selection-start-column="2" selection-end-line="141" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/user/user.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="28" column="25" lean-forward="false" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/aboutQun/aboutQun.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="10" column="53" lean-forward="false" selection-start-line="10" selection-start-column="53" selection-end-line="10" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="348" column="14" lean-forward="false" selection-start-line="348" selection-start-column="1" selection-end-line="348" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/wallet/wallet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1050">
+          <caret line="66" column="82" lean-forward="false" selection-start-line="66" selection-start-column="82" selection-end-line="66" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/addressList/addressList.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="194" column="0" lean-forward="true" selection-start-line="194" selection-start-column="0" selection-end-line="194" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/message/message.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="9" column="51" lean-forward="true" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/message/message.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-543">
+          <caret line="42" column="28" lean-forward="false" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/writeQun/writeQun.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="29" column="64" lean-forward="true" selection-start-line="29" selection-start-column="64" selection-end-line="29" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/writeQun/writeQun.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="11" column="7" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/qunMessageDetail/qunMessageDetail.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="36" column="24" lean-forward="false" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/qunMessageDetail/qunMessageDetail.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="63" column="22" lean-forward="true" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/addressList/addressList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="128" column="8" lean-forward="true" selection-start-line="128" selection-start-column="8" selection-end-line="128" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/myQun/myQun.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="4" column="15" lean-forward="false" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/moment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/createQun/createQun.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="277" column="18" lean-forward="true" selection-start-line="277" selection-start-column="18" selection-end-line="277" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="4" column="40" lean-forward="false" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/addQun/addQun.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="11" column="36" lean-forward="false" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="36" />
+          <folding>
+            <element signature="n#view#6;n#!!top" expanded="false" />
+            <element signature="n#template#0;n#!!top" expanded="false" />
+            <element signature="n#template#1;n#!!top" expanded="false" />
+            <element signature="n#template#2;n#!!top" expanded="false" />
+            <element signature="n#view#7;n#!!top" expanded="false" />
+            <element signature="n#view#9;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/addQun/addQun.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1290">
+          <caret line="126" column="42" lean-forward="false" selection-start-line="126" selection-start-column="42" selection-end-line="126" selection-end-column="42" />
+          <folding>
+            <element signature="e#349#634#0" expanded="false" />
+            <element signature="e#662#923#0" expanded="false" />
+            <element signature="e#882#912#0" expanded="false" />
+            <element signature="e#952#1161#0" expanded="false" />
+            <element signature="e#1184#1233#0" expanded="false" />
+            <element signature="e#1259#1399#0" expanded="false" />
+            <element signature="e#1419#1468#0" expanded="false" />
+            <element signature="e#1495#1729#0" expanded="false" />
+            <element signature="e#1757#1924#0" expanded="false" />
+            <element signature="e#1949#2131#0" expanded="false" />
+            <element signature="e#2162#2313#0" expanded="false" />
+            <element signature="e#2341#2433#0" expanded="false" />
+            <element signature="e#2462#2490#0" expanded="false" />
+            <element signature="e#2923#3534#0" expanded="false" />
+            <element signature="e#4235#4815#0" expanded="false" />
+            <element signature="e#4837#5005#0" expanded="false" />
+            <element signature="e#5227#5260#0" expanded="false" />
+            <element signature="e#5309#5999#0" expanded="false" />
+            <element signature="e#6039#6321#0" expanded="false" />
+            <element signature="e#6342#6395#0" expanded="false" />
+            <element signature="e#6423#6921#0" expanded="false" />
+            <element signature="e#7024#7346#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/myQun/myQun.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2520">
+          <caret line="304" column="55" lean-forward="false" selection-start-line="304" selection-start-column="55" selection-end-line="304" selection-end-column="55" />
+          <folding>
+            <element signature="e#367#379#0" expanded="false" />
+            <element signature="e#660#1774#0" expanded="false" />
+            <element signature="e#1814#2408#0" expanded="false" />
+            <element signature="e#2441#4280#0" expanded="false" />
+            <element signature="e#2514#2728#0" expanded="false" />
+            <element signature="e#4309#5031#0" expanded="false" />
+            <element signature="e#5288#5498#0" expanded="false" />
+            <element signature="e#5527#5742#0" expanded="false" />
+            <element signature="e#5769#6480#0" expanded="false" />
+            <element signature="e#6500#6549#0" expanded="false" />
+            <element signature="e#6576#6810#0" expanded="false" />
+            <element signature="e#6838#7005#0" expanded="false" />
+            <element signature="e#7345#7687#0" expanded="false" />
+            <element signature="e#7929#7999#0" expanded="false" />
+            <element signature="e#8025#8094#0" expanded="false" />
+            <element signature="e#8125#8477#0" expanded="false" />
+            <element signature="e#8982#9635#0" expanded="false" />
+            <element signature="e#10415#10603#0" expanded="false" />
+            <element signature="e#10652#11342#0" expanded="false" />
+            <element signature="e#11377#11965#0" expanded="false" />
+            <element signature="e#12002#12412#0" expanded="false" />
+            <element signature="e#12443#12579#0" expanded="false" />
+            <element signature="e#12607#12901#0" expanded="false" />
+            <element signature="e#12937#13400#0" expanded="false" />
+            <element signature="e#13428#13973#0" expanded="false" />
+            <element signature="e#14008#14584#0" expanded="false" />
+            <element signature="e#14610#15120#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/myQun/myQun.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2040">
+          <caret line="68" column="22" lean-forward="false" selection-start-line="68" selection-start-column="22" selection-end-line="68" selection-end-column="22" />
+          <folding>
+            <element signature="n#view#10;n#!!top" expanded="false" />
+            <element signature="n#view#11;n#!!top" expanded="false" />
+            <element signature="n#view#12;n#!!top" expanded="false" />
+            <element signature="n#view#13;n#!!top" expanded="false" />
+            <element signature="n#template#0;n#!!top" expanded="false" />
+            <element signature="n#template#1;n#!!top" expanded="false" />
+            <element signature="n#template#2;n#!!top" expanded="false" />
+            <element signature="n#view#2;n#view#1;n#view#0;n#template#2;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/addressList/addressList.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1500">
+          <caret line="50" column="13" lean-forward="false" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
+          <folding>
+            <element signature="n#view#1;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="14" column="47" lean-forward="true" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -667,425 +1060,107 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/index/index.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/writeQun/writeQun.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/writeQun/writeQun.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" column="30" lean-forward="false" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/writeQun/writeQun.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/writeQun/writeQun.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="47" column="35" lean-forward="false" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/search/search.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/index/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="13" column="86" lean-forward="true" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/search/search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="18" column="20" lean-forward="false" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/search/search.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-810">
-          <caret line="6" column="23" lean-forward="true" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/search/search.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/myQun/myQun.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="2" column="1" lean-forward="false" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/addressList/addressList.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="3" column="32" lean-forward="false" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/myQun/myQun.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="392" column="5" lean-forward="true" selection-start-line="392" selection-start-column="5" selection-end-line="392" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/addressList/addressList.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="60" column="26" lean-forward="false" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/addressList/addressList.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="185" column="19" lean-forward="false" selection-start-line="185" selection-start-column="19" selection-end-line="185" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/addressList/addressList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="141" column="22" lean-forward="false" selection-start-line="141" selection-start-column="22" selection-end-line="141" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/permission/permission.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="5" column="9" lean-forward="true" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/permission/permission.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/user/user.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/user/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="51" column="4" lean-forward="true" selection-start-line="43" selection-start-column="1" selection-end-line="51" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/user/user.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="25" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/addQun/addQun.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="370" column="11" lean-forward="true" selection-start-line="370" selection-start-column="11" selection-end-line="370" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/addQun/addQun.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="180" column="20" lean-forward="true" selection-start-line="180" selection-start-column="20" selection-end-line="180" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/manageQun/manageQun.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/manageQun/manageQun.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
-          <caret line="157" column="26" lean-forward="true" selection-start-line="157" selection-start-column="26" selection-end-line="157" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/manageQun/manageQun.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="69" column="31" lean-forward="false" selection-start-line="69" selection-start-column="20" selection-end-line="69" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/manageQun/manageQun.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="120" column="21" lean-forward="true" selection-start-line="120" selection-start-column="21" selection-end-line="120" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/addQun/addQun.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
-          <caret line="241" column="26" lean-forward="false" selection-start-line="241" selection-start-column="26" selection-end-line="241" selection-end-column="26" />
-          <folding>
-            <element signature="n#view#0;n#!!top" expanded="false" />
-            <element signature="n#view#2;n#!!top" expanded="false" />
-            <element signature="n#view#6;n#!!top" expanded="false" />
-            <element signature="n#template#0;n#!!top" expanded="false" />
-            <element signature="n#template#1;n#!!top" expanded="false" />
-            <element signature="n#template#2;n#!!top" expanded="false" />
-            <element signature="n#view#7;n#!!top" expanded="false" />
-            <marker date="1509959845646" expanded="true" signature="10696:10704" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/createQun/createQun.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="12" lean-forward="true" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/index/index.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="38" column="12" lean-forward="false" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
+        <state relative-caret-position="311">
+          <caret line="18" column="42" lean-forward="false" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.less">
+    <entry file="file://$PROJECT_DIR$/pages/index/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6750">
-          <caret line="225" column="0" lean-forward="false" selection-start-line="225" selection-start-column="0" selection-end-line="302" selection-end-column="1" />
+        <state relative-caret-position="620">
+          <caret line="155" column="47" lean-forward="true" selection-start-line="155" selection-start-column="47" selection-end-line="155" selection-end-column="47" />
           <folding>
-            <element signature="e#3444#4894#0" expanded="false" />
-            <element signature="e#3497#4257#0" expanded="false" />
-            <element signature="e#3704#3780#0" expanded="false" />
-            <element signature="e#3797#3845#0" expanded="false" />
-            <element signature="e#3859#3909#0" expanded="false" />
-            <element signature="e#3928#4004#0" expanded="false" />
-            <element signature="e#4018#4099#0" expanded="false" />
-            <element signature="e#4109#4253#0" expanded="false" />
-            <element signature="e#4267#4424#0" expanded="false" />
-            <element signature="e#4900#4940#0" expanded="false" />
-            <element signature="e#5068#24989#1" expanded="false" />
+            <element signature="e#136#346#0" expanded="false" />
+            <element signature="e#373#651#0" expanded="false" />
+            <element signature="e#680#940#0" expanded="false" />
+            <element signature="e#970#1366#0" expanded="false" />
+            <element signature="e#1853#2240#0" expanded="false" />
+            <element signature="e#2267#2975#0" expanded="false" />
+            <element signature="e#3005#3051#0" expanded="false" />
+            <element signature="e#3075#3248#0" expanded="false" />
+            <element signature="e#5246#5662#0" expanded="false" />
+            <element signature="e#5690#5726#0" expanded="false" />
+            <element signature="e#5905#6226#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/template/template.xml">
+    <entry file="file://$PROJECT_DIR$/pages/createQun/createQun.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="4" column="31" lean-forward="true" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="8" column="43" lean-forward="false" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
-          <folding>
-            <element signature="e#186#1630#0" expanded="false" />
-            <element signature="e#1682#1845#0" expanded="false" />
-            <element signature="e#1887#2158#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/find/find.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/find/find.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="113" column="56" lean-forward="false" selection-start-line="113" selection-start-column="56" selection-end-line="113" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/find/find.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="45" column="19" lean-forward="true" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="19" />
-          <folding>
-            <element signature="n#template#2;n#!!top" expanded="false" />
-            <element signature="n#template#3;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/qunMessageDetail/qunMessageDetail.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="174" column="29" lean-forward="true" selection-start-line="174" selection-start-column="29" selection-end-line="174" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/nameCard/nameCard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="356" column="27" lean-forward="true" selection-start-line="356" selection-start-column="27" selection-end-line="356" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/myQun/myQun.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="240" column="103" lean-forward="true" selection-start-line="240" selection-start-column="103" selection-end-line="240" selection-end-column="103" />
-          <folding>
-            <element signature="n#view#0;n#view#11;n#!!top" expanded="false" />
-            <element signature="n#view#12;n#!!top" expanded="false" />
-            <element signature="n#template#0;n#!!top" expanded="false" />
-            <element signature="n#template#1;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/myQun/myQun.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="10" column="36" lean-forward="true" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
-          <folding>
-            <element signature="e#173#492#0" expanded="false" />
-            <element signature="e#1047#1477#0" expanded="false" />
-            <element signature="e#1500#2083#0" expanded="false" />
-            <element signature="e#2878#3302#0" expanded="false" />
-            <element signature="e#3310#3870#0" expanded="false" />
-            <element signature="e#3878#4438#0" expanded="false" />
-            <element signature="e#4446#4854#0" expanded="false" />
-            <element signature="e#4913#6554#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/nameCard/nameCard.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="55" column="98" lean-forward="false" selection-start-line="55" selection-start-column="93" selection-end-line="55" selection-end-column="98" />
+        <state relative-caret-position="360">
+          <caret line="91" column="41" lean-forward="false" selection-start-line="91" selection-start-column="41" selection-end-line="91" selection-end-column="41" />
           <folding>
             <element signature="n#view#0;n#!!top" expanded="false" />
+            <element signature="n#view#0;n#view#0;n#!!top" expanded="false" />
             <element signature="n#view#1;n#!!top" expanded="false" />
             <element signature="n#view#2;n#!!top" expanded="false" />
             <element signature="n#view#3;n#!!top" expanded="false" />
-            <element signature="n#view#5;n#!!top" expanded="false" />
-            <element signature="n#scroll-view#0;n#view#5;n#!!top" expanded="false" />
-            <element signature="n#view#0;n#view#5;n#!!top" expanded="false" />
-            <element signature="n#view#1;n#view#5;n#!!top" expanded="false" />
-            <element signature="n#view#6;n#!!top" expanded="false" />
+            <element signature="n#view#0;n#view#3;n#!!top" expanded="false" />
+            <element signature="n#view#1;n#view#3;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/nameCard/nameCard.less">
+    <entry file="file://$PROJECT_DIR$/pages/createQun/createQun.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="200" column="20" lean-forward="true" selection-start-line="200" selection-start-column="20" selection-end-line="200" selection-end-column="20" />
-          <folding>
-            <element signature="e#5#37#0" expanded="false" />
-            <element signature="e#48#84#0" expanded="false" />
-            <element signature="e#92#836#0" expanded="false" />
-            <element signature="e#844#1459#0" expanded="false" />
-            <element signature="e#1474#1604#0" expanded="false" />
-            <element signature="e#1644#1732#0" expanded="false" />
-            <element signature="e#1752#1807#0" expanded="false" />
-            <element signature="e#1827#1861#0" expanded="false" />
-            <element signature="e#1868#1928#0" expanded="false" />
-            <element signature="e#1935#1964#0" expanded="false" />
-            <element signature="e#1974#2074#0" expanded="false" />
-            <element signature="e#2085#2681#0" expanded="false" />
-            <element signature="e#4370#5745#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="286">
+          <caret line="274" column="8" lean-forward="true" selection-start-line="274" selection-start-column="8" selection-end-line="274" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/service.js">
+    <entry file="file://$PROJECT_DIR$/pages/writeQun/writeQun.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="16" column="27" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+        <state relative-caret-position="211">
+          <caret line="74" column="19" lean-forward="false" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="149" column="8" lean-forward="true" selection-start-line="149" selection-start-column="8" selection-end-line="149" selection-end-column="8" />
+        <state relative-caret-position="518">
+          <caret line="106" column="27" lean-forward="true" selection-start-line="106" selection-start-column="27" selection-end-line="106" selection-end-column="27" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#2431#2488#0" expanded="false" />
-            <element signature="e#2516#2576#0" expanded="false" />
-            <element signature="e#2604#3065#0" expanded="false" />
-            <element signature="e#3096#3555#0" expanded="false" />
-            <element signature="e#5147#8726#0" expanded="false" />
-            <element signature="e#8760#8816#0" expanded="false" />
-            <element signature="e#8857#9011#0" expanded="false" />
-            <element signature="e#9045#9359#0" expanded="false" />
-            <element signature="e#9385#9717#0" expanded="false" />
-            <element signature="e#9756#10120#0" expanded="false" />
-            <element signature="e#10155#11093#0" expanded="false" />
-            <element signature="e#11124#11262#0" expanded="false" />
-            <element signature="e#11299#11382#0" expanded="false" />
-            <element signature="e#11425#11744#0" expanded="false" />
-            <element signature="e#11780#12039#0" expanded="false" />
-            <element signature="e#12072#12159#0" expanded="false" />
-            <element signature="e#12193#12322#0" expanded="false" />
-            <element signature="e#12347#12498#0" expanded="false" />
-            <element signature="e#12528#12589#0" expanded="false" />
+            <element signature="e#1732#1789#0" expanded="false" />
+            <element signature="e#1817#1877#0" expanded="false" />
+            <element signature="e#1905#2366#0" expanded="false" />
+            <element signature="e#3121#3580#0" expanded="false" />
+            <element signature="e#3610#6958#0" expanded="false" />
+            <element signature="e#3651#3702#0" expanded="false" />
+            <element signature="e#3835#3918#0" expanded="false" />
+            <element signature="e#3962#4009#0" expanded="false" />
+            <element signature="e#4050#4112#0" expanded="false" />
+            <element signature="e#7003#10826#0" expanded="false" />
+            <element signature="e#8796#8957#0" expanded="false" />
+            <element signature="e#10860#10916#0" expanded="false" />
+            <element signature="e#10957#11111#0" expanded="false" />
+            <element signature="e#11145#11459#0" expanded="false" />
+            <element signature="e#11485#11817#0" expanded="false" />
+            <element signature="e#11850#11887#0" expanded="false" />
+            <element signature="e#11926#12290#0" expanded="false" />
+            <element signature="e#12325#13353#0" expanded="false" />
+            <element signature="e#13384#13522#0" expanded="false" />
+            <element signature="e#13559#13642#0" expanded="false" />
+            <element signature="e#13685#14004#0" expanded="false" />
+            <element signature="e#14040#14299#0" expanded="false" />
+            <element signature="e#14332#14419#0" expanded="false" />
+            <element signature="e#14453#14582#0" expanded="false" />
+            <element signature="e#14607#14758#0" expanded="false" />
+            <element signature="e#14788#14849#0" expanded="false" />
+            <element signature="e#14893#14939#0" expanded="false" />
+            <element signature="e#14996#16230#0" expanded="false" />
+            <element signature="e#15046#15076#0" expanded="false" />
+            <element signature="e#15136#15304#0" expanded="false" />
+            <element signature="e#15323#16186#0" expanded="false" />
+            <element signature="e#15525#16171#0" expanded="false" />
           </folding>
         </state>
       </provider>

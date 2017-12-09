@@ -8,7 +8,7 @@
     </picker>
     <view class="u-r f30 c9 ell1" wx:if="{{ index > 0 && index != 4 && index != 6 && index != 7}}">{{ item.r }}</view>
     <view class="u-r f30 c9 pr" wx:if="{{ index == 6 }}">
-      <input bindinput="inputValues" data-type="mobile" maxlength="11" type="number" class="textin ptextin" placeholder="请输入您的手机号码"/>
+      <input bindinput="inputValues" data-type="mobile" maxlength="11" type="number" class="textin ptextin" placeholder="{{ item.r }}"/>
       <button class="{{ numberDisabled ? 'grow' : '' }} pa" disabled="{{ numberDisabled }}" catchtap="getNumber">{{ showText }}</button>
     </view>
     <view class="u-r f30 c9 ell1" wx:if="{{ index == 7 }}"><input bindinput="inputValues" data-type="code" class="textin" placeholder="请输入短信验证码"/></view>
@@ -29,7 +29,7 @@
 <view wx:if="{{ show }}" class="mask-t mask-input">
 <view class="mask-toast">
   <view class="tac mask-title">{{ userInfo[chooseIndex].l }}</view>
-  <input class="bd1" bindinput="inputValue" data-type="{{ userInfo[chooseIndex].type }}" value="{{ userInfo[chooseIndex].r  }}" />
+  <input focus="{{ show }}" class="bd1" bindinput="inputValue" data-type="{{ userInfo[chooseIndex].type }}" placeholder="{{ userInfo[chooseIndex].r  }}" />
   <view class="mask-btn f30">
     <view catchtap="btnChoose" data-type="cancel" class="cancel">取消</view>
     <view catchtap="btnChoose" data-type="confirm" class="confirm">确认</view>

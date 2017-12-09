@@ -1,6 +1,6 @@
 // 获取全局应用程序实例对象
 const app = getApp()
-
+const useUrl = require('../../utils/service')
 // 创建页面实例对象
 Page({
   /**
@@ -51,33 +51,10 @@ Page({
       },
       {
         l: '个性签名',
-        r: '阿迪法撒旦飞洒地方',
+        r: '',
         type: 'sign'
       }
     ],
-    number: [
-      {
-        l: '职业',
-        r: '销售',
-        type: 'job'
-      },
-      {
-        l: '手机',
-        r: '18855953417',
-        type: 'phone'
-      },
-      {
-        l: '微信号',
-        r: 'asdf5464',
-        type: 'wechat'
-      },
-      {
-        l: '个性签名',
-        r: '阿迪法撒旦飞洒地方',
-        type: 'sign'
-      }
-    ],
-    checked: false,
     chooseIndex: null,
     show: false,
     value: '',
@@ -85,11 +62,11 @@ Page({
     genderArr: ['男', '女']
   },
   // 确认
-  confirm () {
-    wx.navigateBack({
-      delta: 1
-    })
-  },
+  // confirm () {
+  //   wx.navigateBack({
+  //     delta: 1
+  //   })
+  // },
   // 地区切换
   bindRegionChange (e) {
     this.data.userInfo[4].r = e.detail.value
@@ -107,17 +84,13 @@ Page({
     let { type, index } = e.currentTarget.dataset
     let { userInfo } = this.data
     if (type === 'img') {
-      wx.chooseImage({
-        count: 1,
-        success (res) {
-          // todo 上传图片
-          userInfo[0].r = res.tempFilePaths[0]
-          that.setData({
-            userInfo
-          })
-        }
+      app.wxUploadImg(imgUrl => {
+        userInfo[0].r = imgUrl
+        that.setData({
+          userInfo
+        })
       })
-    } else if (type === 'name' || type === 'job' || type === 'phone' || type === 'sign' || type === 'wechat') {
+    } else if (type === 'name' || type === 'job') {
       this.setData({
         show: true,
         chooseIndex: index,
@@ -166,10 +139,89 @@ Page({
       hasIn: false
     })
   },
+  // 获取名片基本内容
+  getInfo () {
+    let that = this
+    app.wxrequest({
+      url: useUrl.createBusinessCard,
+      data: {
+        session_key: app.gs()
+      },
+      success (res) {
+        wx.hideLoading()
+        if (res.data.code === 200) {
+          that.data.userInfo[0].r = res.data.data.avatar
+          that.data.userInfo[1].r = res.data.data.nickname
+          that.data.userInfo[2].r = parseInt(res.data.data.sex) === 1 ? '男' : '女'
+          that.data.userInfo[3].r = res.data.data.age || '未填写'
+          that.data.userInfo[4].r = [res.data.data.province, res.data.data.city]
+          that.data.userInfo[5].r = res.data.data.occupation || '未填写'
+          that.data.userInfo[6].r = res.data.data.mobile || '未填写'
+          that.data.userInfo[7].r = res.data.data.wechat_no || '未填写'
+          that.data.userInfo[8].r = res.data.data.signature || '未填写'
+          that.setData({
+            userInfo: that.data.userInfo,
+            /*eslint-disable*/
+            checked: parseInt(res.data.data.is_mobile_privacy) === 0 ? false : true
+            /*eslint-enable*/
+          })
+        } else {
+          app.setToast(that, {content: res.data.message})
+        }
+      }
+    })
+  },
+  // 确认创建名片
+  confirm () {
+    let that = this
+    let { userInfo } = this.data
+    let showTips = 'ok'
+    if (!userInfo[1].r.trim()) {
+      showTips = '请填写姓名'
+    } else if (userInfo[3].r === '未填写') {
+      showTips = '请选择年龄段'
+    } else if (userInfo[4].r[0] === '全部' || userInfo[4].r[1] === '全部') {
+      showTips = '请选择所属地区'
+    } else if (userInfo[5].r === '未填写' || !userInfo[5].r.trim()) {
+      showTips = '请填写您的职业'
+    }
+    if (showTips !== 'ok') {
+      return app.setToast(this, {content: showTips})
+    }
+    app.wxrequest({
+      url: useUrl.saveBusinessCardInfo,
+      data: {
+        session_key: app.gs(),
+        avatar: userInfo[0].r,
+        nickname: userInfo[1].r,
+        sex: userInfo[2].r,
+        age: userInfo[3].r,
+        province: userInfo[4].r[0],
+        city: userInfo[4].r[1],
+        occupation: userInfo[5].r,
+        mobile: userInfo[6].r,
+        wechat_no: userInfo[7].r,
+        signature: userInfo[8].r,
+        is_mobile_privacy: that.data.checked ? 1 : 0
+      },
+      success (res) {
+        wx.hideLoading()
+        if (res.data.code === 200) {
+          wx.navigateBack({
+            delta: 1
+          })
+        } else {
+          app.setToast(that, {content: res.data.message})
+        }
+      }
+    })
+    // todo
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad () {
+    this.getInfo()
     // TODO: onLoad
   },
 

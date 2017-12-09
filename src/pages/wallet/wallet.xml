@@ -5,7 +5,7 @@
   <view class="tac c3 w-money">￥{{ money }}</view>
   <button catchtap="walletOp" data-type="detail" type="primary">明细账单</button>
   <button catchtap="walletOp" data-type="cash" type="danger">提现</button>
-  <view class="f24 bottom">关注公众号"群消息"</view>
+  <view catchtap="showGzh" class="f24 bottom">关注公众号"群消息"</view>
 </view>
 <!--明细-->
 <view class="tr7 {{ detailShow ? '' : 'goright' }}">
@@ -15,17 +15,18 @@
       <view>收入{{ allMoney }}</view>
     </view>
     <picker bindchange="chooseTime" mode="date" ><view class="c9 iconfont icon-rili"></view></picker></view>
-  <scroll-view scroll-y="true" style="height: 80%">
+  <scroll-view bindscrolltolower="addMore" scroll-y="true" style="height: 80%">
     <view class="detail bd1" wx:for="{{ detailArr }}">
       <view class="d-l">
         <view class="f30 c3">{{ item.title }}</view>
-        <view class="f26 c9">{{ item.content }}</view>
-        <view class="f24 c9">{{ item.time }}</view>
+        <view class="f26 c9">{{ item.desc }}</view>
+        <view class="f24 c9">{{ item.add_time }}</view>
       </view>
       <view class="d-r">
         {{ item.money }}
       </view>
     </view>
+    <view wx:if="{{ detailArr.length == 0 }}" class="tac">-- 暂无记录 --</view>
   </scroll-view>
   <button catchtap="detailBack" type="danger">返回</button>
 </view>
@@ -35,7 +36,7 @@
     <view class="m-i">￥ <input type="digit" bindblur="outMoneyI" bindinput="inputValue" data-type="money" placeholder="0.00" value="{{ outMoney }}" /></view>
     <view class="f24 c6">当前金额￥{{ money }} <text catchtap="getAll" class="all-money">全部提现</text></view>
   </view>
-  <button class="btn" type="primary">提现</button>
+  <button catchtap="getMoney" class="btn" type="primary">提现</button>
   <view class="tips f24 c9">
     <view>温馨提示:</view>
     <view>1、为保障您的资金安全，请在创建名片并验证手机号后进行提现;</view>
@@ -49,3 +50,5 @@
         <!--错误弹窗-->
 <import src="../template/template"></import>
 <template wx:if="{{ toast.show }}" is="showToast" data="{{ ...toast }}"></template>
+        <!--公众号弹窗-->
+<template wx:if="{{ gzh.show }}" is="showGzh" data="{{ ...gzh }}"></template>

@@ -1,20 +1,21 @@
 <!--消息-->
 <view class="find-time bd1">{{ time }}<picker bindchange="chooseTime" mode="date" ><view class="c9 iconfont icon-rili"></view></picker></view>
 
-<view class="bb bd1 f-wrap" wx:for="{{ lists }}" wx:key="*this">
+<view catchtap="goCheck" data-index="{{ index }}" data-type="{{ item.type }}" data-id="{{ item.id }}" data-islook="{{ item.is_look }}" data-useid="{{ item.data_id }}" class="bb bd1 f-wrap {{ item.is_look == 1 ? 'noshow' : '' }}" wx:for="{{ lists }}" wx:key="*51">
   <view class="f-img-w">
     <image lazy-load="true" class="br" src="{{ item.image }}"></image>
   </view>
   <view class="f-c">
-    <view class="ell1 f30">{{ item.content }}</view>
-    <view class="f-time">{{ item.time }}</view>
+    <view class="ell2 f30">{{ item.desc }}</view>
+    <view class="f-time">{{ item.add_time }}</view>
   </view>
   <view class="f-status">
-      <view class="br15 f-check" wx:if="{{ item.status == 0 }}">查看</view>
-      <view class="br15 f-zan c9" wx:if="{{ item.status == 1 }}">已赞</view>
-      <view class="br15 f-money" wx:if="{{ item.status == 2 }}">续费 </view>
+      <view class="br15 f-check" wx:if="{{ item.type == 2 || item.type == 1 || item.type == 3 || item.type == 5}}">查看</view>
+      <!--<view class="br15 f-zan c9" wx:if="{{ item.type == 1 }}">已赞</view>-->
+      <view class="br15 f-money" wx:if="{{ item.type == 4 }}">续费 </view>
   </view>
 </view>
+<view wx:if="{{ lists.length == 0 }}" class="tac">--- 暂无消息 ---</view>
 <!--消息数量-->
 <view wx:if="{{ messageCount * 1 > 0 }}" class="message-count br15 iconfont icon-xinfeng2">
     {{ messageCount }}

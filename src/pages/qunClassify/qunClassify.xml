@@ -2,21 +2,22 @@
 <!--左侧-->
 <view class="left-w bb">
   <scroll-view class="left bb" scroll-y="true">
-    <view catchtap="chooseI" data-index="{{ index }}" class="l-t tr7 bb f24 c3 {{ chooseIndex == index ? 'l-t-c' : '' }}" wx:for="{{ leftArr }}">{{ item }}</view>
+    <view catchtap="chooseI" data-id="{{ item.cat_id }}" data-index="{{ index }}" class="l-t tr7 bb f24 c3 {{ chooseIndex == index ? 'l-t-c' : '' }}" wx:for="{{ leftArr }}">{{ item.cat_name }}</view>
   </scroll-view>
 </view>
 <!--右侧-->
 <view class="right-w bb">
   <scroll-view class="right bb" scroll-y="true">
-    <view class="right-i-w bb bd1" wx:for="{{ rightArr }}">
+    <view catchtap="goQun" data-id="{{ item.group_id }}" class="right-i-w bb bd1" wx:for="{{ rightArr }}">
       <view class="r-i-w-img">
-        <image lazy-load="true" mode="aspectFill" class="br" src="{{ item.img }}"></image>
+        <image lazy-load="true" mode="aspectFill" class="br" src="{{ item.group_image }}"></image>
       </view>
       <view class="r-i-w-t bb">
-        <view class="ell1 f30 c3">{{ item.qun_name }}</view>
-        <view class="ell1 c9">{{ item.hold }}</view>
+        <view class="ell1 f30 c3">{{ item.group_name }}</view>
+        <view class="ell1 c9">{{ item.group_desc }}</view>
       </view>
     </view>
+    <view wx:if="{{ rightArr.length == 0 }}" class="tac">哎呀，没有相关社群哦~</view>
   </scroll-view>
 </view>
         <!--错误弹窗-->

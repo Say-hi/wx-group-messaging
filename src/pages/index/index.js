@@ -8,24 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    user: {
-      group: [
-        {
-          image: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-          group_name: '微商荣耀',
-          name: '创建爱你人',
-          has_op: 0,
-          id: 123
-        },
-        {
-          image: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-          group_name: '微商荣耀',
-          name: '创建爱你人',
-          has_op: 1,
-          id: 432
-        }
-      ]
-    },
+    user: [],
     cur: 0,
     recommendArr: [
       {
@@ -39,20 +22,30 @@ Page({
   goNext (e) {
     if (e.currentTarget.dataset.cur * 1 === 0) {
       app.gn(`../addQun/addQun?id=${e.currentTarget.dataset.id}`)
+    } else {
+      wx.navigateToMiniProgram({
+        appId: e.currentTarget.dataset.appid,
+        extraData: {id: 123, title: 'I am coming'}
+      })
     }
   },
   // 选择导航栏
   chooseNav (e) {
     if (e.currentTarget.dataset.type * 1 === this.data.cur) return
+    if (e.currentTarget.dataset.type * 1 === 1) {
+      if (!this.data.appList) {
+        this.getAppList()
+      }
+    }
     this.setData({
       cur: e.currentTarget.dataset.type
     })
   },
-  // 获取首页公告
-  getGonggaoLists () {
+  // 获取应用列表
+  getAppList () {
     let that = this
     app.wxrequest({
-      url: useUrl.getGonggaoLists,
+      url: useUrl.indexApplicationLists,
       data: {
         session_key: app.gs()
       },
@@ -60,16 +53,49 @@ Page({
         wx.hideLoading()
         if (res.data.code === 200) {
           that.setData({
-            notice: res.data.data
+            appList: res.data.data
           })
-          let i = 1
-          setInterval(() => {
-            if (i >= res.data.data.length) i = 0
-            that.setData({
-              curNotice: i
-            })
-            i++
-          }, 5000)
+        } else {
+          app.setToast(that, {content: res.data.message})
+        }
+      }
+    })
+  },
+  // 获取我的社群列表
+  getMyQunLists () {
+    let that = this
+    app.wxrequest({
+      url: useUrl.myselfGroupLists,
+      data: {
+        session_key: app.gs()
+      },
+      success (res) {
+        wx.hideLoading()
+        wx.stopPullDownRefresh()
+        if (res.data.code === 200) {
+          that.setData({
+            user: res.data.data
+          })
+        } else {
+          app.setToast(that, {content: res.data.message})
+        }
+      }
+    })
+  },
+  // 获取热门社群列表
+  getHotQun () {
+    let that = this
+    app.wxrequest({
+      url: useUrl.indexHotGroup,
+      data: {
+        session_key: app.gs()
+      },
+      success (res) {
+        wx.hideLoading()
+        if (res.data.code === 200) {
+          that.setData({
+            hotQun: res.data.data
+          })
         } else {
           app.setToast(that, {content: res.data.message})
         }
@@ -107,50 +133,131 @@ Page({
   },
   // 创建社群
   create () {
+    for (let v of this.data.user) {
+      if (v.is_main_group * 1 === 1) return app.setToast(this, {content: '每人只能创建一个社群哦'})
+    }
     app.gn('../createQun/createQun')
   },
   // 社群操作
   qunOp (e) {
-    let {index, op, id} = e.currentTarget.dataset
-    console.log(index)
-    // 无操作权限
-    if (parseInt(op) === 0) {
+    let that = this
+    let {index, qunzhu, manager, id, top, name} = e.currentTarget.dataset
+    console.log(name)
+    if (parseInt(qunzhu) === 1) { // 群主权限
       wx.showActionSheet({
-        itemList: ['进入社群', '置顶', '退出社群'],
+        itemList: parseInt(top) === 1 ? ['进入社群', '取消置顶', '管理'] : ['进入社群', '置顶', '管理'],
         success (res) {
           if (res.tapIndex === 0) {
             app.gn(`../myQun/myQun?id=${id}`)
           } else if (res.tapIndex === 1) {
+            that.setTop(id, top)
             // todo 置顶操作
           } else if (res.tapIndex === 2) {
-            // todo 退出操作
+            return app.setToast(that, {content: '不提供此操作'})
+            // app.gn(`../manageQun/manageQun?id=${id}&name=${name}`)
+            // todo 进入管理操作
           }
         }
       })
-    } else {
+    } else if (parseInt(manager) === 1) {
+    // 管理权限
       wx.showActionSheet({
-        itemList: ['进入社群', '置顶', '管理'],
+        itemList: parseInt(top) === 1 ? ['进入社群', '取消置顶', '管理', '退出社群'] : ['进入社群', '置顶', '管理', '退出社群'],
         success (res) {
           if (res.tapIndex === 0) {
             app.gn(`../myQun/myQun?id=${id}`)
           } else if (res.tapIndex === 1) {
+            that.setTop(id, top)
             // todo 置顶操作
           } else if (res.tapIndex === 2) {
+            return app.setToast(that, {content: '不提供此操作'})
+            // app.gn(`../manageQun/manageQun?id=${id}&type=manager&name=${name}`)
             // todo 进入管理操作
+          } else if (res.tapIndex === 3) {
+            that.outQun(id, index)
+            // todo 退出社群操作
+          }
+        }
+      })
+    } else { // 成员权限
+      wx.showActionSheet({
+        itemList: parseInt(top) === 1 ? ['进入社群', '取消置顶', '退出社群'] : ['进入社群', '置顶', '退出社群'],
+        success (res) {
+          if (res.tapIndex === 0) {
+            app.gn(`../myQun/myQun?id=${id}`)
+          } else if (res.tapIndex === 1) {
+            that.setTop(id, top)
+            // todo 置顶操作
+          } else if (res.tapIndex === 2) {
+            that.outQun(id, index)
+            // todo 退出操作
           }
         }
       })
     }
   },
+  // 设置群置顶\取消
+  setTop (id, top) {
+    let that = this
+    app.wxrequest({
+      url: useUrl.myselfGroupIsTop,
+      data: {
+        session_key: app.gs(),
+        group_id: id,
+        is_top: parseInt(top) === 0 ? 1 : 0
+      },
+      success (res) {
+        wx.hideLoading()
+        if (res.data.code === 200) {
+          that.getMyQunLists()
+        } else {
+          app.setToast(that, {content: res.data.message})
+        }
+      }
+    })
+  },
   // 跳转搜索页面
   goSearch () {
     app.gn('../search/search')
+  },
+  // 退出社群
+  outQun (id, index) {
+    let that = this
+    if (this.data.user[index].is_default_group * 1 === 1) return app.setToast(this, {content: '该群不可退出！'})
+    app.wxrequest({
+      url: useUrl.tuichuGroup,
+      data: {
+        session_key: app.gs(),
+        group_id: id
+      },
+      success (res) {
+        wx.hideLoading()
+        if (res.data.code === 200) {
+          that.getMyQunLists()
+        } else {
+          app.setToast(that, {content: res.data.message})
+        }
+      }
+    })
+  },
+  // 进入社群
+  goDetail (e) {
+    app.gn(`../myQun/myQun?id=${e.currentTarget.dataset.id}`)
+  },
+  goMessage () {
+    wx.switchTab({
+      url: '../message/message'
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad () {
-    this.getGonggaoLists()
+    // this.getGonggaoLists()
+    this.getMyQunLists()
+    setTimeout(() => {
+      this.getHotQun()
+    }, 200)
     // TODO: onLoad
   },
 
@@ -165,6 +272,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow () {
+    app.gML(this)
     // TODO: onShow
   },
 
@@ -186,6 +294,10 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh () {
+    setTimeout(() => {
+      this.getMyQunLists()
+      this.getHotQun()
+    }, 300)
     // TODO: onPullDownRefresh
   },
   // 触底加载更多

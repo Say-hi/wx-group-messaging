@@ -1,24 +1,35 @@
 <!--发布群友圈-->
-<textarea class="textI bb" placeholder="这一刻的想法..."></textarea>
-<view class="iconfont bd1 f26 c9 icon-dingwei">{{ address || '未选择位置，请选择您的位置信息' }}</view>
+<textarea  bindblur="getInput" auto-height="true" auto-focus="true"  class="textI bb" maxlength="-1" placeholder="这一刻的想法..."></textarea>
+<view catchtap="chooseLocation" class="iconfont bd1 f26 c9 icon-dingwei">{{ address || '未选择位置，请选择您的位置信息' }}</view>
 <view class="type bd1">
     <text wx:for="{{ typeArr }}" catchtap="tC" data-index='{{ index }}' class="{{ typeChoose == index ? 't-choose' : 'c9' }} iconfont {{ item }}"></text>
 </view>
-<view class="img">
-    <view class="f30 c9">{{ imgArr.length }}/9</view>
-    <image mode="aspectFilll" wx:for="{{ imgArr }}" src="{{ item }}"></image>
-    <view class="iconfont icon-tianjia c9"></view>
+<view wx:if="{{ typeChoose == 1 }}" class="img">
+    <view class="f30 c9"><text class="{{ imgArr.length > 9 ? 'red' : '' }}">{{ imgArr.length }}</text>/9</view>
+    <view class="imgW" >
+        <view class="pr" wx:for="{{ imgArr }}">
+            <image catchtap="previewImg" data-index="{{ index }}" mode="aspectFilll" src="{{ item }}"></image>
+            <view catchtap="delPhoto" data-index="{{ index }}" class="close br pa">Χ</view>
+        </view>
+    </view>
+    <view catchtap="addImage" class="iconfont icon-tianjia c9"></view>
 </view>
-<view class="voice">
-    <button bindtap="startRecord" type="primary">点击录音</button>
-    <image catchtap="playVoice" src="../../images/yuying.png"></image>
+<view wx:if="{{ typeChoose == 2 }}" class="voice">
+    <button wx:if="{{ !record }}" bindtap="startRecord" type="primary">{{ audio_url ? '重新录音' : '点击录音' }}</button>
+    <button wx:if="{{ record }}" bindtap="stopRecord" type="warn">停止录音</button>
+    <image wx:if="{{ audio_url }}" catchtap="playVoice" src="../../images/yuying.png"></image>
 </view>
 
-<view class="url">
-    <input placeholder="请输入公众号文章链接"/>
+<view wx:if="{{ typeChoose == 3 }}" class="url">
+    <input bindblur="getArticle" placeholder="请输入公众号文章链接"/>
+    <view wx:if="{{ article }}" class="u-title f30">{{ article.title }}</view>
+    <image wx:if="{{ article }}" mode="aspectFill" class="u-img" src="{{ article.image }}"></image>
 </view>
 <view class="comment bd1">
     <text class="f30 c3">允许评论</text>
-    <switch></switch>
+    <switch bindchange="switchChange" checked="{{ isComment }}"></switch>
 </view>
-<button type='primary'>发布</button>
+<button bindtap="confirm" type='primary'>发布</button>
+        <!--错误弹窗-->
+<import src="../template/template"></import>
+<template wx:if="{{ toast.show }}" is="showToast" data="{{ ...toast }}"></template>

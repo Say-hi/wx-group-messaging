@@ -79,13 +79,16 @@ page {
     font-size: 40rpx;
   }
 }
+.top {
+  background-color: #eee;
+}
 
 .b-s {
   position: fixed;
   bottom: 100rpx;
   left: 0;
   width: 100%;
-  width: 100%;
+  z-index: 16;
   .b-s-i {
     text-align: center;
     width: 100%;
@@ -98,12 +101,13 @@ page {
   .b-s-c {
     background-color: #fff;
     .bscw-scroll {
-      max-height: 700rpx;
+      max-height: 350px;
     }
     .b-s-c-q {
       display: flex;
       padding: 20rpx;
       padding-left: 0;
+      max-height: 62px;
       margin-left: 20rpx;
       align-items: center;
       image {
@@ -120,6 +124,7 @@ page {
           display: flex;
         }
         .f24 {
+          margin-left: 6rpx;
           border: 1rpx solid #999;
           padding: 4rpx 8rpx;
           min-width: 50rpx;
@@ -137,17 +142,20 @@ page {
       }
     }
     .tac {
-      line-height: 80rpx;
+      line-height: 40px;
       color: #09bb07;
     }
   }
+}
+.b-s-up {
+  z-index: 5 !important;
 }
 .bottom-op {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-
+  z-index: 20;
   .b-s-n {
     position: relative;
     background-color: #fff;
@@ -174,6 +182,16 @@ page {
     }
   }
 }
+.message-count {
+  position: fixed;
+  bottom: 120rpx;
+  left: 62.5%;
+  z-index: 10;
+  transform: translateX(-50%);
+  padding: 10rpx 15rpx;
+  background-color: #22ac38;
+  color: #fff;
+}
 
 .permission {
   background-color: #fff;
@@ -191,5 +209,47 @@ page {
   .p-btn {
     margin-top: 40rpx;
     width: 90%;
+  }
+}
+.mask {
+  .mask-in {
+    width: 636rpx;
+    padding-bottom: 0;
+  }
+  .mask-content {
+    padding: 20rpx;
+    line-height: 50rpx;
+  }
+  .mask-btn-wrap {
+    border-top: 1rpx solid #eee;
+    display: flex;
+    .mask-btn {
+      font-size: 36rpx;
+      flex: 1;
+      text-align: center;
+      line-height: 120rpx;
+    }
+    .c3 {
+      border-right: 1rpx solid #eee;
+    }
+    .mask-btn:nth-child(2) {
+      color: #09bb07;
+    }
+    button {
+      background-color: #fff;
+      border: none;
+      color: #fbc227 !important;
+    }
+    button::after {
+      border-radius: none;
+      border: none;
+    }
+  }
+  .r-title {
+    font-size: 36rpx;
+    line-height: 80rpx;
+  }
+  .r-content {
+    padding-top: 0;
   }
 }

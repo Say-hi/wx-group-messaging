@@ -1,4 +1,11 @@
 <!-- 可用组件：https://mp.weixin.qq.com/debug/wxadoc/dev/component/ -->
-<view class="container">
-  <text class="title">{{ title }}</text>
-</view>
+<view class="h1">群信息新手帮助文档</view>
+<view class="h2">1.如何玩群信息?</view>
+<view class="c">方法一：进入群信息后，点击【创建社群】，即可创建属于您的社群了。</view>
+<view class="c">方法二：我们也为您推荐了一些优秀的社群，点击【去看看】，进入社群后即可申请加入。</view>
+<view class="c">方法三：进入群信息的主页，点击底部导航栏上方的【切换社群】→【创建社群】，也可以创建属于您的社群。</view>
+<view class="h2">2.我怎么在社群里发群友圈？</view>
+<view class="c">进入群信息的主页，点击右下角的【+】→【发群友圈】，即可发多种类型的群友圈动态哦。</view>
+<view class="h2">3.群主在呢么设置群管？</view>
+<view class="c">方法一：进入群信息的主页，点击【通讯录】，在通讯录下的人员列表中店家最右边的图标，选择设为群管即可。</view>
+<veiw class="c">方法二：进入群新的主页，点击TAB上方的【切换社群】后，进入该社群的管理页面，选择【设置管理】，就可以添加或删除社群的管理员了。</veiw>

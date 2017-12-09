@@ -7,13 +7,13 @@
 </view>
 
 <view class="find-info bb">
-  <block wx:for="{{ infoArr }}">
+  <block wx:key="*41" wx:for="{{ infoArr }}">
     <!--<view class="f-user-img-w">-->
         <!--<image class="f-user-img" src="{{ image }}"></image>-->
     <!--</view>-->
       <!--<template is="{{ (item.type == 0 && (cur == 0 || cur == 1)) ? 'tw': (item.type == 1 && (cur == 0 || cur == 2)) ? 'yy' : (item.type == 2 && (cur == 0 || cur == 3)) ? 'wz' : '' }}" data="{{ ...item }}"></template>-->
       <!--<template hidden="{{ cur == 2 || cur == 3 }}" is="{{ item.type == 0 ? 'tw': item.type == 1 ? 'yy' : 'wz' }}" data="{{ ...item }}"></template>-->
-      <template is="{{ item.type == 0 ? 'tw': item.type == 1 ? 'yy' : 'wz' }}" data="{{ ...item, cur }}"></template>
+      <template is="{{ (item.type == 0 || item.type == 1) ? 'tw': item.type == 2 ? 'yy' : 'wz' }}" data="{{ ...item, cur }}"></template>
       <!--<template hidden="{{ cur == 1 || cur == 2 }}" is="{{ item.type == 0 ? 'tw': item.type == 1 ? 'yy' : 'wz' }}" data="{{ ...item }}"></template>-->
   </block>
 </view>
@@ -23,78 +23,82 @@
 <template wx:if="{{ toast.show }}" is="showToast" data="{{ ...toast }}"></template>
 <!--图文模式-->
 <template name="tw">
-    <!--<view wx:if="{{ cur == 0 || cur == 1 }}" class="bd1 bb">-->
-    <view class="bd1 bb {{ cur == 2 || cur == 3 ? 'hide' : '' }}">
-    <!--<view hidden="{{ cur == 3 || cur == 2 }}" class="bd1 bb">-->
+    <!--<view class="bd1 bb {{ cur == 2 || cur == 3 ? 'hide' : '' }}">-->
+    <view class="bd1 bb">
         <!--{{cur}}-->
         <view class="f-user-img-w">
-            <image class="f-user-img" src="{{ image }}"></image>
+            <image catchtap="goUser" data-id="{{ user_id }}" class="f-user-img" src="{{ avatar }}"></image>
         </view>
 
-        <view catchtap="goDetail" data-id="{{ id }}" class="f-r tw">
-            <view class="f-name f30"><text>{{ name }}</text><text class="iconfont icon-guanbi2"></text></view>
+        <view catchtap="goDetail" data-groupid="{{ group_id }}" data-userid="{{ user_id }}" data-id="{{ id }}" class="f-r tw">
+            <!--<view class="f-name f30"><text>{{ nickname }}</text><text class="iconfont icon-guanbi2"></text></view>-->
+            <view class="f-name f30"><text>{{ nickname }}</text></view>
             <view class="ell2 c3">{{ content }}</view>
             <view class="f-img">
-                <image wx:for="{{ contentImg }}" wx:for-item="img" src="{{ img }}"></image>
+                <image wx:key="*42" wx:for="{{ images }}" wx:for-item="img" src="{{ img }}"></image>
             </view>
             <view class="address ell1">{{ address }}</view>
-            <view class="time c9">{{ time }}</view>
+            <view class="time c9">{{ add_time }}</view>
             <view class="qun">
-                <view class="iconfont icon-shequn ell1">{{ qun }}</view>
-                <view class="iconfont icon-zan1 c9">{{ xin }}</view>
-                <view class="iconfont icon-pinglun c9">{{ talk }}</view>
+                <view catchtap="goQun" data-id="{{ group_id }}" class="iconfont icon-shequn ell1">{{ group_name }}</view>
+                <view class="iconfont icon-zan1 c9">{{ likes_num }}</view>
+                <view class="iconfont icon-pinglun c9">{{ comment_num }}</view>
             </view>
         </view>
     </view>
 </template>
 <!--语音模式-->
 <template name="yy">
-<!--<view  wx:if="{{ cur == 0 || cur == 2 }}" class="bd1 bb">-->
-<view  class="bd1 bb {{ cur == 1 || cur == 3 ? 'hide' : '' }}">
-<!--<view hidden="{{ cur == 0 || cur == 3 }}" class="bd1 bb">-->
+<!--<view  class="bd1 bb {{ cur == 1 || cur == 3 ? 'hide' : '' }}">-->
+<view catchtap="goDetail"  class="bd1 bb">
     <view class="f-user-img-w">
-        <image class="f-user-img" src="{{ image }}"></image>
+        <image catchtap="goUser" data-id="{{ user_id }}" class="f-user-img" src="{{ avatar }}"></image>
     </view>
-    <view catchtap="goDetail" data-id="{{ id }}" class="f-r yy">
-        <view class="f-name f30"><text>{{ name }}</text><text class="iconfont icon-guanbi2"></text></view>
+    <view catchtap="goDetail" data-groupid="{{ group_id }}" data-userid="{{ user_id }}" data-id="{{ id }}" class="f-r yy">
+        <!--<view class="f-name f30"><text>{{ nickname }}</text><text class="iconfont icon-guanbi2"></text></view>-->
+        <view class="f-name f30"><text>{{ nickname }}</text></view>
         <view class="ell2 c3">{{ content }}</view>
         <view class="yy-img">
             <image src="../../images/yuying.png"></image>
         </view>
         <view class="address ell1">{{ address }}</view>
-        <view class="time c9">{{ time }}</view>
+        <view class="time c9">{{ add_time }}</view>
         <view class="qun">
-            <view class="iconfont icon-shequn ell1">{{ qun }}</view>
-            <view class="iconfont icon-zan1 c9">{{ xin }}</view>
-            <view class="iconfont icon-pinglun c9">{{ talk }}</view>
+            <view catchtap="goQun" data-id="{{ group_id }}" class="iconfont icon-shequn ell1">{{ group_name }}</view>
+            <view class="iconfont icon-zan1 c9">{{ likes_num }}</view>
+            <view class="iconfont icon-pinglun c9">{{ comment_num }}</view>
         </view>
     </view>
 </view>
 </template>
 <!--文章模式-->
 <template name="wz">
-<!--<view wx:if="{{ cur == 0 || cur == 3 }}" class="bd1 bb">-->
-<view class="bd1 bb {{ cur == 2 || cur == 1 ? 'hide' : '' }}">
-<!--<view hidden="{{ cur == 1 || cur == 2 }}" class="bd1 bb">-->
+<!--<view class="bd1 bb {{ cur == 2 || cur == 1 ? 'hide' : '' }}">-->
+<view catchtap="goDetail" class="bd1 bb">
 <view class="f-user-img-w">
-    <image class="f-user-img" src="{{ image }}"></image>
+    <image catchtap="goUser" data-id="{{ user_id }}" class="f-user-img" src="{{ avatar }}"></image>
 </view>
-<view catchtap="goDetail" data-id="{{ id }}" class="f-r wz">
-    <view class="f-name f30"><text>{{ name }}</text><text class="iconfont icon-guanbi2"></text></view>
+<view catchtap="goDetail" data-groupid="{{ group_id }}" data-userid="{{ user_id }}" data-id="{{ id }}" class="f-r wz">
+    <!--<view class="f-name f30"><text>{{ nickname }}</text><text class="iconfont icon-guanbi2"></text></view>-->
+    <view class="f-name f30"><text>{{ nickname }}</text></view>
     <view class="ell2 c3 wz-b">{{ content }}</view>
     <view class="wz-wrap">
         <view class="wz-w-img">
-            <image src="{{ wzimg }}"></image>
+            <image src="{{ article_image }}"></image>
         </view>
-        <view class="ell2 c3">{{ wztitle }}</view>
+        <view class="ell2 c3">{{ article_title }}</view>
     </view>
     <view class="address ell1">{{ address }}</view>
-    <view class="time c9">{{ time }}</view>
+    <view class="time c9">{{ add_time }}</view>
     <view class="qun">
-        <view class="iconfont icon-shequn ell1">{{ qun }}</view>
-        <view class="iconfont icon-zan1 c9">{{ xin }}</view>
-        <view class="iconfont icon-pinglun c9">{{ talk }}</view>
+        <view catchtap="goQun" data-id="{{ group_id }}" class="iconfont icon-shequn ell1">{{ group_name }}</view>
+        <view class="iconfont icon-zan1 c9">{{ likes_num }}</view>
+        <view class="iconfont icon-pinglun c9">{{ comment_num }}</view>
     </view>
 </view>
 </view>
 </template>
+        <!--消息数量-->
+<view catchtap="goMessage" wx:if="{{ messageCount * 1 > 0 }}" class="message-count br15 iconfont icon-xinfeng2">
+{{ messageCount }}
+</view>

@@ -1,6 +1,6 @@
 // 获取全局应用程序实例对象
 const app = getApp()
-
+const useUrl = require('../../utils/service')
 // 创建页面实例对象
 Page({
   /**
@@ -32,7 +32,7 @@ Page({
       {
         ico: 'icon-kefu1',
         t: '意见反馈',
-        url: ''
+        url: 'button'
       },
       {
         ico: 'icon-guanyu',
@@ -40,6 +40,23 @@ Page({
         url: '../aboutQun/aboutQun'
       }
     ]
+  },
+  // 群群友圈
+  goQunCircle () {
+    app.gn(`../qunCircle/qunCircle`)
+  },
+  // 导航操作
+  tapNav (e) {
+    let that = this
+    if (e.currentTarget.dataset.t === '分享码') {
+      wx.previewImage({
+        urls: [that.data.userInfo.qrcode]
+      })
+    } else if (e.currentTarget.dataset.t === '用户交流群') {
+      wx.previewImage({
+        urls: [`${app.data.basedomain}/public/images/group_logo.png`]
+      })
+    }
   },
   // 显示公众号弹窗
   showGzh () {
@@ -52,11 +69,10 @@ Page({
   },
   // 去到名片卡
   goNameCard () {
-    if (this.data.user.status * 1 === 0) {
-      wx.navigateTo({
+    if (this.data.user.is_has_card * 1 === 0) {
+      return wx.navigateTo({
         url: '../createNameCard/createNameCard'
       })
-      return
     }
     wx.navigateTo({
       url: '../nameCard/nameCard'
@@ -64,25 +80,75 @@ Page({
   },
   // 编辑个人资料
   edit () {
-    wx.navigateTo({
-      url: '../editUser/editUser'
-    })
+    if (this.data.user.is_has_card * 1 === 0) {
+      app.setToast(this, {content: '您还没有创建名片'})
+      setTimeout(() => {
+        app.gn('../createNameCard/createNameCard')
+      }, 1000)
+    } else {
+      wx.navigateTo({
+        url: '../editUser/editUser'
+      })
+    }
   },
   // 去到钱包页面
   goWallet () {
     app.gn('../wallet/wallet')
   },
+  // 用户个人中心
+  getUser () {
+    let that = this
+    app.wxrequest({
+      url: useUrl.userCenterInfo,
+      data: {
+        session_key: app.gs()
+      },
+      success (res) {
+        wx.hideLoading()
+        if (res.data.code === 200) {
+          that.setData({
+            user: res.data.data
+          })
+        } else {
+          app.setToast(that, {content: res.data.message})
+        }
+      }
+    })
+  },
+  // 获取用户个人详情
+  getUserDetail () {
+    let that = this
+    app.wxrequest({
+      url: useUrl.userInfoDetail,
+      data: {
+        session_key: app.gs()
+      },
+      success (res) {
+        wx.hideLoading()
+        if (res.data.code === 200) {
+          that.setData({
+            userInfo: res.data.data
+          })
+        } else {
+          app.setToast(that, {content: res.data.message})
+        }
+      }
+    })
+  },
+
+  getML () {
+    app.gML()
+  },
+  goMessage () {
+    wx.switchTab({
+      url: '../message/message'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad () {
-    let that = this
-    setTimeout(() => {
-      that.data.user.status = 1
-      that.setData({
-        user: that.data.user
-      })
-    }, 5000)
+    this.getUserDetail()
     // TODO: onLoad
   },
 
@@ -97,6 +163,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow () {
+    this.getUser()
+    // this.getML()
+    app.gML(this)
     // TODO: onShow
   },
 

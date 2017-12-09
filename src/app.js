@@ -3,85 +3,62 @@
 /*eslint-disable*/
 const useUrl = require('./utils/service')
 const wxParse = require('./wxParse/wxParse')
-// const backgroundAudioManager = wx.getBackgroundAudioManager()
-// let windowWidth = 375
-// wx.getSystemInfo({
-//   success (res) {
-//     windowWidth = res.windowWidth - (( 2 * (res.windowWidth * 0.03)).toFixed(2))
+const QQMapWX = require('./utils/qmapsdk')
+const qqmapsdkkey = '5YBBZ-LHYWP-NVGD6-LHZB3-GTWYK-TQBRO'
+let qqmapsdk
+// const Moment = require('./utils/moment')
+// Moment.locale('en', {
+//   relativeTime : {
+//     future: '差 %s',
+//     past:   '%s前',
+//     s:  '几秒',
+//     m:  '一分钟',
+//     mm: '%d分钟',
+//     h:  '一小时',
+//     hh: '%d小时',
+//     d:  '一天',
+//     dd: '%d天',
+//     M:  '一个月',
+//     MM: '%d月',
+//     y:  '一年',
+//     yy: '%d年'
 //   }
 // })
-// // const currentThis = getCurrnetPages()[getCurrnetPages().length - 1]
-// backgroundAudioManager.onTimeUpdate(() => {
-//   let that = getCurrentPages()[getCurrentPages().length - 1]
-//   let time = {
-//     total: '',
-//     passed: ''
-//   }
-//   time.total = backgroundAudioManager.duration
-//   time.passed = backgroundAudioManager.currentTime
-//   let barWidth = windowWidth * (time.passed) / time.total
-//   if (!that.timeUp) return
-//   getCurrentPages()[getCurrentPages().length - 1].timeUp(time, barWidth)
-// })
-// // 自然结束播放
-// backgroundAudioManager.onEnded(() => {
-//   let that = getCurrentPages()[getCurrentPages().length - 1]
-//   if (that.data.time) {
-//     that.data.time.passed = 0
-//     that.setData({
-//       bar_width: 0,
-//       time: that.data.time,
-//       play: false
-//     })
-//   }
-//   if (that.data.showLists) {
-//     if (that.data.curNavP >= that.data.showLists.length) return
-//     if (that.curNavP * 1 === -1) {
-//       that.playMusic(that.data.showLists[++that.data.curNavP].mp3, '单词连读')
-//     }
-//   }
-// })
-// // 人为结束播放
-// backgroundAudioManager.onStop(() => {
-//   let that = getCurrentPages()[getCurrentPages().length - 1]
-//   if (that.data.time) {
-//     that.data.time.passed = 0
-//     that.setData({
-//       bar_width: 0,
-//       time: that.data.time,
-//       play: false
-//     })
-//   }
-//   if (that.data.showLists) {
-//     if (that.data.curNavP >= that.data.showLists.length) return
-//     if (that.curNavP * 1 === -1) {
-//       that.playMusic(that.data.showLists[++that.data.curNavP].mp3, '单词连读')
-//     }
-//   }
-// })
-const Moment = require('./utils/moment')
-Moment.locale('en', {
-  relativeTime : {
-    future: '差 %s',
-    past:   '%s前',
-    s:  '几秒',
-    m:  '一分钟',
-    mm: '%d分钟',
-    h:  '一小时',
-    hh: '%d小时',
-    d:  '一天',
-    dd: '%d天',
-    M:  '一个月',
-    MM: '%d月',
-    y:  '一年',
-    yy: '%d年'
-  }
-})
+// bindload="wxParseImgLoad"
 // moment.locale('zh-cn')
 App({
   data: {
-    suPin: true,
-    name: '英语小程序'
+    name: '群信息',
+    basedomain: 'http://group.lanzhangxiu.cn'
+  },
+  // 获取消息数目
+  gML (that) {
+    let _that = that
+    let _this = this
+    _this.wxrequest({
+      url: useUrl.getUserMessageLists,
+      data: {
+        session_key: _this.gs(),
+        page: 1,
+        date_time: (new Date().getFullYear() + '-' + ((new Date().getMonth() * 1 + 1) < 10 ? '0' + (new Date().getMonth() * 1 + 1) : (new Date().getMonth() * 1 + 1)) + '-' + ((new Date().getDate() * 1) < 10 ? '0' + (new Date().getDate()) : (new Date().getDate())))
+      },
+      success (res) {
+        wx.hideLoading()
+        if (res.data.code === 200) {
+          let count = 0
+          for (let v of res.data.data) {
+            if (parseInt(v.is_look) === 0) {
+              count++
+            }
+          }
+          _that.setData({
+            messageCount: count
+          })
+        } else {
+          _this.setToast(that, {content: res.data.message})
+        }
+      }
+    })
   },
   // 富文本解析
   WP (title, type, data, that, image) {
@@ -109,6 +86,37 @@ App({
     }
     wx.requestPayment(objs)
   },
+  // 选择图片上传
+  wxUploadImg (cb, count = 1) {
+    let _that = this
+    wx.chooseImage({
+      count,
+      success (res) {
+        wx.showLoading({
+          title: '图片上传中'
+        })
+        for (var v of res.tempFilePaths) {
+          wx.uploadFile({
+            url: useUrl.uploadPhotos,
+            filePath: v,
+            name: 'file',
+            formData: {
+              session_key: _that.gs(),
+              file: 'file'
+            },
+            success (res) {
+              // console.log(res)
+              let imgUrl = JSON.parse(res.data).data.res_file
+              wx.hideLoading()
+              if (cb) {
+                cb(imgUrl)
+              }
+            }
+          })
+        }
+      }
+    })
+  },
   // 上传媒体文件
   wxUpload (obj) {
     let s = {
@@ -131,12 +139,13 @@ App({
   },
   // 请求数据
   wxrequest (obj) {
+    let that = this
     wx.showLoading({
       title: '请求数据中...'
       // mask: true
     })
     wx.request({
-      url: obj.url || useUrl.serviceUrl.login,
+      url: obj.url || useUrl.login,
       method: obj.method || 'POST',
       data: obj.data || {},
       header: {
@@ -149,35 +158,82 @@ App({
         console.log('未传入fail回调函数,err:' + err.errMsg)
       },
       complete: obj.complete || function (res) {
+        // console.log(res)
         // sessionId 失效
         if (res.data.code === 401) {
-          wx.login({
-            success (res) {
-              if (res.code) {
-                wx.getUserInfo({
-                  success (res2) {
-                    that.wxrequest({
-                      url: useUrl.login,
-                      data: {
-                        code: res.code,
-                        iv: res2.iv,
-                        encryptedData: res.encryptedData
+          setTimeout(() => {
+            if (!that.gs()) {
+              let page = getCurrentPages()
+              wx.login({
+                success (res) {
+                  if (res.code) {
+                    wx.getUserInfo({
+                      lang: 'zh_CN',
+                      success (res2) {
+                        that.wxrequest({
+                          url: useUrl.login,
+                          data: {
+                            code: res.code,
+                            iv: res2.iv,
+                            encryptedData: res2.encryptedData
+                          },
+                          success (res3) {
+                            console.log(1)
+                            wx.setStorageSync('session_key', res3.data.data.session_key)
+                            page[(page.length - 1) >= 0 ? (page.length - 1) : 0].onLoad(page[(page.length - 1) >= 0 ? (page.length - 1) : 0].options)
+                          }
+                        })
                       },
-                      success (res) {
-                        wx.setStorageSync('session_key', res.data.data.session_key)
-                        obj.data.session_key = that.gs()
-                        that.wxrequest(obj)
+                      fail (err) {
+                        wx.showToast({
+                          title: '用户拒绝授权'
+                        })
                       }
                     })
+                  } else {
+                    wx.showToast({
+                      title: '请删除小程序后，重新打开并授权'
+                    })
                   }
-                })
-              } else {
-                wx.showToast({
-                  content: '请删除小程序后，重新打开并授权'
-                })
-              }
+                }
+              })
+            } else {
+              wx.login({
+                success (res) {
+                  if (res.code) {
+                    wx.getUserInfo({
+                      lang: 'zh_CN',
+                      success (res2) {
+                        that.wxrequest({
+                          url: useUrl.login,
+                          data: {
+                            code: res.code,
+                            iv: res2.iv,
+                            encryptedData: res2.encryptedData
+                          },
+                          success (res3) {
+                            console.log(2)
+                            wx.setStorageSync('session_key', res3.data.data.session_key)
+                            obj.data.session_key = that.gs()
+                            that.wxrequest(obj)
+                          }
+                        })
+                      },
+                      fail (err) {
+                        wx.showToast({
+                          title: '用户拒绝授权'
+                        })
+                      }
+                    })
+                  } else {
+                    wx.showToast({
+                      title: '请删除小程序后，重新打开并授权'
+                    })
+                  }
+                }
+              })
             }
-          })
+          }, 300)
         }
       }
     })
@@ -187,13 +243,14 @@ App({
     let that = this
     if (wx.getStorageSync('session_key')) {
       let checkObj = {
-        url: useUrl.userCenter,
+        url: useUrl.indexApplicationLists,
         data: {
           session_key: wx.getStorageSync('session_key')
         },
         success (res) {
+          wx.hideLoading()
           // session失效
-          if (res.data.code === 400 && (res.data.message === 'session_key 已过期，请再次登陆！' || res.data.message === 'session_key 失效！')) {
+          if (res.data.code === 401) {
             console.log('session_key失效')
             // 无条件获取登陆code
             wx.login({
@@ -206,11 +263,15 @@ App({
                     wx.setStorageSync('userInfo', data.userInfo)
                     let iv = data.iv
                     let encryptedData = data.encryptedData
+                    let recommendId = ''
+                    if (params) {
+                      recommendId: params.id
+                    }
                     // 获取session_key
                     let objs = {
                       url: useUrl.login,
                       data: {
-                        recommend_id: params.id || 0,
+                        recommend_id: recommendId || 0,
                         code: code,
                         iv: iv,
                         encryptedData: encryptedData
@@ -261,16 +322,21 @@ App({
               wx.setStorageSync('userInfo', data.userInfo)
               let iv = data.iv
               let encryptedData = data.encryptedData
+              let recommendId = ''
+              if (params) {
+                recommendId: params.id
+              }
               // 获取session_key
               let objs = {
                 url: useUrl.login,
                 data: {
-                  recommend_id: params.id || 0,
+                  recommend_id: recommendId || 0,
                   code,
                   iv,
                   encryptedData
                 },
                 success (session) {
+                  wx.hideLoading()
                   // let s = 'DUGufWMOkMIolSIXLajTvCEvXAYQZwSpnafUVlSagdNEReVSRDAECzwEVAtFbPWg'
                   wx.setStorageSync('session_key', session.data.data.session_key)
                   // wx.setStorageSync('session_key', s)
@@ -341,6 +407,10 @@ App({
       return this.getUserInfo(obj)
     }
   },
+  // 设置用户的缓存信息
+  su (key, obj) {
+    wx.setStorageSync(key, obj)
+  },
   // 获取消息数量
   getMessageCount (that) {
     let self = this
@@ -400,6 +470,10 @@ App({
     } else if (type === 'money') {
       that.setData({
         outMoney: value
+      })
+    } else if (type === 'comment') {
+      that.setData({
+        comment: value
       })
     }
   },
@@ -480,6 +554,63 @@ App({
       title: text
     })
   },
+  // 逆地址解析
+  getLocation (that, type, cb) {
+    this.reverseGeocoder(that, type, cb)
+  },
+  // 逆地址解析执行
+  reverseGeocoder (that, type = true, cb) {
+    let _that = this
+    qqmapsdk = new QQMapWX({
+      key: qqmapsdkkey
+    })
+    console.log(type)
+    let obj = {
+      success (res) {
+        if (cb) {
+          cb(res)
+        }
+        that.setData({
+          address: res.result.address,
+          location: res.result.location
+        })
+      },
+      fail (res) {
+        if (!type) {
+          return wx.showToast({
+            title: '未选择获取地址位置'
+          })
+        }
+        wx.showToast({
+          title: '请授权后再次点击'
+        })
+        setTimeout(function () {
+          let settingObj = {
+            success (res) {
+              // 授权失败
+              if (!res.authSetting['scope.userLocation']) {
+                wx.showToast({
+                  title: '请允许获取您的地理位置信息',
+                  mask: true
+                })
+                setTimeout(function () {
+                  return _that.reverseGeocoder(that, cb)
+                }, 1000)
+              } else {
+                // 授权成功
+                return _that.reverseGeocoder(that, cb)
+              }
+            },
+            fail (res) {
+              console.log(res)
+            }
+          }
+          wx.openSetting(settingObj)
+        }, 1000)
+      }
+    }
+    qqmapsdk.reverseGeocoder(obj)
+  },
   /**
    * 生命周期函数--监听小程序初始化
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
@@ -506,7 +637,7 @@ App({
 //   　　　┗┻┛　┗┻┛
 // `)
     // console.log(' ========== Application is launched ========== ')
-    // this.wxlogin()
+    this.wxlogin()
   },
   /**
    * 生命周期函数--监听小程序显示

@@ -7,16 +7,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-    qunImage: '../../images/jiong.png',
-    qunIntroduce: '阿斯顿发阿斯顿发阿斯顿发阿斯顿发阿斯顿发阿斯顿发阿斯顿发阿斯顿发阿斯顿发阿斯顿发阿斯顿发',
-    fuwu: '社区/论坛',
-    company: '广州XXXXXXXX科技有限公司',
+    qunImage: '../../images/logo.png',
+    qunIntroduce: '在茫茫人海中遇上一堆有共同兴趣爱好的逗比群友...想想也是美滋滋的~',
+    fuwu: '生活服务/休闲娱乐 ',
+    company: '广州候朋网络科技有限公司',
     gzArr: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'
+      '../../images/logo.png'
     ]
   },
-
+  goIndex () {
+    wx.reLaunch({
+      url: '../index/index'
+    })
+  },
+  onShareAppMessage () {
+    return {
+      title: '向您推荐【群信息】小程序',
+      path: '/pages/index/index'
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */

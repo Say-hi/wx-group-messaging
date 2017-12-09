@@ -24,7 +24,7 @@
 <view wx:if="{{ show }}" class="mask-t mask-input">
   <view class="mask-toast">
     <view class="tac mask-title">{{ userInfo[chooseIndex].l }}</view>
-    <input class="bd1" bindinput="inputValue" data-type="{{ userInfo[chooseIndex].type }}" value="{{ userInfo[chooseIndex].r  }}" />
+    <input class="bd1" bindinput="inputValue" data-type="{{ userInfo[chooseIndex].type }}" placeholder="{{ userInfo[chooseIndex].r  }}" />
     <view class="mask-btn f30">
       <view catchtap="btnChoose" data-type="cancel" class="cancel">取消</view>
       <view catchtap="btnChoose" data-type="confirm" class="confirm">确认</view>
